@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* The Freshman Barbershop Design System - Modern, Futuristic, 2025
+All colors MUST be HSL. Black/White aesthetic with classic barber accents.
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap');
 
 @layer base {
   :root {
+    /* Core Barbershop Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 0 0% 0%;
+    
+    /* Pure Black & White Foundation */
+    --barbershop-black: 0 0% 0%;
+    --barbershop-white: 0 0% 100%;
+    --barbershop-gray-light: 0 0% 95%;
+    --barbershop-gray: 0 0% 85%;
+    --barbershop-gray-dark: 0 0% 15%;
+    
+    /* Classic Barber Accents */
+    --barber-red: 0 84% 55%;
+    --barber-red-dark: 0 84% 45%;
+    --barber-blue: 217 91% 60%;
+    --barber-blue-dark: 217 91% 50%;
+    
+    /* Design System Tokens */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --card-foreground: 0 0% 0%;
+    
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+    
+    --accent: 0 84% 55%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 35%;
+    
+    --border: 0 0% 85%;
+    --input: 0 0% 95%;
+    --ring: 0 84% 55%;
+    
+    /* Powerful Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--barbershop-black)), hsl(var(--barbershop-gray-dark)));
+    --gradient-barber: linear-gradient(135deg, hsl(var(--barber-red)), hsl(var(--barber-blue)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--barber-red)), hsl(var(--barber-blue)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--barbershop-white)), hsl(var(--barbershop-gray-light)));
+    
+    /* Shadows & Effects */
+    --shadow-powerful: 0 25px 50px -12px hsl(var(--barbershop-black) / 0.4);
+    --shadow-barber: 0 10px 30px -10px hsl(var(--barber-red) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--barber-red) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +126,63 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-barber-red to-barber-blue text-white font-bold py-4 px-8 rounded-xl 
+           shadow-barber hover:shadow-glow transform hover:scale-105 transition-all duration-300
+           border-2 border-transparent hover:border-barber-red;
+  }
+  
+  .btn-outline-hero {
+    @apply border-2 border-barber-red text-barber-red bg-transparent font-bold py-4 px-8 rounded-xl
+           hover:bg-barber-red hover:text-white transform hover:scale-105 transition-all duration-300;
+  }
+  
+  /* Section Backgrounds */
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-barber-gradient {
+    background: var(--gradient-barber);
+  }
+  
+  .bg-accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  /* Text Gradients */
+  .text-barber-gradient {
+    background: var(--gradient-barber);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Powerful Shadows */
+  .shadow-powerful {
+    box-shadow: var(--shadow-powerful);
+  }
+  
+  .shadow-barber {
+    box-shadow: var(--shadow-barber);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Animations */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
   }
 }

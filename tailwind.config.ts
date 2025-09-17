@@ -19,6 +19,19 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // Barbershop Color System
+        "barbershop-black": "hsl(var(--barbershop-black))",
+        "barbershop-white": "hsl(var(--barbershop-white))",
+        "barbershop-gray-light": "hsl(var(--barbershop-gray-light))",
+        "barbershop-gray": "hsl(var(--barbershop-gray))",
+        "barbershop-gray-dark": "hsl(var(--barbershop-gray-dark))",
+        
+        "barber-red": "hsl(var(--barber-red))",
+        "barber-red-dark": "hsl(var(--barber-red-dark))",
+        "barber-blue": "hsl(var(--barber-blue))",
+        "barber-blue-dark": "hsl(var(--barber-blue-dark))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -57,6 +70,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+        'orbitron': ['Orbitron', 'monospace'],
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-barber': 'var(--gradient-barber)',
+        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-subtle': 'var(--gradient-subtle)',
+      },
+      boxShadow: {
+        'powerful': 'var(--shadow-powerful)',
+        'barber': 'var(--shadow-barber)',
+        'glow': 'var(--shadow-glow)',
       },
       borderRadius: {
         lg: "var(--radius)",
