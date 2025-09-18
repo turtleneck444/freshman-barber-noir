@@ -53,23 +53,29 @@ const Services = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-barbershop-black mb-6">
-            PREMIUM <span className="text-barber-gradient">SERVICES</span>
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-barbershop-black mb-6 animate-fade-in-up">
+            PREMIUM <span className="text-shimmer">SERVICES</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up-delay">
             Elevate your style with our comprehensive range of professional barbering services. 
             Each service is crafted with precision and delivered with excellence.
           </p>
         </div>
 
         {/* Services Image */}
-        <div className="relative mb-16">
+        <div className="relative mb-16 animate-fade-in-scale">
           <img
             src={servicesImage}
             alt="Premium barbering services and tools"
-            className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-powerful"
+            className="w-full h-64 md:h-96 object-cover rounded-3xl shadow-luxury hover-lift"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-barber-red/20 to-barber-blue/20 rounded-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-barber-red/30 to-barber-blue/30 rounded-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-t from-barbershop-black/50 via-transparent to-transparent rounded-3xl" />
+          
+          {/* Floating Badge */}
+          <div className="absolute top-8 left-8 bg-barbershop-black/80 backdrop-luxury text-barbershop-white px-6 py-3 rounded-full border border-barber-red/30 animate-float">
+            <span className="text-sm font-bold tracking-wider">PROFESSIONAL SERVICES</span>
+          </div>
         </div>
 
         {/* Services Grid */}
@@ -79,12 +85,19 @@ const Services = () => {
             return (
               <Card 
                 key={index}
-                className="group hover:shadow-barber transition-all duration-300 border-2 hover:border-barber-red/30 bg-gradient-subtle"
+                className="group hover:shadow-luxury transition-luxury border-2 hover:border-barber-red/50 bg-gradient-subtle hover-lift hover-glow backdrop-luxury"
+                style={{ 
+                  animationDelay: `${index * 0.1}s`,
+                  animation: 'fade-in-up 0.8s ease-out both'
+                }}
               >
-                <CardContent className="p-8">
+                <CardContent className="p-8 relative overflow-hidden">
+                  {/* Background Gradient Effect */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-barber-red/10 to-barber-blue/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                  
                   {/* Service Icon */}
-                  <div className="bg-gradient-barber p-4 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="h-8 w-8 text-white" />
+                  <div className="bg-gradient-barber p-5 rounded-2xl w-fit mb-6 group-hover:scale-110 group-hover:glow-barber transition-all duration-500 relative z-10">
+                    <IconComponent className="h-10 w-10 text-white" />
                   </div>
 
                   {/* Service Header */}

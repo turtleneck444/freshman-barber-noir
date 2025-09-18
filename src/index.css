@@ -58,9 +58,21 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     --shadow-barber: 0 10px 30px -10px hsl(var(--barber-red) / 0.3);
     --shadow-glow: 0 0 40px hsl(var(--barber-red) / 0.2);
     
-    /* Animations */
+    /* Luxury Animations & Effects */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-luxury: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Million-Dollar Effects */
+    --glow-barber: 0 0 60px hsl(var(--barber-red) / 0.4), 0 0 100px hsl(var(--barber-blue) / 0.3);
+    --shadow-luxury: 0 50px 100px -20px hsl(var(--barbershop-black) / 0.3), 0 30px 60px -30px hsl(var(--barber-red) / 0.2);
+    --shadow-floating: 0 30px 60px -12px hsl(var(--barbershop-black) / 0.25);
+    --backdrop-luxury: blur(20px) saturate(180%);
+    
+    /* Video Overlay Effects */
+    --video-overlay: linear-gradient(135deg, hsl(var(--barbershop-black) / 0.7), hsl(var(--barbershop-black) / 0.3));
+    --video-glow: radial-gradient(circle at center, hsl(var(--barber-red) / 0.1), transparent 70%);
     
     --radius: 0.75rem;
 
@@ -177,12 +189,108 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     box-shadow: var(--shadow-glow);
   }
   
-  /* Animations */
+  /* Luxury Animations */
   .transition-smooth {
     transition: var(--transition-smooth);
   }
   
   .transition-bounce {
     transition: var(--transition-bounce);
+  }
+  
+  .transition-luxury {
+    transition: var(--transition-luxury);
+  }
+  
+  .transition-elastic {
+    transition: var(--transition-elastic);
+  }
+  
+  /* Premium Effects */
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .shadow-floating {
+    box-shadow: var(--shadow-floating);
+  }
+  
+  .glow-barber {
+    box-shadow: var(--glow-barber);
+  }
+  
+  .backdrop-luxury {
+    backdrop-filter: var(--backdrop-luxury);
+    -webkit-backdrop-filter: var(--backdrop-luxury);
+  }
+  
+  /* Luxury Hover Effects */
+  .hover-lift {
+    @apply transform transition-all duration-500 hover:-translate-y-4 hover:shadow-floating;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-500 hover:glow-barber;
+  }
+  
+  .hover-scale-luxury {
+    @apply transform transition-all duration-700 hover:scale-110;
+  }
+  
+  /* Parallax and Scroll Effects */
+  .parallax-element {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Luxury Text Effects */
+  .text-shimmer {
+    background: linear-gradient(90deg, 
+      hsl(var(--barbershop-black)) 0%, 
+      hsl(var(--barber-red)) 25%, 
+      hsl(var(--barber-blue)) 50%, 
+      hsl(var(--barber-red)) 75%, 
+      hsl(var(--barbershop-black)) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  /* Video Background Overlay */
+  .video-overlay {
+    background: var(--video-overlay);
+  }
+  
+  .video-glow {
+    background: var(--video-glow);
+  }
+  
+  /* Luxury Loading States */
+  .luxury-skeleton {
+    background: linear-gradient(90deg, 
+      hsl(var(--barbershop-gray-light)) 25%, 
+      hsl(var(--barbershop-gray)) 50%, 
+      hsl(var(--barbershop-gray-light)) 75%);
+    background-size: 200% 100%;
+    animation: luxury-loading 2s ease-in-out infinite;
+  }
+  
+  /* Premium Scroll Indicators */
+  .scroll-indicator {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scroll-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-barber);
+    animation: scroll-progress 2s ease-in-out infinite;
   }
 }

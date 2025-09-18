@@ -53,10 +53,10 @@ const Booking = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6">
-            BOOK YOUR <span className="text-barber-gradient">APPOINTMENT</span>
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6 animate-fade-in-up">
+            BOOK YOUR <span className="text-shimmer">APPOINTMENT</span>
           </h2>
-          <p className="text-xl text-barbershop-gray-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-barbershop-gray-light max-w-3xl mx-auto leading-relaxed animate-fade-in-up-delay">
             Reserve your spot at The Freshman Barbershop. Experience premium barbering 
             in the heart of Mississauga with our expert team.
           </p>
@@ -64,8 +64,10 @@ const Booking = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Booking Form */}
-          <Card className="shadow-powerful bg-white">
-            <CardContent className="p-8">
+          <Card className="shadow-luxury bg-white hover-glow backdrop-luxury animate-slide-in-left">
+            <CardContent className="p-8 relative overflow-hidden">
+              {/* Background Effect */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-barber-red/10 to-barber-blue/10 rounded-full blur-2xl" />
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Personal Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -213,9 +215,9 @@ const Booking = () => {
           </Card>
 
           {/* Booking Info */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-slide-in-right">
             {/* Hours */}
-            <Card className="bg-white shadow-powerful">
+            <Card className="bg-white shadow-luxury hover-lift">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-barbershop-black mb-6 flex items-center">
                   <Clock className="h-6 w-6 mr-3 text-barber-red" />
@@ -239,7 +241,7 @@ const Booking = () => {
             </Card>
 
             {/* Contact Info */}
-            <Card className="bg-white shadow-powerful">
+            <Card className="bg-white shadow-luxury hover-lift">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-barbershop-black mb-6">
                   Contact Information
@@ -266,7 +268,7 @@ const Booking = () => {
             </Card>
 
             {/* Policies */}
-            <Card className="bg-gradient-barber text-white shadow-powerful">
+            <Card className="bg-gradient-barber text-white shadow-luxury hover-glow animate-glow-pulse">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4">Booking Policies</h3>
                 <ul className="space-y-2 text-barbershop-gray-light">
