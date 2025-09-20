@@ -84,17 +84,14 @@ const ChairRental = () => {
   return (
     <section id="chairs" className="py-24 bg-gradient-subtle">
       <div className="container mx-auto px-4">
-        {/* Ultra-Premium Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block relative mb-8">
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-barbershop-black mb-6 animate-fade-in-up tracking-tighter">
-              JOIN OUR <span className="text-shimmer animate-ultra-glow">TEAM</span>
-            </h2>
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-luxury rounded-full animate-premium-float" />
-          </div>
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8 animate-fade-in-up-delay font-light">
-            Take your barbering career to the next level. Rent a chair at <span className="text-luxury font-medium">The Freshman Barbershop</span> 
-            and join our community of <span className="text-barber-gradient font-semibold">elite professionals</span> in Mississauga's premier location.
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-barbershop-black mb-6 animate-fade-in-up">
+            JOIN OUR <span className="text-shimmer">TEAM</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8 animate-fade-in-up-delay">
+            Take your barbering career to the next level. Rent a chair at The Freshman Barbershop 
+            and join our community of elite professionals in Mississauga's premier location.
           </p>
         </div>
 

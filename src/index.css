@@ -21,17 +21,11 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     --barbershop-gray: 0 0% 85%;
     --barbershop-gray-dark: 0 0% 15%;
     
-    /* Ultra-Premium Barber Accents */
-    --barber-red: 0 100% 55%;
-    --barber-red-dark: 0 100% 40%;
-    --barber-red-light: 0 100% 70%;
-    --barber-blue: 220 100% 60%;
-    --barber-blue-dark: 220 100% 45%;
-    --barber-blue-light: 220 100% 75%;
-    --barber-gold: 45 100% 65%;
-    --barber-gold-dark: 45 100% 50%;
-    --barber-platinum: 0 0% 85%;
-    --barber-platinum-dark: 0 0% 70%;
+    /* Classic Barber Accents */
+    --barber-red: 0 84% 55%;
+    --barber-red-dark: 0 84% 45%;
+    --barber-blue: 217 91% 60%;
+    --barber-blue-dark: 217 91% 50%;
     
     /* Design System Tokens */
     --card: 0 0% 100%;
@@ -53,15 +47,11 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     --input: 0 0% 95%;
     --ring: 0 84% 55%;
     
-    /* Ultra-Premium Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--barbershop-black)), hsl(var(--barbershop-gray-dark)), hsl(var(--barber-red) / 0.1));
-    --gradient-barber: linear-gradient(135deg, hsl(var(--barber-red)), hsl(var(--barber-blue)), hsl(var(--barber-gold) / 0.3));
+    /* Powerful Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--barbershop-black)), hsl(var(--barbershop-gray-dark)));
+    --gradient-barber: linear-gradient(135deg, hsl(var(--barber-red)), hsl(var(--barber-blue)));
     --gradient-accent: linear-gradient(90deg, hsl(var(--barber-red)), hsl(var(--barber-blue)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--barbershop-white)), hsl(var(--barbershop-gray-light)));
-    --gradient-platinum: linear-gradient(135deg, hsl(var(--barber-platinum)), hsl(var(--barber-platinum-dark)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--barber-gold)), hsl(var(--barber-gold-dark)));
-    --gradient-luxury: linear-gradient(45deg, hsl(var(--barber-red)), hsl(var(--barber-gold)), hsl(var(--barber-blue)));
-    --gradient-premium: radial-gradient(circle at center, hsl(var(--barber-red) / 0.2), transparent 70%);
     
     /* Shadows & Effects */
     --shadow-powerful: 0 25px 50px -12px hsl(var(--barbershop-black) / 0.4);
@@ -74,14 +64,11 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     --transition-luxury: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
-    /* $500K Ultra-Premium Effects */
-    --glow-barber: 0 0 80px hsl(var(--barber-red) / 0.6), 0 0 120px hsl(var(--barber-blue) / 0.4), 0 0 160px hsl(var(--barber-gold) / 0.2);
-    --shadow-luxury: 0 60px 120px -20px hsl(var(--barbershop-black) / 0.4), 0 40px 80px -30px hsl(var(--barber-red) / 0.3), 0 20px 40px -20px hsl(var(--barber-blue) / 0.2);
-    --shadow-floating: 0 40px 80px -12px hsl(var(--barbershop-black) / 0.3);
-    --backdrop-luxury: blur(25px) saturate(200%) brightness(110%);
-    --glow-platinum: 0 0 100px hsl(var(--barber-platinum) / 0.5), 0 0 200px hsl(var(--barber-gold) / 0.3);
-    --shadow-ultra: 0 80px 160px -40px hsl(var(--barbershop-black) / 0.5), 0 60px 120px -40px hsl(var(--barber-red) / 0.4), 0 40px 80px -40px hsl(var(--barber-blue) / 0.3), 0 20px 40px -20px hsl(var(--barber-gold) / 0.2);
-    --backdrop-ultra: blur(30px) saturate(220%) brightness(120%) contrast(110%);
+    /* Million-Dollar Effects */
+    --glow-barber: 0 0 60px hsl(var(--barber-red) / 0.4), 0 0 100px hsl(var(--barber-blue) / 0.3);
+    --shadow-luxury: 0 50px 100px -20px hsl(var(--barbershop-black) / 0.3), 0 30px 60px -30px hsl(var(--barber-red) / 0.2);
+    --shadow-floating: 0 30px 60px -12px hsl(var(--barbershop-black) / 0.25);
+    --backdrop-luxury: blur(20px) saturate(180%);
     
     /* Video Overlay Effects */
     --video-overlay: linear-gradient(135deg, hsl(var(--barbershop-black) / 0.7), hsl(var(--barbershop-black) / 0.3));
@@ -256,35 +243,19 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     will-change: transform;
   }
   
-  /* Ultra-Premium Text Effects */
+  /* Luxury Text Effects */
   .text-shimmer {
     background: linear-gradient(90deg, 
       hsl(var(--barbershop-black)) 0%, 
-      hsl(var(--barber-red)) 20%, 
-      hsl(var(--barber-gold)) 40%, 
-      hsl(var(--barber-blue)) 60%, 
-      hsl(var(--barber-red)) 80%, 
+      hsl(var(--barber-red)) 25%, 
+      hsl(var(--barber-blue)) 50%, 
+      hsl(var(--barber-red)) 75%, 
       hsl(var(--barbershop-black)) 100%);
-    background-size: 300% 100%;
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 4s ease-in-out infinite;
-  }
-  
-  .text-luxury {
-    background: var(--gradient-luxury);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 10px hsl(var(--barber-gold) / 0.3));
-  }
-  
-  .text-ultra-glow {
-    color: hsl(var(--barbershop-white));
-    text-shadow: 0 0 20px hsl(var(--barber-red) / 0.8), 
-                 0 0 40px hsl(var(--barber-blue) / 0.6),
-                 0 0 60px hsl(var(--barber-gold) / 0.4);
+    animation: shimmer 3s ease-in-out infinite;
   }
   
   /* Video Background Overlay */
