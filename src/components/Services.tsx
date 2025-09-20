@@ -51,14 +51,17 @@ const Services = () => {
   return (
     <section id="services" className="py-24 bg-barbershop-white">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-barbershop-black mb-6 animate-fade-in-up">
-            PREMIUM <span className="text-shimmer">SERVICES</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up-delay">
-            Elevate your style with our comprehensive range of professional barbering services. 
-            Each service is crafted with precision and delivered with excellence.
+        {/* Ultra-Premium Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block relative mb-8">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-barbershop-black mb-6 animate-fade-in-up tracking-tighter">
+              PREMIUM <span className="text-shimmer animate-ultra-glow">SERVICES</span>
+            </h2>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-luxury rounded-full animate-premium-float" />
+          </div>
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in-up-delay font-light">
+            Elevate your style with our comprehensive range of <span className="text-luxury font-medium">ultra-premium barbering services</span>. 
+            Each service is crafted with precision and delivered with <span className="text-barber-gradient font-semibold">absolute excellence</span>.
           </p>
         </div>
 
@@ -83,12 +86,12 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card 
+                <Card 
                 key={index}
-                className="group hover:shadow-luxury transition-luxury border-2 hover:border-barber-red/50 bg-gradient-subtle hover-lift hover-glow backdrop-luxury"
+                className="group hover:shadow-ultra transition-luxury border-2 hover:border-barber-gold/70 bg-gradient-subtle hover-lift hover:animate-ultra-glow backdrop-ultra relative overflow-hidden"
                 style={{ 
-                  animationDelay: `${index * 0.1}s`,
-                  animation: 'fade-in-up 0.8s ease-out both'
+                  animationDelay: `${index * 0.15}s`,
+                  animation: 'fade-in-up 1s ease-out both'
                 }}
               >
                 <CardContent className="p-8 relative overflow-hidden">

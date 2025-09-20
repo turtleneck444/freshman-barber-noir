@@ -51,13 +51,16 @@ const Booking = () => {
   return (
     <section id="booking" className="py-24 bg-barbershop-black">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6 animate-fade-in-up">
-            BOOK YOUR <span className="text-shimmer">APPOINTMENT</span>
-          </h2>
-          <p className="text-xl text-barbershop-gray-light max-w-3xl mx-auto leading-relaxed animate-fade-in-up-delay">
-            Reserve your spot at The Freshman Barbershop. Experience premium barbering 
+        {/* Ultra-Premium Section Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block relative mb-8">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-black text-white mb-6 animate-fade-in-up tracking-tighter">
+              BOOK YOUR <span className="text-shimmer animate-ultra-glow">APPOINTMENT</span>
+            </h2>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-luxury rounded-full animate-premium-float" />
+          </div>
+          <p className="text-2xl text-barbershop-gray-light max-w-4xl mx-auto leading-relaxed animate-fade-in-up-delay font-light">
+            Reserve your spot at <span className="text-luxury font-medium">The Freshman Barbershop</span>. Experience <span className="text-barber-gradient font-semibold">premium barbering</span> 
             in the heart of Mississauga with our expert team.
           </p>
         </div>

@@ -26,10 +26,12 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-barbershop-black/20 to-barbershop-black/60" />
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 right-20 w-4 h-4 bg-barber-red rounded-full animate-float opacity-60" />
-      <div className="absolute top-40 left-16 w-3 h-3 bg-barber-blue rounded-full animate-float opacity-40" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-32 right-32 w-2 h-2 bg-barber-red rounded-full animate-float opacity-50" style={{ animationDelay: '4s' }} />
+      {/* Ultra-Premium Floating Elements */}
+      <div className="absolute top-20 right-20 w-6 h-6 bg-barber-red rounded-full animate-premium-float opacity-80 shadow-ultra" />
+      <div className="absolute top-40 left-16 w-4 h-4 bg-barber-blue rounded-full animate-premium-float opacity-60 shadow-platinum" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-32 right-32 w-3 h-3 bg-barber-gold rounded-full animate-premium-float opacity-70 shadow-luxury" style={{ animationDelay: '4s' }} />
+      <div className="absolute top-60 right-60 w-2 h-2 bg-barber-platinum rounded-full animate-luxury-scale opacity-50" style={{ animationDelay: '1s' }} />
+      <div className="absolute bottom-60 left-60 w-5 h-5 bg-gradient-luxury rounded-full animate-ultra-glow opacity-40" style={{ animationDelay: '3s' }} />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 pt-20">
@@ -40,11 +42,11 @@ const Hero = () => {
             <span className="text-sm font-bold tracking-wide">MISSISSAUGA'S PREMIER BARBERSHOP</span>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-orbitron font-black text-barbershop-white leading-tight mb-8 animate-fade-in-up-delay">
-            <span className="block animate-slide-in-left">THE</span>
-            <span className="block text-shimmer animate-slide-in-right" style={{ animationDelay: '0.4s' }}>FRESHMAN</span>
-            <span className="block animate-slide-in-left-delay">BARBERSHOP</span>
+          {/* Ultra-Premium Main Heading */}
+          <h1 className="text-6xl md:text-8xl lg:text-[12rem] font-orbitron font-black text-barbershop-white leading-[0.85] mb-12 animate-fade-in-up-delay tracking-tighter">
+            <span className="block animate-slide-in-left text-ultra-glow">THE</span>
+            <span className="block text-shimmer animate-slide-in-right animate-ultra-glow" style={{ animationDelay: '0.4s' }}>FRESHMAN</span>
+            <span className="block animate-slide-in-left-delay text-luxury">BARBERSHOP</span>
           </h1>
 
           {/* Subtitle */}

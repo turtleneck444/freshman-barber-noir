@@ -33,14 +33,15 @@ const Header = () => {
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-barber rounded-xl flex items-center justify-center shadow-floating animate-glow-pulse">
-              <span className="text-white font-orbitron font-black text-xl">F</span>
+            <div className="w-14 h-14 bg-gradient-luxury rounded-2xl flex items-center justify-center shadow-ultra animate-ultra-glow relative overflow-hidden">
+              <span className="text-white font-orbitron font-black text-2xl relative z-10">F</span>
+              <div className="absolute inset-0 bg-gradient-premium animate-luxury-scale" />
             </div>
             <div>
-              <h1 className="text-barbershop-white font-orbitron font-bold text-xl">
+              <h1 className="text-barbershop-white font-orbitron font-black text-2xl tracking-tight">
                 THE FRESHMAN
               </h1>
-              <p className="text-barber-red text-xs font-medium tracking-widest">
+              <p className="text-luxury text-sm font-bold tracking-widest">
                 BARBERSHOP
               </p>
             </div>
