@@ -1,4 +1,4 @@
-import { Book, Menu, Sunset, Trees, Zap, Scissors, Award, Star, MapPin, Phone, Clock, User, Calendar, Sparkles, ChevronDown, ArrowRight, Crown, Shield, Gem, Brush, Eye, HairDryer, Feather } from "lucide-react";
+import { Book, Menu, Sunset, Trees, Zap, Scissors, Award, Star, MapPin, Phone, Clock, User, Calendar, Sparkles, ChevronDown, ArrowRight, Crown, Shield, Gem, Brush, Eye, Wind, Feather } from "lucide-react";
 
 import {
   Accordion,

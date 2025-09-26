@@ -24,7 +24,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <AdminLayout currentPage={currentPage}>
+    <AdminLayout currentPage={currentPage} onPageChange={setCurrentPage}>
       {renderPage()}
     </AdminLayout>
   );
