@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Scissors, Calendar, Phone, MapPin, Clock, Star, Award, User, Mail, Book, Zap, Crown, Brush, Eye, HairDryer, Feather, CheckCircle, TrendingUp, Users, Target, Shield, Clock3, Sparkles, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Hero() {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (video) {
+            // Ensure video plays
+            video.play().catch(error => {
+                console.log('Video autoplay failed:', error);
+                // If autoplay fails, show the fallback image
+                const img = video.querySelector('img');
+                if (img) {
+                    img.style.display = 'block';
+                }
+            });
+        }
+    }, []);
+
     return (
         <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative">
             {/* Background */}
@@ -103,11 +120,21 @@ export default function Hero() {
                         <div className="relative mt-8 lg:mt-0">
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                                 <video
+                                    ref={videoRef}
                                     className="w-full h-80 md:h-96 lg:h-[500px] object-cover"
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
+                                    preload="auto"
+                                    onError={(e) => {
+                                        console.log('Video error:', e);
+                                        // Show fallback image on error
+                                        const img = e.currentTarget.querySelector('img');
+                                        if (img) {
+                                            img.style.display = 'block';
+                                        }
+                                    }}
                                 >
                                     <source src="/vid1.mp4" type="video/mp4" />
                                     {/* Fallback image if video doesn't load */}
@@ -115,6 +142,7 @@ export default function Hero() {
                                         src="/imgi_38_83234014_188112842416900_635945828494612146_n.jpg" 
                                         alt="Professional barber work at The Freshmen Barbershop"
                                         className="w-full h-80 md:h-96 lg:h-[500px] object-cover"
+                                        style={{ display: 'none' }}
                                     />
                                 </video>
                                 
