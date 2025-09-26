@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Scissors, Calendar, Phone, MapPin, Clock, Star, Award, User, Mail, Book, Zap, Crown, Brush, Eye, HairDryer, Feather, CheckCircle, TrendingUp, Users, Target, Shield, Clock3, Sparkles, Play } from 'lucide-react'
+import { ArrowRight, Scissors, Calendar, Phone, MapPin, Clock, Star, Award, User, Mail, Book, Zap, Crown, Brush, Eye, Wind, Feather, CheckCircle, TrendingUp, Users, Target, Shield, Clock3, Sparkles, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Navbar1 } from '@/components/blocks/shadcnblocks-com-navbar1'
 
@@ -11,13 +11,9 @@ export default function Hero() {
                 logo={{
                     url: "/",
                     src: "/logo.png",
+                    alt: "The Freshman Barbershop Logo",
+                    title: "The Freshman Barbershop"
                 }}
-                navItems={[
-                    { name: "Home", href: "/" },
-                    { name: "Services", href: "#services" },
-                    { name: "About", href: "#about" },
-                    { name: "Contact", href: "#contact" },
-                ]}
             />
             
             <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative">

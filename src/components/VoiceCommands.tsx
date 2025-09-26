@@ -14,10 +14,10 @@ const VoiceCommands = ({ onCommand, onServiceSelect, onBookingRequest }: VoiceCo
   const [isSupported, setIsSupported] = useState(false);
   const [transcript, setTranscript] = useState('');
   const [isMuted, setIsMuted] = useState(false);
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
+  const [recognition, setRecognition] = useState<any>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   
-  const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const recognitionRef = useRef<any>(null);
 
   const commands = [
     'book appointment',
@@ -36,7 +36,7 @@ const VoiceCommands = ({ onCommand, onServiceSelect, onBookingRequest }: VoiceCo
     // Check for speech recognition support
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       setIsSupported(true);
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
       const recognitionInstance = new SpeechRecognition();
       
       recognitionInstance.continuous = true;
