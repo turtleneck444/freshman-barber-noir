@@ -40,15 +40,15 @@ export default function Hero() {
                                     </span>
                                 </div>
 
-                                {/* Main Headline */}
-                                <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight mb-8" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                                    <span className="block text-white font-bold tracking-tight drop-shadow-2xl">
-                                        The Freshmen
-                                    </span>
-                                    <span className="block text-red-500 font-bold tracking-tight drop-shadow-2xl">
-                                        Style Barbershop
-                                    </span>
-                                </h1>
+                {/* Main Headline - Mobile Optimized */}
+                <h1 className="text-mobile-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 sm:mb-8" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                    <span className="block text-white font-bold tracking-tight drop-shadow-2xl">
+                        The Freshmen
+                    </span>
+                    <span className="block text-red-500 font-bold tracking-tight drop-shadow-2xl">
+                        Style Barbershop
+                    </span>
+                </h1>
 
                                 {/* Subtitle */}
                                 <p className="text-xl md:text-2xl text-gray-200 font-light mb-8 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>

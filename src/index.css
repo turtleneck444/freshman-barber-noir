@@ -4,6 +4,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile-First Responsive Design Foundation */
+html {
+  font-size: 16px; /* Base font size */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Ensure proper mobile viewport handling */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Mobile-optimized touch targets */
+button, a, [role="button"] {
+  min-height: 44px; /* Apple's recommended minimum touch target */
+  min-width: 44px;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-friendly scrolling */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
 /* The FRESHMEN Barbershop Design System - Modern, Futuristic, 2025
 All colors MUST be HSL. Black/White aesthetic with classic barber accents.
 */
@@ -47,7 +79,7 @@ All colors MUST be HSL. Black/White aesthetic with classic barber accents.
     --input: 0 0% 95%;
     --ring: 0 84% 55%;
 
-    /* Powerful Gradients */
+    /* Mobile-Optimized Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--barbershop-black)), hsl(var(--barbershop-gray-dark)));
     --gradient-barber: linear-gradient(135deg, hsl(var(--barber-red)), hsl(var(--barber-blue)));
     --gradient-accent: linear-gradient(90deg, hsl(var(--barber-red)), hsl(var(--barber-blue)));
@@ -1606,4 +1638,78 @@ input:focus, button:focus {
   margin-top: 0.5rem !important;
   min-width: 20rem !important;
   max-width: 80rem !important;
+}
+
+/* Mobile-First Responsive Utilities */
+@layer utilities {
+  /* Touch-friendly interaction zones */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+  
+  /* Mobile-optimized text sizes */
+  .text-mobile-xs { font-size: 0.75rem; line-height: 1.5; }
+  .text-mobile-sm { font-size: 0.875rem; line-height: 1.5; }
+  .text-mobile-base { font-size: 1rem; line-height: 1.6; }
+  .text-mobile-lg { font-size: 1.125rem; line-height: 1.6; }
+  .text-mobile-xl { font-size: 1.25rem; line-height: 1.6; }
+  .text-mobile-2xl { font-size: 1.5rem; line-height: 1.4; }
+  .text-mobile-3xl { font-size: 1.875rem; line-height: 1.3; }
+  .text-mobile-4xl { font-size: 2.25rem; line-height: 1.2; }
+  .text-mobile-5xl { font-size: 3rem; line-height: 1.1; }
+  .text-mobile-6xl { font-size: 3.75rem; line-height: 1; }
+  
+  /* Mobile spacing */
+  .mobile-px { @apply px-4 sm:px-6 lg:px-8; }
+  .mobile-py { @apply py-8 sm:py-12 lg:py-16; }
+  .mobile-gap { @apply gap-4 sm:gap-6 lg:gap-8; }
+  
+  /* Performance optimized animations for mobile */
+  .animate-mobile-fade {
+    animation: mobile-fade 0.6s ease-out forwards;
+  }
+  
+  .animate-mobile-slide-up {
+    animation: mobile-slide-up 0.8s ease-out forwards;
+  }
+  
+  /* Mobile-safe transforms */
+  .mobile-scale-hover:active {
+    transform: scale(0.95);
+  }
+  
+  /* Prevent mobile scroll issues */
+  .mobile-scroll-safe {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+}
+
+@keyframes mobile-fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mobile-slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Reduce motion for better mobile performance */
+  .reduce-motion * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Mobile-specific backdrop blur reduction */
+  .mobile-backdrop-blur {
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Mobile-safe gradients */
+  .mobile-gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--barbershop-black)), hsl(var(--barbershop-gray-dark)));
+  }
 }

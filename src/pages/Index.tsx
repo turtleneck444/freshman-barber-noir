@@ -1,15 +1,15 @@
-import Hero from "@/components/Hero";
+import MobileOptimizedHero from "@/components/MobileOptimizedHero";
+import MobileOptimizedServices from "@/components/MobileOptimizedServices";
 import { Features } from "@/components/blocks/features-9";
-import Services from "@/components/Services";
 import AIBooking from "@/components/AIBooking";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Hero />
+    <div className="min-h-screen mobile-scroll-safe">
+      <MobileOptimizedHero />
       <Features />
-      <Services />
+      <MobileOptimizedServices />
       <AIBooking />
       <Footer />
     </div>
