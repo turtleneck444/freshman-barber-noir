@@ -52,8 +52,8 @@ const Header = () => {
         ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-gray-200/50' 
         : 'bg-white shadow-lg'
     }`}>
-      <div className="container mx-auto px-6">
-        <nav className="flex items-center justify-between py-4">
+      <div className="container mx-auto px-4 sm:px-6">
+        <nav className="flex items-center justify-between py-3 sm:py-4">
           {/* Enhanced Logo with Animation */}
           <div 
             className="group cursor-pointer relative" 
@@ -61,9 +61,10 @@ const Header = () => {
           >
             <div className="relative overflow-hidden rounded-lg">
               <img 
-                src="/freshmenlogo.jpg" 
+                src="/logo.png" 
                 alt="The Freshmen Barbershop" 
-                className="h-16 w-auto transition-all duration-500 group-hover:scale-110 group-hover:rotate-1"
+                className="h-12 sm:h-14 md:h-16 w-auto transition-all duration-500 group-hover:scale-110 group-hover:rotate-1"
+                style={{ maxHeight: '64px', objectFit: 'contain' }}
               />
               {/* Animated overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/20 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-lg" />
@@ -95,7 +96,7 @@ const Header = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative px-6 py-3 rounded-full transition-all duration-500 font-semibold text-sm whitespace-nowrap group overflow-hidden ${
+                  className={`relative px-4 xl:px-6 py-2 xl:py-3 rounded-full transition-all duration-500 font-semibold text-sm whitespace-nowrap group overflow-hidden ${
                     isActive
                       ? 'text-red-600'
                       : 'text-gray-700 hover:text-gray-900'
@@ -129,15 +130,15 @@ const Header = () => {
           </div>
 
           {/* Enhanced Right Side Controls */}
-          <div className="flex items-center space-x-6">
-            {/* Enhanced Contact Info */}
-            <div className="hidden xl:flex items-center space-x-8 text-sm">
+          <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
+            {/* Enhanced Contact Info - Hidden on mobile, visible on larger screens */}
+            <div className="hidden xl:flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2 group cursor-pointer">
                 <div className="p-2 rounded-full bg-red-50 group-hover:bg-red-100 transition-all duration-300 group-hover:scale-110">
                   <Phone className="h-4 w-4 text-red-600 group-hover:text-red-700 transition-colors duration-300" />
                 </div>
                 <span className="font-semibold text-gray-700 group-hover:text-gray-900 transition-colors duration-300">
-                  (905) 123-CUTS
+                  (905) 123-4567
                 </span>
               </div>
               <div className="flex items-center space-x-2 group cursor-pointer">
@@ -150,19 +151,27 @@ const Header = () => {
               </div>
             </div>
 
+            {/* Mobile Phone Number - Visible on mobile */}
+            <div className="flex items-center gap-1 text-gray-700 lg:hidden">
+              <Phone className="h-3 w-3 text-red-600" />
+              <span className="text-xs font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                (905) 123-4567
+              </span>
+            </div>
+
             {/* Enhanced CTA Button */}
             <Button 
-              className="relative bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold px-8 py-3 text-sm rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 hidden md:flex group overflow-hidden"
+              className="relative bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-xs sm:text-sm rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 hidden sm:flex group overflow-hidden"
               onClick={() => scrollToSection('#booking')}
             >
               {/* Animated background */}
               <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Button content */}
-              <div className="relative flex items-center space-x-2">
-                <Scissors className="h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+              <div className="relative flex items-center space-x-1 sm:space-x-2">
+                <Scissors className="h-3 w-3 sm:h-4 sm:w-4 group-hover:rotate-12 transition-transform duration-300" />
                 <span className="group-hover:scale-105 transition-transform duration-300">Book Now</span>
-                <div className="w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
               {/* Shimmer effect */}
@@ -175,9 +184,9 @@ const Header = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="relative p-3 rounded-full text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 group"
+                className="relative p-2 sm:p-3 rounded-full text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all duration-300 group"
               >
-                <div className="relative w-6 h-6">
+                <div className="relative w-5 h-5 sm:w-6 sm:h-6">
                   <Menu className={`absolute inset-0 transition-all duration-300 ${isMenuOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`} />
                   <X className={`absolute inset-0 transition-all duration-300 ${isMenuOpen ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'}`} />
                 </div>
@@ -189,7 +198,7 @@ const Header = () => {
         {/* Enhanced Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl animate-in slide-in-from-top-2 duration-300">
-            <div className="container mx-auto px-6 py-6">
+            <div className="container mx-auto px-4 sm:px-6 py-6">
               <div className="space-y-2">
                 {navItems.map((item, index) => {
                   const isActive = activeSection === item.href.replace('#', '');
@@ -224,7 +233,7 @@ const Header = () => {
                     <div className="p-2 rounded-full bg-red-50 group-hover:bg-red-100 transition-all duration-300">
                       <Phone className="h-4 w-4 text-red-600" />
                     </div>
-                    <span className="font-semibold group-hover:text-gray-900 transition-colors duration-300">(905) 123-CUTS</span>
+                    <span className="font-semibold group-hover:text-gray-900 transition-colors duration-300">(905) 123-4567</span>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-600 group p-3 rounded-xl hover:bg-gray-50 transition-all duration-300">
                     <div className="p-2 rounded-full bg-gray-50 group-hover:bg-gray-100 transition-all duration-300">
