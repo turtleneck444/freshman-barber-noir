@@ -96,7 +96,7 @@ const Footer = () => {
         <div className="border-t border-barbershop-gray-dark mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-barbershop-gray-light text-center md:text-left">
-              © 2025 The Freshman Barbershop. All rights reserved.
+              © 2025 The FRESHMEN Barbershop. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-barbershop-gray-light hover:text-barber-red transition-colors">Privacy Policy</a>

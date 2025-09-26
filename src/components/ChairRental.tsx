@@ -82,15 +82,15 @@ const ChairRental = () => {
   ];
 
   return (
-    <section id="chairs" className="py-24 bg-gradient-subtle">
+    <section id="chairs" className="py-24 bg-gradient-to-br from-barbershop-black via-barbershop-gray-dark to-barbershop-black">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-barbershop-black mb-6 animate-fade-in-up">
+          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-barbershop-white mb-6 animate-fade-in-up">
             JOIN OUR <span className="text-shimmer">TEAM</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8 animate-fade-in-up-delay">
-            Take your barbering career to the next level. Rent a chair at The Freshman Barbershop 
+          <p className="text-xl text-barbershop-gray-light max-w-3xl mx-auto leading-relaxed mb-8 animate-fade-in-up-delay">
+            Take your barbering career to the next level. Rent a chair at The FRESHMEN Barbershop 
             and join our community of elite professionals in Mississauga's premier location.
           </p>
         </div>
@@ -136,10 +136,10 @@ const ChairRental = () => {
                 <div className="bg-gradient-barber p-8 rounded-2xl w-fit mx-auto mb-6 group-hover:scale-110 group-hover:glow-barber transition-all duration-500 shadow-floating">
                   <IconComponent className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-barbershop-black mb-3 group-hover:text-barber-red transition-colors duration-300">
+                <h3 className="text-xl font-bold text-barbershop-white mb-3 group-hover:text-barber-red transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground group-hover:text-barbershop-black transition-colors duration-300">
+                <p className="text-barbershop-gray-light group-hover:text-barbershop-white transition-colors duration-300">
                   {feature.description}
                 </p>
               </div>
@@ -152,10 +152,10 @@ const ChairRental = () => {
           {rentalPlans.map((plan, index) => (
             <Card 
               key={index}
-              className={`relative group transition-luxury hover-lift ${
+              className={`relative group transition-luxury hover-lift bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border-2 ${
                 plan.popular 
-                  ? 'border-2 border-barber-red shadow-luxury scale-105 glow-barber' 
-                  : 'border-2 hover:border-barber-red/50 hover:shadow-luxury hover-glow'
+                  ? 'border-barber-red shadow-luxury scale-105 glow-barber' 
+                  : 'border-barber-red/30 hover:border-barber-red/60 hover:shadow-luxury hover-glow'
               }`}
               style={{ 
                 animationDelay: `${index * 0.2}s`,
@@ -173,8 +173,8 @@ const ChairRental = () => {
               {/* Background Effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-barber-red/5 to-barber-blue/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-barbershop-black mb-4">
+              <CardContent className="p-8 text-center relative z-10">
+                <h3 className="text-2xl font-bold text-barbershop-white mb-4">
                   {plan.name}
                 </h3>
                 
@@ -182,14 +182,14 @@ const ChairRental = () => {
                   <span className="text-4xl font-orbitron font-bold text-barber-red">
                     {plan.price}
                   </span>
-                  <span className="text-muted-foreground ml-2">
+                  <span className="text-barbershop-gray-light ml-2">
                     {plan.period}
                   </span>
                 </div>
 
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-barbershop-black">
+                    <li key={idx} className="flex items-center text-barbershop-white">
                       <div className="w-2 h-2 bg-barber-red rounded-full mr-3 flex-shrink-0" />
                       <span className="text-left">{feature}</span>
                     </li>
@@ -208,9 +208,9 @@ const ChairRental = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <div className="bg-barbershop-black rounded-2xl p-12 shadow-powerful">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Ready to Join The Freshman Team?
+          <div className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl rounded-2xl p-12 shadow-powerful border border-barber-red/30">
+            <h3 className="text-3xl font-bold text-barbershop-white mb-4">
+              Ready to Join The FRESHMEN Team?
             </h3>
             <p className="text-barbershop-gray-light text-lg mb-8 max-w-2xl mx-auto">
               Contact us today to schedule a tour, meet our team, and find the perfect chair for your business.

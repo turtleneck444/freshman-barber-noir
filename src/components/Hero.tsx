@@ -1,97 +1,190 @@
-import { Calendar, MapPin, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-barbershop.jpg";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, Scissors, Calendar, Phone, MapPin, Clock, Star, Award, User, Mail, Book, Zap, Crown, Brush, Eye, HairDryer, Feather, CheckCircle, TrendingUp, Users, Target, Shield, Clock3, Sparkles, Play } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Navbar1 } from '@/components/blocks/shadcnblocks-com-navbar1'
 
-const Hero = () => {
-  return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Luxury Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover opacity-20"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1a9e7c02d&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
-          <img
-            src={heroImage}
-            alt="Modern futuristic barbershop interior"
-            className="w-full h-full object-cover"
-          />
-        </video>
-        <div className="absolute inset-0 video-overlay" />
-        <div className="absolute inset-0 video-glow" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-barbershop-black/20 to-barbershop-black/60" />
-      </div>
+export default function Hero() {
+    return (
+        <>
+            <Navbar1 
+                logo={{
+                    url: "/",
+                    src: "/logo.png",
+                }}
+                navItems={[
+                    { name: "Home", href: "/" },
+                    { name: "Services", href: "#services" },
+                    { name: "About", href: "#about" },
+                    { name: "Contact", href: "#contact" },
+                ]}
+            />
+            
+            <main className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative">
+                {/* Background */}
+                <div 
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{
+                        backgroundImage: `url('/bg.jpg')`,
+                        filter: 'brightness(0.3) contrast(1.2)'
+                    }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-gray-900/80 to-black/85" />
+                
+                <section className="relative z-10 min-h-screen flex items-center">
+                    <div className="mx-auto max-w-7xl px-6 py-20">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            {/* Left Column - Content */}
+                            <div className="text-left">
+                                {/* Trust Badge */}
+                                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-red-600/20 backdrop-blur-sm border border-red-500/30 shadow-lg mb-8">
+                                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                    <span className="text-red-100 font-medium text-sm" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                        Mississauga's #1 Rated Barbershop
+                                    </span>
+                                </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 right-20 w-4 h-4 bg-barber-red rounded-full animate-float opacity-60" />
-      <div className="absolute top-40 left-16 w-3 h-3 bg-barber-blue rounded-full animate-float opacity-40" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-32 right-32 w-2 h-2 bg-barber-red rounded-full animate-float opacity-50" style={{ animationDelay: '4s' }} />
+                                {/* Main Headline */}
+                                <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight mb-8" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                    <span className="block text-white font-bold tracking-tight drop-shadow-2xl">
+                                        The Freshmen
+                                    </span>
+                                    <span className="block text-red-500 font-bold tracking-tight drop-shadow-2xl">
+                                        Style Barbershop
+                                    </span>
+                                </h1>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 pt-20">
-        <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-barber-red/20 text-barber-red px-6 py-3 rounded-full border border-barber-red/30 mb-8 backdrop-luxury hover-glow animate-fade-in-up">
-            <MapPin className="h-5 w-5 animate-glow-pulse" />
-            <span className="text-sm font-bold tracking-wide">MISSISSAUGA'S PREMIER BARBERSHOP</span>
-          </div>
+                                {/* Subtitle */}
+                                <p className="text-xl md:text-2xl text-gray-200 font-light mb-8 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                    Premium Men's Grooming Excellence in Mississauga
+                                </p>
 
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-orbitron font-black text-barbershop-white leading-tight mb-8 animate-fade-in-up-delay">
-            <span className="block animate-slide-in-left">THE</span>
-            <span className="block text-shimmer animate-slide-in-right" style={{ animationDelay: '0.4s' }}>FRESHMAN</span>
-            <span className="block animate-slide-in-left-delay">BARBERSHOP</span>
-          </h1>
+                                {/* Value Proposition */}
+                                <p className="text-lg text-gray-300 leading-relaxed mb-10 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                    Transform your professional image with precision cuts, traditional shaves, and expert grooming services.
+                                </p>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-3xl text-barbershop-gray font-light max-w-3xl mb-10 leading-relaxed animate-fade-in-scale-delay">
-            Experience the future of barbering. Premium cuts, classic techniques, 
-            modern atmosphere. <span className="text-barber-gradient font-medium">Where tradition meets innovation.</span>
-          </p>
+                                {/* CTA Buttons */}
+                                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                                    <Button
+                                        asChild
+                                        size="lg"
+                                        className="h-12 px-8 rounded-xl border-2 border-red-500 bg-red-600 text-white hover:bg-red-700 hover:border-red-400 font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl text-lg min-w-[240px]"
+                                        style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                        <Link to="#services" className="flex items-center justify-center gap-3">
+                                            Book Appointment
+                                            <ArrowRight className="h-5 w-5" />
+                                        </Link>
+                                    </Button>
 
-          {/* Location Info */}
-          <div className="flex flex-wrap items-center gap-8 mb-12 text-barbershop-gray-light animate-slide-in-left-delay">
-            <div className="flex items-center space-x-3 bg-barbershop-black/30 px-4 py-2 rounded-full backdrop-luxury">
-              <MapPin className="h-6 w-6 text-barber-red animate-glow-pulse" />
-              <span className="font-medium">167 Queen Street South, Unit 4, Mississauga</span>
-            </div>
-            <div className="flex items-center space-x-3 bg-barbershop-black/30 px-4 py-2 rounded-full backdrop-luxury">
-              <Clock className="h-6 w-6 text-barber-blue animate-glow-pulse" />
-              <span className="font-medium">Open 7 Days a Week</span>
-            </div>
-          </div>
+                                    <Button
+                                        asChild
+                                        size="lg"
+                                        className="h-12 px-8 rounded-xl border-2 border-white bg-white/10 text-white hover:bg-white hover:text-gray-900 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-lg min-w-[240px] backdrop-blur-sm"
+                                        style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                        <Link to="#services" className="flex items-center justify-center gap-3">
+                                            View Services
+                                            <Scissors className="h-5 w-5" />
+                                        </Link>
+                                    </Button>
+                                </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-scale" style={{ animationDelay: '1.2s' }}>
-            <Button className="btn-hero text-xl px-12 py-8 shadow-luxury hover-lift">
-              <Calendar className="mr-3 h-6 w-6" />
-              Book Appointment
-            </Button>
-            <Button className="btn-outline-hero text-xl px-12 py-8 backdrop-luxury hover-glow">
-              View Services
-            </Button>
-          </div>
-        </div>
-      </div>
+                                {/* Phone Number */}
+                                <div className="flex items-center gap-3 text-white/90 mb-8">
+                                    <Phone className="h-5 w-5 text-red-500" />
+                                    <span className="text-lg font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                        (905) 123-4567
+                                    </span>
+                                </div>
 
-      {/* Luxury Decorative Elements */}
-      <div className="absolute top-1/4 right-10 w-48 h-48 bg-barber-red/15 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 left-10 w-56 h-56 bg-barber-blue/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-barber-red/5 to-barber-blue/5 rounded-full blur-3xl animate-glow-pulse" />
-      
-      {/* Premium Grid Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.5) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-    </section>
-  );
-};
+                                {/* Stats */}
+                                <div className="grid grid-cols-3 gap-6">
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>2,500+</div>
+                                        <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Happy Clients</div>
+                                    </div>
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>20+</div>
+                                        <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Years Experience</div>
+                                    </div>
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>4.9/5</div>
+                                        <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Average Rating</div>
+                                    </div>
+                                </div>
+                            </div>
 
-export default Hero;
+                            {/* Right Column - Video with Testimonials */}
+                            <div className="relative">
+                                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                                    <video
+                                        className="w-full h-96 lg:h-[500px] object-cover"
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                    >
+                                        <source src="/vid1.mp4" type="video/mp4" />
+                                        {/* Fallback image if video doesn't load */}
+                                        <img 
+                                            src="/imgi_38_83234014_188112842416900_635945828494612146_n.jpg" 
+                                            alt="Professional barber work at The Freshmen Barbershop"
+                                            className="w-full h-96 lg:h-[500px] object-cover"
+                                        />
+                                    </video>
+                                    
+                                    {/* Video Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+
+                                    {/* Testimonial Overlay */}
+                                    <div className="absolute bottom-4 left-4 right-4">
+                                        <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <div className="flex text-yellow-400">
+                                                    {[...Array(5)].map((_, i) => (
+                                                        <Star key={i} className="h-4 w-4 fill-current" />
+                                                    ))}
+                                                </div>
+                                                <span className="text-sm font-semibold text-gray-800">5.0</span>
+                                            </div>
+                                            <p className="text-sm text-gray-700 mb-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                                                "Best haircut I've ever had! Shoaib is a true artist."
+                                            </p>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                                                <span className="text-xs text-gray-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Mike R.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {/* Instagram Gallery Preview */}
+                                <div className="mt-6 grid grid-cols-4 gap-2">
+                                    {[
+                                        '/imgi_38_83234014_188112842416900_635945828494612146_n.jpg',
+                                        '/imgi_36_84691260_158181368973567_3198901910180450919_n.jpg',
+                                        '/imgi_35_85011411_493529434641689_6264903484247845515_n.jpg',
+                                        '/imgi_33_84176926_126404842139727_6389121118071636171_n.jpg'
+                                    ].map((img, index) => (
+                                        <div key={index} className="relative group cursor-pointer">
+                                            <img 
+                                                src={img} 
+                                                alt={`Barbershop work ${index + 1}`}
+                                                className="w-full h-16 object-cover rounded-lg opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                                onError={(e) => {
+                                                    // Fallback to a placeholder if image fails to load
+                                                    e.currentTarget.src = '/placeholder.svg';
+                                                }}
+                                            />
+                                            <div className="absolute inset-0 bg-black/20 rounded-lg group-hover:bg-black/10 transition-colors duration-300" />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </>
+    )
+}

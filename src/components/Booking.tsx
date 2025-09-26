@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Clock, User, Phone, Mail, MessageSquare } from "lucide-react";
+import { Calendar, Clock, User, Scissors, Star, Award, Crown, Shield, Zap } from "lucide-react";
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -28,11 +28,10 @@ const Booking = () => {
   ];
 
   const barbers = [
-    "Any Available Barber",
-    "Mike Thompson - Senior Barber",
-    "Alex Rodriguez - Master Barber",
-    "Jordan Kim - Style Specialist",
-    "Sam Johnson - Traditional Expert"
+    "Shoaib Ghori - Master Barber (20+ Years Experience)",
+    "Shoaib Ghori - Signature Cut Specialist",
+    "Shoaib Ghori - Traditional Shave Expert",
+    "Shoaib Ghori - Premium Grooming Specialist"
   ];
 
   const timeSlots = [
@@ -49,139 +48,188 @@ const Booking = () => {
   };
 
   return (
-    <section id="booking" className="py-24 bg-barbershop-black">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
+    <section id="booking" className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-gray-900/90 to-black/95" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Master Barber Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-white mb-6 animate-fade-in-up">
-            BOOK YOUR <span className="text-shimmer">APPOINTMENT</span>
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+            <Crown className="h-5 w-5 text-yellow-400" />
+            <span className="text-white font-semibold text-sm tracking-wide font-inter">
+              MASTER BARBER
+            </span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-playfair">
+            <span className="block">Shoaib Ghori</span>
+            <span className="block text-blue-400 text-2xl md:text-3xl font-light mt-2">The James Bond of Haircutting</span>
           </h2>
-          <p className="text-xl text-barbershop-gray-light max-w-3xl mx-auto leading-relaxed animate-fade-in-up-delay">
-            Reserve your spot at The Freshman Barbershop. Experience premium barbering 
-            in the heart of Mississauga with our expert team.
+          
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-inter">
+            With over 20+ years of mastery in the art of barbering, Shoaib Ghori delivers 
+            precision cuts and grooming experiences that define professional excellence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Master Barber Profile */}
+          <Card className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-blue-500/25 transition-all duration-500">
+            <CardContent className="p-8">
+              <div className="text-center mb-8">
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-4xl mx-auto mb-6 shadow-2xl">
+                  SG
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-2 font-playfair">Shoaib Ghori</h3>
+                <p className="text-blue-400 text-lg font-semibold mb-4 font-inter">Master Barber & Style Architect</p>
+                <div className="flex items-center justify-center gap-2 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                  <span className="text-white font-semibold ml-2">5.0 (500+ Reviews)</span>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3 font-playfair">
+                    <Award className="h-6 w-6 text-yellow-400" />
+                    Expertise
+                  </h4>
+                  <ul className="space-y-3 text-gray-300 font-inter">
+                    <li className="flex items-center gap-3">
+                      <Shield className="h-4 w-4 text-green-400" />
+                      <span>20+ Years Professional Experience</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <Scissors className="h-4 w-4 text-blue-400" />
+                      <span>All Hair Types & Textures</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <Crown className="h-4 w-4 text-purple-400" />
+                      <span>Premium Grooming Specialist</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <Zap className="h-4 w-4 text-yellow-400" />
+                      <span>Precision & Attention to Detail</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl p-6 border border-blue-500/30">
+                  <h4 className="text-lg font-bold text-white mb-3 font-playfair">Signature Style</h4>
+                  <p className="text-gray-300 leading-relaxed font-inter">
+                    "Every cut is a masterpiece, every client a VIP. I don't just cut hair, 
+                    I craft confidence and style that lasts beyond the chair."
+                  </p>
+                  <p className="text-blue-400 text-sm mt-3 font-semibold font-inter">- Shoaib Ghori</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Booking Form */}
-          <Card className="shadow-luxury bg-white hover-glow backdrop-luxury animate-slide-in-left">
-            <CardContent className="p-8 relative overflow-hidden">
-              {/* Background Effect */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-barber-red/10 to-barber-blue/10 rounded-full blur-2xl" />
+          <Card className="bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-blue-500/25 transition-all duration-500">
+            <CardContent className="p-8">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2 font-playfair">Book with Shoaib</h3>
+                <p className="text-gray-300 font-inter">Secure your appointment with Mississauga's premier barber</p>
+              </div>
+
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Personal Info */}
+                {/* Personal Information */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name" className="flex items-center text-barbershop-black mb-2">
-                      <User className="h-4 w-4 mr-2 text-barber-red" />
-                      Full Name
-                    </Label>
+                    <Label className="text-white font-semibold mb-2 block font-inter">Full Name *</Label>
                     <Input
-                      id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      placeholder="Enter your full name"
-                      className="border-barbershop-gray focus:border-barber-red"
+                      className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
+                      placeholder="Enter your name"
+                      required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone" className="flex items-center text-barbershop-black mb-2">
-                      <Phone className="h-4 w-4 mr-2 text-barber-red" />
-                      Phone Number
-                    </Label>
+                    <Label className="text-white font-semibold mb-2 block font-inter">Phone Number *</Label>
                     <Input
-                      id="phone"
-                      type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
                       placeholder="(905) 123-4567"
-                      className="border-barbershop-gray focus:border-barber-red"
+                      required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="flex items-center text-barbershop-black mb-2">
-                    <Mail className="h-4 w-4 mr-2 text-barber-red" />
-                    Email Address
-                  </Label>
+                  <Label className="text-white font-semibold mb-2 block font-inter">Email Address</Label>
                   <Input
-                    id="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    placeholder="your.email@example.com"
-                    className="border-barbershop-gray focus:border-barber-red"
+                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
+                    placeholder="your@email.com"
                   />
                 </div>
 
                 {/* Service Selection */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label className="flex items-center text-barbershop-black mb-2">
-                      <MessageSquare className="h-4 w-4 mr-2 text-barber-red" />
-                      Service
-                    </Label>
-                    <Select value={formData.service} onValueChange={(value) => setFormData({...formData, service: value})}>
-                      <SelectTrigger className="border-barbershop-gray focus:border-barber-red">
-                        <SelectValue placeholder="Select a service" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {services.map((service) => (
-                          <SelectItem key={service} value={service}>
-                            {service}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label className="flex items-center text-barbershop-black mb-2">
-                      <User className="h-4 w-4 mr-2 text-barber-red" />
-                      Barber Preference
-                    </Label>
-                    <Select value={formData.barber} onValueChange={(value) => setFormData({...formData, barber: value})}>
-                      <SelectTrigger className="border-barbershop-gray focus:border-barber-red">
-                        <SelectValue placeholder="Choose your barber" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {barbers.map((barber) => (
-                          <SelectItem key={barber} value={barber}>
-                            {barber}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div>
+                  <Label className="text-white font-semibold mb-2 block font-inter">Service *</Label>
+                  <Select value={formData.service} onValueChange={(value) => setFormData({...formData, service: value})}>
+                    <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-blue-400 focus:ring-blue-400">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-gray-900 border-gray-700">
+                      {services.map((service) => (
+                        <SelectItem key={service} value={service} className="text-white hover:bg-blue-600">
+                          {service}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Barber Selection - Now featuring Shoaib */}
+                <div>
+                  <Label className="text-white font-semibold mb-2 block font-inter">Barber Selection</Label>
+                  <Select value={formData.barber} onValueChange={(value) => setFormData({...formData, barber: value})}>
+                    <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-blue-400 focus:ring-blue-400">
+                      <SelectValue placeholder="Choose your barber" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-gray-900 border-gray-700">
+                      {barbers.map((barber) => (
+                        <SelectItem key={barber} value={barber} className="text-white hover:bg-blue-600">
+                          {barber}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* Date & Time */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="date" className="flex items-center text-barbershop-black mb-2">
-                      <Calendar className="h-4 w-4 mr-2 text-barber-red" />
-                      Preferred Date
-                    </Label>
+                    <Label className="text-white font-semibold mb-2 block font-inter">Date *</Label>
                     <Input
-                      id="date"
                       type="date"
                       value={formData.date}
                       onChange={(e) => setFormData({...formData, date: e.target.value})}
-                      className="border-barbershop-gray focus:border-barber-red"
+                      className="bg-white/10 border-white/20 text-white focus:border-blue-400 focus:ring-blue-400"
+                      required
                     />
                   </div>
                   <div>
-                    <Label className="flex items-center text-barbershop-black mb-2">
-                      <Clock className="h-4 w-4 mr-2 text-barber-red" />
-                      Preferred Time
-                    </Label>
+                    <Label className="text-white font-semibold mb-2 block font-inter">Time *</Label>
                     <Select value={formData.time} onValueChange={(value) => setFormData({...formData, time: value})}>
-                      <SelectTrigger className="border-barbershop-gray focus:border-barber-red">
+                      <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-blue-400 focus:ring-blue-400">
                         <SelectValue placeholder="Select time" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-gray-900 border-gray-700">
                         {timeSlots.map((time) => (
-                          <SelectItem key={time} value={time}>
+                          <SelectItem key={time} value={time} className="text-white hover:bg-blue-600">
                             {time}
                           </SelectItem>
                         ))}
@@ -190,96 +238,29 @@ const Booking = () => {
                   </div>
                 </div>
 
-                {/* Additional Notes */}
+                {/* Special Requests */}
                 <div>
-                  <Label htmlFor="notes" className="flex items-center text-barbershop-black mb-2">
-                    <MessageSquare className="h-4 w-4 mr-2 text-barber-red" />
-                    Additional Notes (Optional)
-                  </Label>
+                  <Label className="text-white font-semibold mb-2 block font-inter">Special Requests</Label>
                   <Textarea
-                    id="notes"
                     value={formData.notes}
                     onChange={(e) => setFormData({...formData, notes: e.target.value})}
-                    placeholder="Any specific requests or preferences..."
-                    className="border-barbershop-gray focus:border-barber-red"
-                    rows={4}
+                    className="bg-white/10 border-white/20 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-blue-400"
+                    placeholder="Any specific styling preferences or requests for Shoaib..."
+                    rows={3}
                   />
                 </div>
 
                 {/* Submit Button */}
-                <Button type="submit" className="btn-hero w-full text-lg py-6">
-                  Confirm Booking
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-xl shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 transition-all duration-300 font-inter"
+                >
+                  <Calendar className="mr-3 h-6 w-6" />
+                  Book with Shoaib Ghori
                 </Button>
               </form>
             </CardContent>
           </Card>
-
-          {/* Booking Info */}
-          <div className="space-y-8 animate-slide-in-right">
-            {/* Hours */}
-            <Card className="bg-white shadow-luxury hover-lift">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-barbershop-black mb-6 flex items-center">
-                  <Clock className="h-6 w-6 mr-3 text-barber-red" />
-                  Operating Hours
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="font-medium">Monday - Friday</span>
-                    <span className="text-muted-foreground">9:00 AM - 8:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-medium">Saturday</span>
-                    <span className="text-muted-foreground">8:00 AM - 7:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-medium">Sunday</span>
-                    <span className="text-muted-foreground">10:00 AM - 6:00 PM</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Contact Info */}
-            <Card className="bg-white shadow-luxury hover-lift">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-barbershop-black mb-6">
-                  Contact Information
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Phone className="h-5 w-5 mr-3 text-barber-red" />
-                    <span>(905) 123-CUTS</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="h-5 w-5 mr-3 text-barber-blue" />
-                    <span>booking@thefreshmanbarbershop.com</span>
-                  </div>
-                  <div className="flex items-start">
-                    <Calendar className="h-5 w-5 mr-3 text-barber-red mt-1" />
-                    <div>
-                      <p>167 Queen Street South</p>
-                      <p>Unit 4, Mississauga</p>
-                      <p>Ontario Canada L5M1L2</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Policies */}
-            <Card className="bg-gradient-barber text-white shadow-luxury hover-glow animate-glow-pulse">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Booking Policies</h3>
-                <ul className="space-y-2 text-barbershop-gray-light">
-                  <li>• 24-hour cancellation policy</li>
-                  <li>• Please arrive 10 minutes early</li>
-                  <li>• Walk-ins welcome (subject to availability)</li>
-                  <li>• We accept cash and all major cards</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </div>
     </section>

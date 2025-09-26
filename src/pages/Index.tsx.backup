@@ -1,0 +1,36 @@
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import Interactive3DClippers from "@/components/Interactive3DClippers";
+import AIBooking from "@/components/AIBooking";
+import ARExperience from "@/components/ARExperience";
+import Interactive3DChairs from "@/components/Interactive3DChairs";
+import LiveStreaming from "@/components/LiveStreaming";
+import StyleSimulator from "@/components/StyleSimulator";
+import Gamification from "@/components/Gamification";
+import SmartMirror from "@/components/SmartMirror";
+import VoiceCommands from "@/components/VoiceCommands";
+import ChairRental from "@/components/ChairRental";
+import Footer from "@/components/Footer";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-barbershop-black via-barbershop-gray-dark to-barbershop-black">
+      <Header />
+      <Hero />
+      <Services />
+      <Interactive3DClippers />
+      <LiveStreaming />
+      <StyleSimulator />
+      <AIBooking />
+      <ARExperience />
+      <Gamification />
+      <SmartMirror />
+      <VoiceCommands />
+      <ChairRental />
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;
