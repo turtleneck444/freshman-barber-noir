@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import { Features } from "@/components/blocks/features-9";
-import Services from "@/components/Services";
-import AIBooking from "@/components/AIBooking";
+import Portfolio from "@/components/Portfolio"; // Replace Services
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -11,8 +11,8 @@ const Index = () => {
       <Header />
       <Hero />
       <Features />
-      <Services />
-      <AIBooking />
+      <Portfolio /> {/* New portfolio section */}
+      <Testimonials />
       <Footer />
     </div>
   );

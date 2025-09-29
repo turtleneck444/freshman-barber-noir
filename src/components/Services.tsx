@@ -185,7 +185,7 @@ const Services = () => {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-purple-500/5 to-transparent rounded-full blur-3xl float" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-cyan-500/3 to-red-500/3 rounded-full blur-3xl float" style={{ animationDelay: '2s' }} />
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Professional Section Header */}
           <div className="text-center mb-24">
             <div className={`inline-flex items-center gap-4 px-8 py-4 rounded-full bg-gradient-to-r from-red-600/10 via-red-500/5 to-red-600/10 backdrop-blur-xl border border-red-500/20 shadow-lg mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -196,7 +196,7 @@ const Services = () => {
               <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse glow" />
             </div>
             
-            <h2 className={`text-6xl md:text-7xl lg:text-8xl font-black text-gray-900 mb-8 leading-tight ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+            <h2 className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 mb-8 leading-tight ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
               <span className="block tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 PROFESSIONAL
               </span>
@@ -217,7 +217,7 @@ const Services = () => {
               <div className="h-px bg-gradient-to-r from-transparent via-red-500/30 to-transparent flex-1" />
             </div>
             
-            <p className={`text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mt-12 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+            <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mt-12 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Light, sans-serif' }}>
               Experience the <span className="text-red-600 font-bold">most exclusive</span> barbering services in Mississauga. 
               Every service is crafted with <span className="text-red-600 font-bold">surgical precision</span> and 
               <span className="text-red-600 font-bold"> luxury excellence</span>.
@@ -225,11 +225,11 @@ const Services = () => {
           </div>
 
           {/* Professional Service Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-16 sm:mb-20 lg:mb-24">
             {services.map((service, index) => (
               <div key={service.id} className="relative group">
                 {/* Tier Badge */}
-                <div className="absolute -top-3 -right-3 z-20">
+                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-20">
                   <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${service.color} text-white text-xs font-bold tracking-widest shadow-lg`}>
                     {service.tier}
                   </div>
