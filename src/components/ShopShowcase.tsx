@@ -197,8 +197,8 @@ const ShopShowcase = () => {
                   alt="The Freshmen Style Barbershop - Premium Barber Shop in Mississauga"
                   className="w-full h-[500px] lg:h-[600px] object-cover transition-transform duration-700 hover:scale-105"
                 />
-                {/* Professional Overlay */}
-                <div className="absolute inset-0 image-overlay flex items-end">
+                {/* Clean Bottom Info Card (No dark overlay) */}
+                <div className="absolute inset-x-0 bottom-0 flex items-end">
                   <div className="p-8 w-full">
                     <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
                       <div className="flex items-center gap-3 mb-4">
@@ -223,14 +223,6 @@ const ShopShowcase = () => {
                     </div>
                   </div>
                 </div>
-                
-                {/* Professional action button */}
-                <button 
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  className="absolute top-6 right-6 w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300"
-                >
-                  {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
-                </button>
               </div>
             </div>
 
@@ -267,15 +259,15 @@ const ShopShowcase = () => {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-red-500" />
-                      <span className="text-gray-600" style={{ fontFamily: 'Gotham Light, sans-serif' }}>(905) 483-7374</span>
+                      <a href="tel:9054837374" className="text-gray-600 hover:text-red-600 transition-colors" style={{ fontFamily: 'Gotham Light, sans-serif' }}>(905) 483-7374</a>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-red-500" />
-                      <span className="text-gray-600" style={{ fontFamily: 'Gotham Light, sans-serif' }}>info@freshmenstyle.com</span>
+                      <a href="mailto:freshmen.style16@gmail.com" className="text-gray-600 hover:text-red-600 transition-colors" style={{ fontFamily: 'Gotham Light, sans-serif' }}>freshmen.style16@gmail.com</a>
                     </div>
                     <div className="flex items-center gap-3">
                       <MapPin className="h-5 w-5 text-red-500" />
-                      <span className="text-gray-600" style={{ fontFamily: 'Gotham Light, sans-serif' }}>123 Main Street, Mississauga, ON</span>
+                      <span className="text-gray-600" style={{ fontFamily: 'Gotham Light, sans-serif' }}>167 Queen St S, Unit 4, Mississauga, ON L5M 1L2</span>
                     </div>
                   </div>
                 </CardContent>
