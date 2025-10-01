@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Scissors, Calendar, Phone, MapPin, Clock, Star, Award, User, Mail, Book, Zap, Crown, Brush, Eye, HairDryer, Feather, CheckCircle, TrendingUp, Users, Target, Shield, Clock3, Sparkles, Play } from 'lucide-react'
+import { ArrowRight, Scissors, Calendar, Phone, MapPin, Clock, Star, Award, User, Mail, Book, Zap, Crown, Brush, Eye, Feather, CheckCircle, TrendingUp, Users, Target, Shield, Clock3, Sparkles, Play } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export default function Hero() {
@@ -73,7 +73,7 @@ export default function Hero() {
                                     size="lg"
                                     className="h-12 px-6 md:px-8 rounded-xl border-2 border-red-500 bg-red-600 text-white hover:bg-red-700 hover:border-red-400 font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl text-base md:text-lg min-w-[200px] md:min-w-[240px]"
                                     style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                                    <Link to="#services" className="flex items-center justify-center gap-3">
+                                    <Link to="/booking" className="flex items-center justify-center gap-3">
                                         Book Appointment
                                         <ArrowRight className="h-5 w-5" />
                                     </Link>
@@ -84,7 +84,7 @@ export default function Hero() {
                                     size="lg"
                                     className="h-12 px-6 md:px-8 rounded-xl border-2 border-white bg-white/10 text-white hover:bg-white hover:text-gray-900 font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-base md:text-lg min-w-[200px] md:min-w-[240px] backdrop-blur-sm"
                                     style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                                    <Link to="#services" className="flex items-center justify-center gap-3">
+                                    <Link to="/services" className="flex items-center justify-center gap-3">
                                         View Services
                                         <Scissors className="h-5 w-5" />
                                     </Link>

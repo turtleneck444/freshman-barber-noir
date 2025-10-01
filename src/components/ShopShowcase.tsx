@@ -301,17 +301,21 @@ const ShopShowcase = () => {
                 
                 {/* Professional Buttons */}
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <Button className="group bg-gradient-to-r from-red-500 to-red-600 text-white font-bold px-10 py-5 rounded-2xl text-xl hover:from-red-400 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl border-0" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                    <Calendar className="inline h-6 w-6 mr-3 group-hover:rotate-12 transition-transform duration-300" />
-                    Book Appointment
-                    <ArrowRight className="inline h-6 w-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
+                  <a href="/booking">
+                    <Button className="group bg-gradient-to-r from-red-500 to-red-600 text-white font-bold px-10 py-5 rounded-2xl text-xl hover:from-red-400 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl border-0" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                      <Calendar className="inline h-6 w-6 mr-3 group-hover:rotate-12 transition-transform duration-300" />
+                      Book Appointment
+                      <ArrowRight className="inline h-6 w-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </a>
                   
-                  <Button className="group bg-white border-2 border-gray-300 text-gray-900 font-bold px-10 py-5 rounded-2xl text-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                    <Navigation className="inline h-6 w-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
-                    Get Directions
-                    <MapPin className="inline h-6 w-6 ml-3 group-hover:scale-110 transition-transform duration-300" />
-                  </Button>
+                  <a href="https://www.google.com/maps/place/The+FRESHMEN+Barbershop/@43.5823631,-79.7144503,17z/data=!3m1!4b1!4m6!3m5!1s0x882b41b9a9fea6a1:0xe418339f4adcef70!8m2!3d43.5823631!4d-79.7144503!16s%2Fg%2F11c2lbfwlh?hl=en-CA&entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                    <Button className="group bg-white border-2 border-gray-300 text-gray-900 font-bold px-10 py-5 rounded-2xl text-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                      <Navigation className="inline h-6 w-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                      Get Directions
+                      <MapPin className="inline h-6 w-6 ml-3 group-hover:scale-110 transition-transform duration-300" />
+                    </Button>
+                  </a>
                 </div>
                 
                 {/* Professional Trust Indicators */}

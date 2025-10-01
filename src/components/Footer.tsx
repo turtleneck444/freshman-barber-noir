@@ -144,16 +144,17 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-4">
                   {[
-                    { name: "Home", href: "#home", icon: <Heart className="h-4 w-4" /> },
-                    { name: "Services", href: "#services", icon: <Scissors className="h-4 w-4" /> },
-                    { name: "Book Appointment", href: "#booking", icon: <Calendar className="h-4 w-4" /> },
-                    { name: "Chair Rental", href: "#chairs", icon: <Users className="h-4 w-4" /> },
-                    { name: "Join Our Team", href: "#join-team", icon: <AwardIcon className="h-4 w-4" /> },
-                    { name: "Gift Cards", href: "#gift-cards", icon: <Sparkles className="h-4 w-4" /> }
+                    { name: "Home", href: "/", icon: <Heart className="h-4 w-4" /> },
+                    { name: "Services", href: "/services", icon: <Scissors className="h-4 w-4" /> },
+                    { name: "Book Appointment", href: "/booking", icon: <Calendar className="h-4 w-4" /> },
+                    { name: "Contact Us", href: "/contact", icon: <Users className="h-4 w-4" /> },
+                    { name: "Admin", href: "/admin", icon: <AwardIcon className="h-4 w-4" /> },
+                    { name: "Google Reviews", href: "https://www.google.com/maps/place/The+FRESHMEN+Barbershop/@43.5823631,-79.7144503,17z/data=!3m1!4b1!4m6!3m5!1s0x882b41b9a9fea6a1:0xe418339f4adcef70!8m2!3d43.5823631!4d-79.7144503!16s%2Fg%2F11c2lbfwlh?hl=en-CA&entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D", icon: <Sparkles className="h-4 w-4" />, external: true }
                   ].map((link, index) => (
                     <li key={index}>
                       <a 
                         href={link.href} 
+                        {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         className="flex items-center space-x-3 text-gray-300 hover:text-red-400 transition-all duration-300 group text-lg"
                         style={{ fontFamily: 'Gotham Light, sans-serif' }}
                       >
