@@ -135,7 +135,7 @@ const LocationMap = () => {
         }
       `}</style>
 
-      <section ref={sectionRef} id="location" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+      <section ref={sectionRef} id="location" className="py-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Professional Header - Compact */}
           <div className="text-center mb-10">
@@ -174,7 +174,7 @@ const LocationMap = () => {
               <Card className="bg-white border border-gray-200 shadow-2xl overflow-hidden">
                 <CardContent className="p-0">
                   {/* Interactive Google Maps */}
-                  <div className="relative w-full h-[400px] lg:h-[500px]">
+                  <div className="relative w-full h-[450px] lg:h-[600px]">
                     <iframe
                       src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2889.2486845842777!2d-79.7144503!3d43.5823631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b41b9a9fea6a1%3A0xe418339f4adcef70!2sThe%20FRESHMEN%20Barbershop!5e0!3m2!1sen!2sca!4v1234567890123!5m2!1sen!2sca`}
                       width="100%"
@@ -222,37 +222,37 @@ const LocationMap = () => {
             </div>
 
             {/* Business Information */}
-            <div className={`space-y-6 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
+            <div className={`space-y-4 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
               {/* Contact Information Card */}
               <Card className="bg-white border border-gray-200 shadow-xl card-hover">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                    <Phone className="h-6 w-6 mr-3 text-red-500" />
+                <CardContent className="p-5">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                    <Phone className="h-5 w-5 mr-2 text-red-500" />
                     Contact Information
                   </h3>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-3">
                     {/* Phone */}
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center">
-                          <Phone className="h-6 w-6 text-white" />
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center">
+                          <Phone className="h-5 w-5 text-white" />
                         </div>
                         <div>
                           <p className="text-xs text-gray-500 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Phone</p>
-                          <p className="text-xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{businessInfo.phone}</p>
+                          <p className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{businessInfo.phone}</p>
                         </div>
                       </div>
                       <div className="flex gap-2">
                         <Button
                           onClick={callPhone}
-                          className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white p-3 rounded-xl transition-all duration-300"
+                          className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white p-2 rounded-lg transition-all duration-300"
                         >
                           <Smartphone className="h-4 w-4" />
                         </Button>
                         <Button
                           onClick={() => copyToClipboard(businessInfo.phone, 'phone')}
-                          className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-3 rounded-xl transition-all duration-300"
+                          className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-lg transition-all duration-300"
                         >
                           {copiedPhone ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
                         </Button>
@@ -260,10 +260,10 @@ const LocationMap = () => {
                     </div>
 
                     {/* Email */}
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
-                          <Mail className="h-6 w-6 text-white" />
+                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                          <Mail className="h-5 w-5 text-white" />
                         </div>
                         <div>
                           <p className="text-xs text-gray-500 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Email</p>
@@ -272,27 +272,27 @@ const LocationMap = () => {
                       </div>
                       <Button
                         onClick={sendEmail}
-                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white p-3 rounded-xl transition-all duration-300"
+                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white p-2 rounded-lg transition-all duration-300"
                       >
                         <MessageCircle className="h-4 w-4" />
                       </Button>
                     </div>
 
                     {/* Address */}
-                    <div className="p-4 bg-gray-50 rounded-xl">
+                    <div className="p-3 bg-gray-50 rounded-xl">
                       <div className="flex items-start justify-between">
-                        <div className="flex items-start gap-4 flex-1">
-                          <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <MapPin className="h-6 w-6 text-white" />
+                        <div className="flex items-start gap-3 flex-1">
+                          <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <MapPin className="h-5 w-5 text-white" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-xs text-gray-500 font-medium mb-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Address</p>
-                            <p className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{businessInfo.address}</p>
+                            <p className="text-xs text-gray-500 font-medium mb-1" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Address</p>
+                            <p className="text-sm font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{businessInfo.address}</p>
                           </div>
                         </div>
                         <Button
                           onClick={() => copyToClipboard(businessInfo.address, 'address')}
-                          className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-3 rounded-xl transition-all duration-300 ml-2"
+                          className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-lg transition-all duration-300 ml-2"
                         >
                           {copiedAddress ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
                         </Button>
@@ -304,19 +304,19 @@ const LocationMap = () => {
 
               {/* Business Hours Card */}
               <Card className="bg-white border border-gray-200 shadow-xl card-hover">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                    <Clock className="h-6 w-6 mr-3 text-red-500" />
+                <CardContent className="p-5">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                    <Clock className="h-5 w-5 mr-2 text-red-500" />
                     Business Hours
                   </h3>
                   
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {businessInfo.hours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
-                        <span className="text-gray-700 font-bold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                      <div key={index} className="flex justify-between items-center p-2.5 bg-gray-50 rounded-lg">
+                        <span className="text-sm text-gray-700 font-bold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                           {schedule.day}
                         </span>
-                        <span className={`font-semibold ${schedule.open ? 'text-green-600' : 'text-red-600'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                        <span className={`text-sm font-semibold ${schedule.open ? 'text-green-600' : 'text-red-600'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                           {schedule.time}
                         </span>
                       </div>
@@ -327,21 +327,21 @@ const LocationMap = () => {
 
               {/* Trust Badges */}
               <Card className="bg-gradient-to-r from-red-500 to-red-600 border-0 shadow-xl">
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-3 gap-4 text-center">
+                <CardContent className="p-4">
+                  <div className="grid grid-cols-3 gap-3 text-center">
                     <div>
-                      <Award className="h-8 w-8 text-white mx-auto mb-2" />
-                      <p className="text-2xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>20+</p>
+                      <Award className="h-6 w-6 text-white mx-auto mb-1.5" />
+                      <p className="text-xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>20+</p>
                       <p className="text-xs text-white/80" style={{ fontFamily: 'Gotham Light, sans-serif' }}>Years</p>
                     </div>
                     <div>
-                      <Star className="h-8 w-8 text-white mx-auto mb-2 fill-current" />
-                      <p className="text-2xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>4.9</p>
+                      <Star className="h-6 w-6 text-white mx-auto mb-1.5 fill-current" />
+                      <p className="text-xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>4.9</p>
                       <p className="text-xs text-white/80" style={{ fontFamily: 'Gotham Light, sans-serif' }}>Rating</p>
                     </div>
                     <div>
-                      <Shield className="h-8 w-8 text-white mx-auto mb-2" />
-                      <p className="text-2xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>500+</p>
+                      <Shield className="h-6 w-6 text-white mx-auto mb-1.5" />
+                      <p className="text-xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>500+</p>
                       <p className="text-xs text-white/80" style={{ fontFamily: 'Gotham Light, sans-serif' }}>Reviews</p>
                     </div>
                   </div>
