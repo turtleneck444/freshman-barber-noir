@@ -38,13 +38,13 @@ const LocationMap = () => {
     email: "freshmen.style16@gmail.com",
     googleMapsUrl: "https://www.google.com/maps/place/The+FRESHMEN+Barbershop/@43.5823631,-79.7144503,17z/data=!3m1!4b1!4m6!3m5!1s0x882b41b9a9fea6a1:0xe418339f4adcef70!8m2!3d43.5823631!4d-79.7144503!16s%2Fg%2F11c2lbfwlh",
     hours: [
-      { day: "Monday", time: "9:00 AM - 8:00 PM", open: true },
-      { day: "Tuesday", time: "9:00 AM - 8:00 PM", open: true },
-      { day: "Wednesday", time: "9:00 AM - 8:00 PM", open: true },
-      { day: "Thursday", time: "9:00 AM - 8:00 PM", open: true },
-      { day: "Friday", time: "9:00 AM - 8:00 PM", open: true },
-      { day: "Saturday", time: "8:00 AM - 7:00 PM", open: true },
-      { day: "Sunday", time: "10:00 AM - 6:00 PM", open: true }
+      { day: "Monday", time: "12:00 PM - 8:00 PM", open: true },
+      { day: "Tuesday", time: "12:00 PM - 8:00 PM", open: true },
+      { day: "Wednesday", time: "12:00 PM - 8:00 PM", open: true },
+      { day: "Thursday", time: "12:00 PM - 8:00 PM", open: true },
+      { day: "Friday", time: "12:00 PM - 8:00 PM", open: true },
+      { day: "Saturday", time: "11:00 AM - 6:00 PM", open: true },
+      { day: "Sunday", time: "12:00 PM - 8:00 PM", open: true }
     ],
     rating: 4.9,
     totalReviews: "500+",

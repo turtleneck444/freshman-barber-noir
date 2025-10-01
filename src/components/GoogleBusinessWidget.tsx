@@ -158,7 +158,7 @@ const GoogleBusinessWidget = () => {
                         </div>
                         <div className="flex items-center gap-2 text-sm">
                           <Clock className="h-4 w-4 text-blue-600 flex-shrink-0" />
-                          <span className="text-green-600 font-semibold">Open Now · Closes 8 PM</span>
+                          <span className="text-green-600 font-semibold">Open 12 PM - 8 PM Daily</span>
                         </div>
                       </div>
 
