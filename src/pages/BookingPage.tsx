@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingActionWidget from "@/components/FloatingActionWidget";
 import { Features } from "@/components/blocks/features-9";
 
 const BookingPage = () => {
@@ -41,6 +42,7 @@ const BookingPage = () => {
       <Features />
       
       <Footer />
+      <FloatingActionWidget />
     </div>
   );
 };

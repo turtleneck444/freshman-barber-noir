@@ -5,6 +5,7 @@ import ShopShowcase from "@/components/ShopShowcase";
 import LocationMap from "@/components/LocationMap";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import FloatingActionWidget from "@/components/FloatingActionWidget";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <LocationMap />
       <Testimonials />
       <Footer />
+      <FloatingActionWidget />
     </div>
   );
 };

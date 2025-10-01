@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingActionWidget from "@/components/FloatingActionWidget";
 import { Features } from "@/components/blocks/features-9";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -204,6 +205,7 @@ const Services = () => {
       <Features />
       
       <Footer />
+      <FloatingActionWidget />
     </div>
   );
 };
