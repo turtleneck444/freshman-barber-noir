@@ -378,7 +378,7 @@ const Services = () => {
                   </Button>
                   <Button variant="outline" className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-black px-12 py-6 rounded-2xl text-xl transition-all duration-500 transform hover:scale-105 shadow-2xl" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                     <Phone className="mr-3 h-6 w-6" />
-                    CALL (905) 123-4567
+                    CALL (905) 483-7374
                   </Button>
                 </div>
               </div>

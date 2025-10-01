@@ -304,7 +304,7 @@ const JoinOurTeam = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          placeholder="(905) 123-4567"
+                          placeholder="(905) 483-7374"
                           className="h-12 border-2 border-gray-300 focus:border-red-500 rounded-xl text-lg bg-white text-gray-900 placeholder-gray-500 shadow-sm"
                           required
                           style={{ fontFamily: 'Gotham Light, sans-serif' }}
@@ -438,7 +438,7 @@ const JoinOurTeam = () => {
                   </Button>
                   <Button variant="outline" className="border-2 border-gray-300 text-gray-900 hover:bg-gray-50 font-black px-12 py-6 rounded-2xl text-xl transition-all duration-500 transform hover:scale-105 shadow-2xl" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                     <Phone className="mr-3 h-6 w-6" />
-                    CALL (905) 123-4567
+                    CALL (905) 483-7374
                   </Button>
                 </div>
               </div>

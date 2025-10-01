@@ -95,7 +95,7 @@ export default function Hero() {
                             <div className="flex items-center gap-3 text-white/90 mb-8">
                                 <Phone className="h-5 w-5 text-red-500" />
                                 <span className="text-base md:text-lg font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                                    (905) 123-4567
+                                    (905) 483-7374
                                 </span>
                             </div>
 

@@ -200,7 +200,7 @@ const Footer = () => {
                     </div>
                     <div>
                       <p className="text-gray-300 font-bold text-xl" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                        (905) 123-4567
+                        (905) 483-7374
                       </p>
                       <p className="text-gray-400 text-sm" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
                         Call for appointments

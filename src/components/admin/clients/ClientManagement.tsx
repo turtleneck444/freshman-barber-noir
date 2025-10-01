@@ -34,7 +34,7 @@ const ClientManagement = () => {
       id: 1,
       name: 'Mike Johnson',
       email: 'mike.johnson@email.com',
-      phone: '(905) 123-4567',
+      phone: '(905) 483-7374',
       address: '123 Main St, Mississauga, ON',
       tier: 'VIP',
       status: 'active',

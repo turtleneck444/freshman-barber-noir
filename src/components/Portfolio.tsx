@@ -21,7 +21,11 @@ import {
   CheckCircle,
   Zap as Lightning,
   Target,
-  Sparkles as StarIcon
+  Sparkles as StarIcon,
+  Sparkles as Glow,
+  TrendingUp,
+  Filter,
+  Grid3X3
 } from 'lucide-react';
 
 interface HairStyle {
@@ -34,12 +38,15 @@ interface HairStyle {
   price: string;
   popular: boolean;
   svg: string;
+  gradient: string;
+  glow: string;
 }
 
 const Portfolio = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedStyle, setSelectedStyle] = useState<HairStyle | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,16 +67,71 @@ const Portfolio = () => {
   }, []);
 
   const categories = [
-    { id: 'all', name: 'All Styles', icon: Scissors },
-    { id: 'classic', name: 'Classic', icon: Crown },
-    { id: 'modern', name: 'Modern', icon: Zap },
-    { id: 'fade', name: 'Fades', icon: Target },
-    { id: 'beard', name: 'Beard Styles', icon: Shield }
+    { id: 'all', name: 'All Styles', icon: Grid3X3, count: 12 },
+    { id: 'classic', name: 'Classic', icon: Crown, count: 3 },
+    { id: 'modern', name: 'Modern', icon: Zap, count: 4 },
+    { id: 'fade', name: 'Fades', icon: Target, count: 4 },
+    { id: 'beard', name: 'Beard Styles', icon: Shield, count: 3 }
   ];
 
   const hairStyles: HairStyle[] = [
+    // FADES
     {
       id: '1',
+      name: 'High Fade',
+      category: 'fade',
+      description: 'Sharp high fade with clean lines and precision',
+      difficulty: 'Advanced',
+      duration: '45 min',
+      price: '$55',
+      popular: true,
+      gradient: 'from-purple-500 to-pink-500',
+      glow: 'shadow-purple-500/25',
+      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'
+    },
+    {
+      id: '2',
+      name: 'Mid Fade',
+      category: 'fade',
+      description: 'Balanced mid fade for versatile styling',
+      difficulty: 'Medium',
+      duration: '35 min',
+      price: '$45',
+      popular: true,
+      gradient: 'from-blue-500 to-cyan-500',
+      glow: 'shadow-blue-500/25',
+      svg: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
+    },
+    {
+      id: '3',
+      name: 'Low Fade',
+      category: 'fade',
+      description: 'Subtle low fade with natural transition',
+      difficulty: 'Easy',
+      duration: '30 min',
+      price: '$40',
+      popular: false,
+      gradient: 'from-green-500 to-emerald-500',
+      glow: 'shadow-green-500/25',
+      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'
+    },
+    {
+      id: '4',
+      name: 'Skin Fade',
+      category: 'fade',
+      description: 'Ultra-clean skin fade to the scalp',
+      difficulty: 'Advanced',
+      duration: '50 min',
+      price: '$60',
+      popular: true,
+      gradient: 'from-orange-500 to-red-500',
+      glow: 'shadow-orange-500/25',
+      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
+    },
+
+    // CLASSIC STYLES
+    {
+      id: '5',
       name: 'Classic Side Part',
       category: 'classic',
       description: 'Timeless elegance with clean side parting',
@@ -77,32 +139,12 @@ const Portfolio = () => {
       duration: '25 min',
       price: '$35',
       popular: true,
+      gradient: 'from-amber-500 to-yellow-500',
+      glow: 'shadow-amber-500/25',
       svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'
     },
     {
-      id: '2',
-      name: 'Modern Fade',
-      category: 'fade',
-      description: 'Sharp fade with clean lines and precision',
-      difficulty: 'Advanced',
-      duration: '45 min',
-      price: '$55',
-      popular: true,
-      svg: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
-    },
-    {
-      id: '3',
-      name: 'Pompadour',
-      category: 'modern',
-      description: 'Voluminous style with height and volume',
-      difficulty: 'Medium',
-      duration: '35 min',
-      price: '$45',
-      popular: false,
-      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'
-    },
-    {
-      id: '4',
+      id: '6',
       name: 'Buzz Cut',
       category: 'classic',
       description: 'Clean, low-maintenance military style',
@@ -110,10 +152,27 @@ const Portfolio = () => {
       duration: '15 min',
       price: '$25',
       popular: true,
+      gradient: 'from-gray-500 to-slate-500',
+      glow: 'shadow-gray-500/25',
       svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
     },
+
+    // MODERN STYLES
     {
-      id: '5',
+      id: '7',
+      name: 'Pompadour',
+      category: 'modern',
+      description: 'Voluminous style with height and volume',
+      difficulty: 'Medium',
+      duration: '35 min',
+      price: '$45',
+      popular: false,
+      gradient: 'from-indigo-500 to-purple-500',
+      glow: 'shadow-indigo-500/25',
+      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'
+    },
+    {
+      id: '8',
       name: 'Undercut',
       category: 'modern',
       description: 'Sharp contrast with longer top and short sides',
@@ -121,17 +180,62 @@ const Portfolio = () => {
       duration: '40 min',
       price: '$50',
       popular: true,
+      gradient: 'from-teal-500 to-blue-500',
+      glow: 'shadow-teal-500/25',
       svg: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
     },
     {
-      id: '6',
-      name: 'Quiff',
+      id: '9',
+      name: 'Textured Crop',
       category: 'modern',
-      description: 'Stylish forward-swept style with texture',
+      description: 'Modern textured crop with messy finish',
+      difficulty: 'Medium',
+      duration: '35 min',
+      price: '$45',
+      popular: true,
+      gradient: 'from-rose-500 to-pink-500',
+      glow: 'shadow-rose-500/25',
+      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'
+    },
+
+    // BEARD STYLES
+    {
+      id: '10',
+      name: 'Full Beard',
+      category: 'beard',
+      description: 'Complete full beard with professional trim',
       difficulty: 'Medium',
       duration: '30 min',
       price: '$40',
+      popular: true,
+      gradient: 'from-emerald-500 to-teal-500',
+      glow: 'shadow-emerald-500/25',
+      svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
+    },
+    {
+      id: '11',
+      name: 'Goatee',
+      category: 'beard',
+      description: 'Classic goatee with mustache',
+      difficulty: 'Easy',
+      duration: '20 min',
+      price: '$30',
       popular: false,
+      gradient: 'from-violet-500 to-purple-500',
+      glow: 'shadow-violet-500/25',
+      svg: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'
+    },
+    {
+      id: '12',
+      name: 'Stubble',
+      category: 'beard',
+      description: 'Perfect stubble length and shape',
+      difficulty: 'Easy',
+      duration: '15 min',
+      price: '$25',
+      popular: true,
+      gradient: 'from-slate-500 to-gray-500',
+      glow: 'shadow-slate-500/25',
       svg: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'
     }
   ];
@@ -141,285 +245,10 @@ const Portfolio = () => {
     : hairStyles.filter(style => style.category === selectedCategory);
 
   const stats = [
-    { number: '50+', label: 'Hair Styles', icon: <Scissors className="h-4 w-4" /> },
-    { number: '4.9', label: 'Rating', icon: <Star className="h-4 w-4" /> },
-    { number: '20+', label: 'Years', icon: <Award className="h-4 w-4" /> },
-    { number: '100%', label: 'Satisfaction', icon: <CheckCircle className="h-4 w-4" /> }
-  ];
-
-  return (
-    <>
-      <section ref={sectionRef} className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-gray-100">
-        <div className="container mx-auto px-4 sm:px-6">
-          {/* Header */}
-          <div className={`text-center mb-12 lg:mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <div className="inline-flex items-center gap-2 bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              <Crown className="h-4 w-4" />
-              Professional Styling
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 mb-6">
-              HAIR STYLE
-              <span className="block bg-gradient-to-r from-red-600 to-blue-600 bg-clip-text text-transparent">
-                GALLERY
-              </span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Choose from our curated collection of professional hair styles. 
-              Each style is crafted with precision and tailored to your unique look.
-            </p>
-          </div>
-
-          {/* Stats - Compact & Mobile-Friendly */}
-          <div className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 lg:mb-12 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
-            {stats.map((stat, index) => (
-              <div key={index} className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="p-1.5 rounded-full bg-gradient-to-r from-red-500 to-red-600 text-white">
-                  {stat.icon}
-                </div>
-                <div className="text-center">
-                  <div className="text-lg sm:text-xl font-black text-gray-900">{stat.number}</div>
-                  <div className="text-xs sm:text-sm text-gray-600 font-medium">{stat.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Category Filter */}
-          <div className={`flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 lg:mb-12 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
-            {categories.map((category) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                    selectedCategory === category.id
-                      ? 'bg-red-500 text-white shadow-lg'
-                      : 'bg-white text-slate-600 hover:bg-red-50 hover:text-red-600 border border-gray-200'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {category.name}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Hair Styles Grid */}
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
-            {filteredStyles.map((style, index) => (
-              <Card 
-                key={style.id} 
-                className="group cursor-pointer bg-white border-2 border-gray-100 hover:border-red-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-                onClick={() => setSelectedStyle(style)}
-              >
-                <CardContent className="p-6">
-                  {/* Style Icon */}
-                  <div className="flex justify-center mb-4">
-                    <div className="w-20 h-20 bg-gradient-to-br from-red-50 to-red-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-10 h-10 text-red-600" viewBox="0 0 24 24" fill="currentColor">
-                        <path d={style.svg} />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Style Info */}
-                  <div className="text-center">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <h3 className="text-lg font-bold text-slate-900">{style.name}</h3>
-                      {style.popular && (
-                        <Badge className="bg-red-500 text-white text-xs">Popular</Badge>
-                      )}
-                    </div>
-                    <p className="text-sm text-slate-600 mb-4">{style.description}</p>
-                    
-                    {/* Style Details */}
-                    <div className="flex justify-between items-center text-xs text-slate-500 mb-4">
-                      <span className={`px-2 py-1 rounded-full ${
-                        style.difficulty === 'Easy' ? 'bg-green-100 text-green-600' :
-                        style.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-600' :
-                        'bg-red-100 text-red-600'
-                      }`}>
-                        {style.difficulty}
-                      </span>
-                      <span>{style.duration}</span>
-                      <span className="font-bold text-red-600">{style.price}</span>
-                    </div>
-
-                    {/* Action Button */}
-                    <Button className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-lg transition-all duration-300 group-hover:shadow-lg">
-                      <Scissors className="h-4 w-4 mr-2" />
-                      Select Style
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Enhanced Call to Action Banner - Brand Colors */}
-          <div className={`text-center mt-12 lg:mt-16 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-900 via-red-800 to-blue-900 shadow-2xl border border-red-700/50">
-              {/* Background Pattern - Brand Colors */}
-              <div className="absolute inset-0 bg-gradient-to-br from-red-800/20 to-blue-900/20"></div>
-              
-              {/* Content */}
-              <div className="relative z-10 p-8 sm:p-12 lg:p-16">
-                {/* Header with Icons */}
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <div className="p-2 rounded-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg">
-                    <Crown className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
-                    READY FOR YOUR TRANSFORMATION?
-                  </h3>
-                  <div className="p-2 rounded-full bg-gradient-to-r from-red-500 to-red-600 shadow-lg">
-                    <Crown className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-                
-                {/* Subtitle */}
-                <p className="text-lg sm:text-xl text-red-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-                  Join <span className="font-bold text-yellow-400">500+ satisfied clients</span> who have experienced the 
-                  <span className="font-bold text-white"> Shoaib Ghori difference</span>. 
-                  Book your appointment today and see the transformation for yourself.
-                </p>
-                
-                {/* Enhanced Buttons - Brand Colors */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Button className="group bg-gradient-to-r from-red-500 to-red-600 text-white font-bold px-8 py-4 rounded-xl text-lg hover:from-red-400 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border-0">
-                    <Scissors className="inline h-5 w-5 mr-2 group-hover:rotate-12 transition-transform" />
-                    Book Your Transformation
-                    <ArrowRight className="inline h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  
-                  <Button className="group bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-white hover:text-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                    <Camera className="inline h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
-                    View Full Gallery
-                    <Eye className="inline h-5 w-5 ml-2 group-hover:scale-110 transition-transform" />
-                  </Button>
-                </div>
-                
-                {/* Trust Indicators - Brand Colors */}
-                <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-red-200">
-                  <div className="flex items-center gap-2">
-                    <Shield className="h-4 w-4 text-green-400" />
-                    <span className="text-sm font-medium">Premium Quality</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Star className="h-4 w-4 text-yellow-400" />
-                    <span className="text-sm font-medium">4.9/5 Rating</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-blue-400" />
-                    <span className="text-sm font-medium">20+ Years Experience</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default Portfolio; 
-      title: 'Executive Transformation',
-      category: 'signature-cut',
-      description: 'Complete executive makeover with precision cut and professional styling',
-      beforeImage: '/imgi_28_91273985_890308014724053_9084689863751011578_n.jpg',
-      afterImage: '/imgi_29_91508539_1031237737259773_3158859722929790590_n.jpg',
-      rating: 5,
-      clientName: 'Michael Chen',
-      service: 'Signature Cut',
-      duration: '45 min',
-      featured: true
-    },
-    {
-      id: '2',
-      title: 'Classic Gentleman',
-      category: 'traditional-shave',
-      description: 'Traditional hot towel shave with premium grooming experience',
-      beforeImage: '/imgi_30_91112175_793531424468514_7739180485424798523_n.jpg',
-      afterImage: '/imgi_31_90088672_115060690114029_2775280927924311927_n.jpg',
-      rating: 5,
-      clientName: 'David Rodriguez',
-      service: 'Traditional Shave',
-      duration: '30 min',
-      featured: true
-    },
-    {
-      id: '3',
-      title: 'Royal Package Experience',
-      category: 'royal-package',
-      description: 'Complete luxury grooming package with cut, shave, and premium treatments',
-      beforeImage: '/imgi_32_89041857_141581543761454_7948278722813866830_n.jpg',
-      afterImage: '/imgi_33_84176926_126404842139727_6389121118071636171_n.jpg',
-      rating: 5,
-      clientName: 'James Thompson',
-      service: 'Royal Package',
-      duration: '90 min',
-      featured: true
-    },
-    {
-      id: '4',
-      title: 'Beard Mastery',
-      category: 'beard-grooming',
-      description: 'Professional beard trimming and styling for the perfect look',
-      beforeImage: '/imgi_28_91273985_890308014724053_9084689863751011578_n.jpg', // Use actual beard image
-      afterImage: '/imgi_29_91508539_1031237737259773_3158859722929790590_n.jpg', // Use actual beard image
-      rating: 5,
-      clientName: 'Robert Kim',
-      service: 'Beard Grooming',
-      duration: '20 min',
-      featured: false
-    },
-    {
-      id: '5',
-      title: 'Family Grooming Experience', // Changed from "Father & Son Special"
-      category: 'family-package',
-      description: 'Premium grooming experience for family members together',
-      beforeImage: '/imgi_36_84691260_158181368973567_3198901910180450919_n.jpg',
-      afterImage: '/imgi_38_83234014_188112842416900_635945828494612146_n.jpg',
-      rating: 5,
-      clientName: 'Alex Johnson',
-      service: 'Family Package', // Changed from "Father & Son"
-      duration: '60 min',
-      featured: false
-    },
-    {
-      id: '6',
-      title: 'Modern Fade',
-      category: 'signature-cut',
-      description: 'Contemporary fade with precision detailing and modern styling',
-      beforeImage: '/imgi_28_91273985_890308014724053_9084689863751011578_n.jpg',
-      afterImage: '/imgi_29_91508539_1031237737259773_3158859722929790590_n.jpg',
-      rating: 5,
-      clientName: 'Mark Wilson',
-      service: 'Signature Cut',
-      duration: '45 min',
-      featured: false
-    }
-  ];
-
-  const categories = [
-    { id: 'all', name: 'All Work', count: portfolioItems.length },
-    { id: 'signature-cut', name: 'Signature Cuts', count: portfolioItems.filter(item => item.category === 'signature-cut').length },
-    { id: 'traditional-shave', name: 'Traditional Shaves', count: portfolioItems.filter(item => item.category === 'traditional-shave').length },
-    { id: 'royal-package', name: 'Royal Packages', count: portfolioItems.filter(item => item.category === 'royal-package').length },
-    { id: 'beard-grooming', name: 'Beard Grooming', count: portfolioItems.filter(item => item.category === 'beard-grooming').length }
-  ];
-
-  const filteredItems = selectedCategory === 'all' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === selectedCategory);
-
-  const stats = [
-    { number: '500+', label: 'Transformations', icon: <Scissors className="h-6 w-6" /> },
-    { number: '4.9', label: 'Average Rating', icon: <Star className="h-6 w-6" /> },
-    { number: '20+', label: 'Years Experience', icon: <Award className="h-6 w-6" /> },
-    { number: '100%', label: 'Client Satisfaction', icon: <CheckCircle className="h-6 w-6" /> }
+    { number: '12+', label: 'Hair Styles', icon: <Scissors className="h-4 w-4" />, gradient: 'from-red-500 to-pink-500' },
+    { number: '4.9', label: 'Rating', icon: <Star className="h-4 w-4" />, gradient: 'from-yellow-500 to-orange-500' },
+    { number: '20+', label: 'Years', icon: <Award className="h-4 w-4" />, gradient: 'from-blue-500 to-cyan-500' },
+    { number: '100%', label: 'Satisfaction', icon: <CheckCircle className="h-4 w-4" />, gradient: 'from-green-500 to-emerald-500' }
   ];
 
   return (
@@ -447,10 +276,28 @@ export default Portfolio;
         
         @keyframes glow {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
           }
           50% {
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.6), 0 0 60px rgba(239, 68, 68, 0.3);
+          }
+        }
+        
+        @keyframes shimmer {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.4);
           }
         }
         
@@ -473,168 +320,222 @@ export default Portfolio;
         .glow {
           animation: glow 2s ease-in-out infinite;
         }
+        
+        .shimmer {
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+          background-size: 200% 100%;
+          animation: shimmer 2s infinite;
+        }
+        
+        .pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .glassmorphism {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-hover {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+          transform: translateY(-8px) scale(1.02);
+        }
       `}</style>
 
-      <section ref={sectionRef} id="portfolio" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl float" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl float" style={{ animationDelay: '1s' }} />
+      <section ref={sectionRef} className="py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        {/* Advanced Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-500/10 via-transparent to-blue-500/10" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl float" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl float" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-500/5 to-blue-500/5 rounded-full blur-3xl pulse-glow" />
+        </div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Header */}
-          <div className="text-center mb-12 lg:mb-16">
-            <div className={`inline-flex items-center gap-4 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-blue-600/20 via-blue-500/10 to-blue-600/20 backdrop-blur-xl border border-blue-500/30 shadow-2xl mb-8 lg:mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse glow" />
-              <span className="text-blue-600 font-bold text-sm sm:text-lg tracking-widest uppercase">
-                PORTFOLIO SHOWCASE
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          {/* Ultra-Modern Header */}
+          <div className={`text-center mb-16 lg:mb-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className="inline-flex items-center gap-4 px-8 py-4 rounded-2xl glassmorphism shadow-2xl mb-8">
+              <div className="w-4 h-4 bg-gradient-to-r from-red-500 to-pink-500 rounded-full animate-pulse glow" />
+              <span className="text-white font-bold text-lg tracking-widest uppercase bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+                Professional Styling
               </span>
-              <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse glow" />
+              <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full animate-pulse glow" />
             </div>
             
-            <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 lg:mb-8 leading-tight ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
-              <span className="block tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-                SHOAIB'S MASTERPIECES
-              </span>
-              <span className="block text-2xl sm:text-3xl md:text-4xl text-transparent bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text font-light mt-2 lg:mt-4 tracking-widest">
-                TRANSFORMATION GALLERY
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
+              HAIR STYLE
+              <span className="block bg-gradient-to-r from-red-500 via-pink-500 to-blue-500 bg-clip-text text-transparent">
+                GALLERY
               </span>
             </h2>
-            
-            <div className={`flex items-center gap-4 sm:gap-6 mt-6 lg:mt-8 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
-              <div className="h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent flex-1" />
-              <div className="flex items-center gap-2">
-                <Camera className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
-                <span className="text-blue-600 font-medium tracking-widest uppercase text-sm sm:text-lg">
-                  BEFORE & AFTER
-                </span>
-                <Camera className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
-              </div>
-              <div className="h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent flex-1" />
-            </div>
+            <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+              Choose from our curated collection of professional hair styles. 
+              Each style is crafted with precision and tailored to your unique look.
+            </p>
           </div>
 
-          {/* Stats - Compact & Mobile-Friendly */}
-          <div className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 lg:mb-12 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
+          {/* Enhanced Stats with Glassmorphism */}
+          <div className={`flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 lg:mb-16 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
             {stats.map((stat, index) => (
-              <div key={index} className="flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="p-1.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+              <div key={index} className="flex items-center gap-3 glassmorphism rounded-2xl px-6 py-4 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                <div className={`p-2 rounded-xl bg-gradient-to-r ${stat.gradient} text-white shadow-lg`}>
                   {stat.icon}
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-black text-gray-900">{stat.number}</div>
-                  <div className="text-xs sm:text-sm text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-black text-white">{stat.number}</div>
+                  <div className="text-sm text-slate-300 font-medium">{stat.label}</div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Category Filter */}
-          <div className={`flex flex-wrap justify-center gap-4 mb-12 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  selectedCategory === category.id
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 border-2 border-gray-200'
-                }`}
-              >
-                {category.name} ({category.count})
-              </button>
-            ))}
+          {/* Ultra-Modern Category Filter */}
+          <div className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 lg:mb-16 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
+            {categories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`flex items-center gap-3 px-6 py-3 rounded-2xl text-sm font-semibold transition-all duration-300 card-hover ${
+                    selectedCategory === category.id
+                      ? 'glassmorphism text-white shadow-2xl'
+                      : 'bg-white/10 text-slate-300 hover:bg-white/20 hover:text-white border border-white/20'
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {category.name}
+                  <span className="px-2 py-1 rounded-full bg-white/20 text-xs">
+                    {category.count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Portfolio Grid */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
-            {filteredItems.map((item) => (
+          {/* Ultra-Modern Hair Styles Grid */}
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
+            {filteredStyles.map((style, index) => (
               <Card 
-                key={item.id} 
-                className="bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 cursor-pointer group"
-                onClick={() => setSelectedItem(item)}
+                key={style.id} 
+                className={`group cursor-pointer glassmorphism border-0 shadow-2xl card-hover ${
+                  hoveredCard === style.id ? 'shadow-3xl' : ''
+                }`}
+                onClick={() => setSelectedStyle(style)}
+                onMouseEnter={() => setHoveredCard(style.id)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                <CardContent className="p-0">
-                  {/* Before/After Images */}
-                  <div className="relative">
-                    <div className="grid grid-cols-2">
-                      <div className="relative">
-                        <img 
-                          src={item.beforeImage} 
-                          alt={`${item.title} - Before`}
-                          className="w-full h-48 object-cover"
-                        />
-                        <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
-                          BEFORE
-                        </div>
-                      </div>
-                      <div className="relative">
-                        <img 
-                          src={item.afterImage} 
-                          alt={`${item.title} - After`}
-                          className="w-full h-48 object-cover"
-                        />
-                        <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">
-                          AFTER
-                        </div>
-                      </div>
+                <CardContent className="p-8">
+                  {/* Ultra-Modern Style Visual */}
+                  <div className="flex justify-center mb-6">
+                    <div className={`relative w-28 h-28 rounded-3xl bg-gradient-to-br ${style.gradient} flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl ${style.glow}`}>
+                      {/* Shimmer Effect */}
+                      <div className="absolute inset-0 rounded-3xl shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Head Silhouette with Enhanced Styling */}
+                      <svg className="w-24 h-24 text-white relative z-10" viewBox="0 0 100 100" fill="currentColor">
+                        {/* Head shape with gradient */}
+                        <defs>
+                          <linearGradient id={`head-${style.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="rgba(255,255,255,0.8)" />
+                            <stop offset="100%" stopColor="rgba(255,255,255,0.4)" />
+                          </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="45" r="35" fill="url(#head-${style.id})" opacity="0.6"/>
+                        
+                        {/* Enhanced hair styles with gradients */}
+                        {style.category === 'fade' && (
+                          <>
+                            <path d="M25 25 Q50 15 75 25 L75 35 Q50 25 25 35 Z" fill="rgba(255,255,255,0.9)" opacity="0.9"/>
+                            <path d="M30 35 Q50 30 70 35 L70 40 Q50 35 30 40 Z" fill="rgba(255,255,255,0.7)" opacity="0.7"/>
+                            <path d="M35 40 Q50 37 65 40 L65 45 Q50 42 35 45 Z" fill="rgba(255,255,255,0.5)" opacity="0.5"/>
+                          </>
+                        )}
+                        
+                        {style.category === 'classic' && style.name === 'Buzz Cut' && (
+                          <path d="M25 25 Q50 20 75 25 L75 40 Q50 35 25 40 Z" fill="rgba(255,255,255,0.8)" opacity="0.8"/>
+                        )}
+                        
+                        {style.category === 'classic' && style.name === 'Classic Side Part' && (
+                          <>
+                            <path d="M25 25 Q50 20 75 25 L75 40 Q50 35 25 40 Z" fill="rgba(255,255,255,0.8)" opacity="0.8"/>
+                            <path d="M45 25 L45 40" stroke="rgba(255,255,255,0.6)" strokeWidth="2" opacity="0.6"/>
+                          </>
+                        )}
+                        
+                        {style.category === 'modern' && style.name === 'Pompadour' && (
+                          <>
+                            <path d="M25 20 Q50 10 75 20 L75 35 Q50 25 25 35 Z" fill="rgba(255,255,255,0.9)" opacity="0.9"/>
+                            <path d="M30 25 Q50 20 70 25 L70 30 Q50 25 30 30 Z" fill="rgba(255,255,255,0.7)" opacity="0.7"/>
+                          </>
+                        )}
+                        
+                        {style.category === 'modern' && style.name === 'Undercut' && (
+                          <>
+                            <path d="M25 25 Q50 20 75 25 L75 30 Q50 25 25 30 Z" fill="rgba(255,255,255,0.9)" opacity="0.9"/>
+                            <path d="M30 30 Q50 28 70 30 L70 35 Q50 33 30 35 Z" fill="rgba(255,255,255,0.5)" opacity="0.5"/>
+                          </>
+                        )}
+                        
+                        {style.category === 'modern' && style.name === 'Textured Crop' && (
+                          <path d="M25 25 Q50 20 75 25 L75 40 Q50 35 25 40 Z" fill="rgba(255,255,255,0.8)" opacity="0.8" className="animate-pulse"/>
+                        )}
+                        
+                        {style.category === 'beard' && (
+                          <>
+                            <path d="M40 60 Q50 65 60 60 L60 75 Q50 70 40 75 Z" fill="rgba(255,255,255,0.7)" opacity="0.7"/>
+                            {style.name === 'Goatee' && (
+                              <path d="M45 60 Q50 65 55 60 L55 70 Q50 68 45 70 Z" fill="rgba(255,255,255,0.9)" opacity="0.9"/>
+                            )}
+                            {style.name === 'Stubble' && (
+                              <path d="M40 60 Q50 65 60 60 L60 70 Q50 68 40 70 Z" fill="rgba(255,255,255,0.5)" opacity="0.5"/>
+                            )}
+                          </>
+                        )}
+                      </svg>
                     </div>
-                    
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="flex gap-4">
-                        <button className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
-                          <Eye className="h-6 w-6" />
-                        </button>
-                        <button className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
-                          <Heart className="h-6 w-6" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {item.featured && (
-                      <Badge className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-white px-3 py-1 text-xs font-bold">
-                        <Sparkles className="h-3 w-3 mr-1" />
-                        FEATURED
-                      </Badge>
-                    )}
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {item.title}
-                      </h3>
-                      <div className="flex items-center gap-1">
-                        {[...Array(item.rating)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                        ))}
-                      </div>
+                  {/* Enhanced Style Info */}
+                  <div className="text-center">
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                      <h3 className="text-xl font-bold text-white">{style.name}</h3>
+                      {style.popular && (
+                        <Badge className={`bg-gradient-to-r ${style.gradient} text-white text-xs px-3 py-1 shadow-lg`}>
+                          <Sparkles className="h-3 w-3 mr-1" />
+                          Popular
+                        </Badge>
+                      )}
+                    </div>
+                    <p className="text-sm text-slate-300 mb-6 leading-relaxed">{style.description}</p>
+                    
+                    {/* Enhanced Style Details */}
+                    <div className="flex justify-between items-center text-xs mb-6">
+                      <span className={`px-3 py-2 rounded-xl ${
+                        style.difficulty === 'Easy' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                        style.difficulty === 'Medium' ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' :
+                        'bg-red-500/20 text-red-400 border border-red-500/30'
+                      }`}>
+                        {style.difficulty}
+                      </span>
+                      <span className="text-slate-400 flex items-center gap-1">
+                        <Clock className="h-3 w-3" />
+                        {style.duration}
+                      </span>
+                      <span className={`font-bold bg-gradient-to-r ${style.gradient} bg-clip-text text-transparent`}>
+                        {style.price}
+                      </span>
                     </div>
 
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {item.description}
-                    </p>
-
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Users className="h-4 w-4" />
-                        <span>{item.clientName}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Scissors className="h-4 w-4" />
-                        <span>{item.service}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Clock className="h-4 w-4" />
-                        <span>{item.duration}</span>
-                      </div>
-                    </div>
-
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group-hover:shadow-lg">
-                      View Details
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    {/* Ultra-Modern Action Button */}
+                    <Button className={`w-full bg-gradient-to-r ${style.gradient} text-white font-semibold py-3 rounded-2xl transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105 border-0 shadow-xl`}>
+                      <Scissors className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                      Select Style
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </Button>
                   </div>
                 </CardContent>
@@ -642,31 +543,67 @@ export default Portfolio;
             ))}
           </div>
 
-          {/* Call to Action */}
-          <div className={`text-center mt-12 lg:mt-16 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
-            <Card className="bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl">
-              <CardContent className="p-8 sm:p-12">
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <Crown className="h-8 w-8 text-yellow-400" />
-                  <h3 className="text-3xl sm:text-4xl font-black">READY FOR YOUR TRANSFORMATION?</h3>
-                  <Crown className="h-8 w-8 text-yellow-400" />
+          {/* Ultra-Modern Call to Action Banner */}
+          <div className={`text-center mt-16 lg:mt-20 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
+            <div className="relative overflow-hidden rounded-3xl glassmorphism shadow-2xl border border-white/20">
+              {/* Advanced Background Pattern */}
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-pink-500/10 to-blue-500/10" />
+              <div className="absolute inset-0 shimmer opacity-20" />
+              
+              {/* Content */}
+              <div className="relative z-10 p-12 sm:p-16 lg:p-20">
+                {/* Ultra-Modern Header */}
+                <div className="flex items-center justify-center gap-4 mb-8">
+                  <div className="p-3 rounded-2xl bg-gradient-to-r from-red-500 to-pink-500 shadow-2xl">
+                    <Crown className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
+                    READY FOR YOUR TRANSFORMATION?
+                  </h3>
+                  <div className="p-3 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 shadow-2xl">
+                    <Crown className="h-8 w-8 text-white" />
+                  </div>
                 </div>
-                <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                  Join 500+ satisfied clients who have experienced the Shoaib Ghori difference. 
+                
+                {/* Enhanced Subtitle */}
+                <p className="text-xl sm:text-2xl text-slate-200 mb-12 max-w-5xl mx-auto leading-relaxed">
+                  Join <span className="font-bold text-yellow-400">500+ satisfied clients</span> who have experienced the 
+                  <span className="font-bold text-white"> Shoaib Ghori difference</span>. 
                   Book your appointment today and see the transformation for yourself.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                    <Scissors className="inline h-5 w-5 mr-2" />
+                
+                {/* Ultra-Modern Buttons */}
+                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                  <Button className="group bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold px-10 py-5 rounded-2xl text-xl hover:from-red-400 hover:to-pink-400 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl border-0">
+                    <Scissors className="inline h-6 w-6 mr-3 group-hover:rotate-12 transition-transform duration-300" />
                     Book Your Transformation
+                    <ArrowRight className="inline h-6 w-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
-                  <Button variant="outline" className="border-2 border-white text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
-                    <Camera className="inline h-5 w-5 mr-2" />
+                  
+                  <Button className="group glassmorphism border-2 border-white/30 text-white font-bold px-10 py-5 rounded-2xl text-xl hover:bg-white/10 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
+                    <Camera className="inline h-6 w-6 mr-3 group-hover:scale-110 transition-transform duration-300" />
                     View Full Gallery
+                    <Eye className="inline h-6 w-6 ml-3 group-hover:scale-110 transition-transform duration-300" />
                   </Button>
                 </div>
-              </CardContent>
-            </Card>
+                
+                {/* Enhanced Trust Indicators */}
+                <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-slate-300">
+                  <div className="flex items-center gap-3">
+                    <Shield className="h-5 w-5 text-green-400" />
+                    <span className="text-base font-medium">Premium Quality</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Star className="h-5 w-5 text-yellow-400" />
+                    <span className="text-base font-medium">4.9/5 Rating</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Award className="h-5 w-5 text-blue-400" />
+                    <span className="text-base font-medium">20+ Years Experience</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -674,4 +611,4 @@ export default Portfolio;
   );
 };
 
-export default Portfolio; 
+export default Portfolio;

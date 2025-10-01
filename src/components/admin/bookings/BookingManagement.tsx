@@ -30,7 +30,7 @@ const BookingManagement = () => {
     {
       id: 1,
       client: 'Mike Johnson',
-      phone: '(905) 123-4567',
+      phone: '(905) 483-7374',
       email: 'mike.johnson@email.com',
       service: 'Signature Cut',
       barber: 'Alex Chen',

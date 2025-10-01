@@ -220,7 +220,7 @@ const ChairRental = () => {
                 Schedule Tour
               </Button>
               <Button className="btn-outline-hero">
-                Call (905) 123-CUTS
+                Call (905) 483-7374
               </Button>
             </div>
           </div>

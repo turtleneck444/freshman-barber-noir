@@ -75,7 +75,7 @@ export default function MobileOptimizedHero() {
                             <div className="flex items-center justify-center lg:justify-start gap-3 text-white/90 mt-8 mb-8 touch-target">
                                 <Phone className="h-5 w-5 text-red-500" />
                                 <span className="text-mobile-lg sm:text-xl font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                                    (905) 123-CUTS
+                                    (905) 483-7374
                                 </span>
                             </div>
 

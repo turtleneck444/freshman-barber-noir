@@ -473,7 +473,7 @@ const AdvancedBookingWidget = () => {
                         id="phone"
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
-                        placeholder="(905) 123-4567"
+                        placeholder="(905) 483-7374"
                         className="h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg"
                         required
                         style={{ fontFamily: 'Gotham Light, sans-serif' }}

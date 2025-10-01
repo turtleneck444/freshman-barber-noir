@@ -178,7 +178,7 @@ const Navbar1 = ({
             {/* Phone Number */}
             <div className="flex items-center gap-2 text-gray-700">
               <Phone className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>(905) 123-CUTS</span>
+              <span className="text-sm font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>(905) 483-7374</span>
             </div>
             
             {/* Auth Buttons */}
@@ -221,7 +221,7 @@ const Navbar1 = ({
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1 text-gray-700">
                 <Phone className="h-3 w-3 text-blue-600" />
-                <span className="text-xs font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>(905) 123-CUTS</span>
+                <span className="text-xs font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>(905) 483-7374</span>
               </div>
               <Sheet>
                 <SheetTrigger asChild>

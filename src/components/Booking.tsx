@@ -524,7 +524,7 @@ const BookingSystem = () => {
                             phone: e.target.value
                           }
                         }))}
-                        placeholder="(905) 123-4567"
+                        placeholder="(905) 483-7374"
                         className="h-12 border-2 border-gray-300 focus:border-blue-500 rounded-xl text-lg"
                         required
                       />
