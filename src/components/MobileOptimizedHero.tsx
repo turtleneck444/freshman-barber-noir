@@ -72,27 +72,11 @@ export default function MobileOptimizedHero() {
                             </div>
 
                             {/* Mobile Contact Info */}
-                            <div className="flex items-center justify-center lg:justify-start gap-3 text-white/90 mt-8 mb-8 touch-target">
+                            <div className="flex items-center justify-center lg:justify-start gap-3 text-white/90 mt-8 touch-target">
                                 <Phone className="h-5 w-5 text-red-500" />
                                 <span className="text-mobile-lg sm:text-xl font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                                     (905) 483-7374
                                 </span>
-                            </div>
-
-                            {/* Mobile Stats */}
-                            <div className="grid grid-cols-3 mobile-gap text-center">
-                                <div>
-                                    <div className="text-mobile-2xl sm:text-3xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>2,500+</div>
-                                    <div className="text-mobile-xs sm:text-sm text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Happy Clients</div>
-                                </div>
-                                <div>
-                                    <div className="text-mobile-2xl sm:text-3xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>15+</div>
-                                    <div className="text-mobile-xs sm:text-sm text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Years Experience</div>
-                                </div>
-                                <div>
-                                    <div className="text-mobile-2xl sm:text-3xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>4.9★</div>
-                                    <div className="text-mobile-xs sm:text-sm text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Rating</div>
-                                </div>
                             </div>
                         </div>
 
