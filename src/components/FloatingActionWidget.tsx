@@ -6,7 +6,7 @@ import {
   Phone, 
   MapPin, 
   X, 
-  Zap,
+  Menu,
   ArrowRight,
   Clock
 } from 'lucide-react';
@@ -14,31 +14,15 @@ import {
 const FloatingActionWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     // Show widget after a small delay
     const timer = setTimeout(() => setIsVisible(true), 1000);
     
-    // Tooltip animation cycle - show every 10 seconds for 3 seconds
-    const tooltipCycle = setInterval(() => {
-      if (!isOpen) {
-        setShowTooltip(true);
-        setTimeout(() => setShowTooltip(false), 3000);
-      }
-    }, 10000);
-    
-    // Show tooltip on first load
-    setTimeout(() => {
-      setShowTooltip(true);
-      setTimeout(() => setShowTooltip(false), 3000);
-    }, 2000);
-    
     return () => {
       clearTimeout(timer);
-      clearInterval(tooltipCycle);
     };
-  }, [isOpen]);
+  }, []);
 
   const widgets = [
     {
@@ -85,7 +69,6 @@ const FloatingActionWidget = () => {
 
   const handleWidgetClick = () => {
     setIsOpen(false);
-    setShowTooltip(false);
   };
 
   if (!isVisible) return null;
@@ -185,9 +168,9 @@ const FloatingActionWidget = () => {
         />
       )}
 
-      {/* Widget Menu */}
+      {/* Widget Menu - Adjusted Position */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)]">
+        <div className="fixed bottom-[4.5rem] right-4 sm:right-5 z-50 w-[320px] max-w-[calc(100vw-2rem)]">
           <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
             {/* Elegant Header */}
             <div className="relative px-6 py-4 bg-gradient-to-r from-gray-900 via-slate-900 to-black border-b border-white/10">
@@ -195,7 +178,7 @@ const FloatingActionWidget = () => {
               <div className="relative flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center shadow-lg">
-                    <Zap className="h-5 w-5 text-white" />
+                    <Menu className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <h3 className="text-white font-black text-base leading-none mb-1" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
@@ -291,53 +274,30 @@ const FloatingActionWidget = () => {
         </div>
       )}
 
-      {/* Compact Floating Action Button */}
+      {/* Compact Floating Action Button - Smaller Size */}
       <div className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-50">
-        {/* Animated Tooltip */}
-        {showTooltip && !isOpen && (
-          <div className="absolute bottom-full right-0 mb-3 wave-tooltip">
-            <div className="backdrop-blur-premium bg-gradient-to-r from-gray-900 to-black text-white px-4 py-2.5 rounded-xl shadow-2xl border border-white/10 whitespace-nowrap">
-              <div className="flex items-center gap-2">
-                <Zap className="h-3.5 w-3.5 text-red-500" />
-                <span className="text-xs font-bold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                  Quick Actions
-                </span>
-              </div>
-              <div className="absolute top-full right-5 w-2 h-2 bg-gray-900 rotate-45 -mt-1" />
-            </div>
-          </div>
-        )}
-
         <button
-          onClick={() => {
-            setIsOpen(!isOpen);
-            setShowTooltip(false);
-          }}
-          className={`fab-button relative w-14 h-14 rounded-2xl bg-gradient-to-r from-red-600 via-red-600 to-red-700 hover:from-red-500 hover:via-red-600 hover:to-red-700 text-white shadow-2xl transition-all duration-500 transform ${
-            isOpen ? 'scale-95 rotate-45' : 'hover:scale-110'
+          onClick={() => setIsOpen(!isOpen)}
+          className={`fab-button relative w-12 h-12 rounded-xl bg-gradient-to-r from-red-600 via-red-600 to-red-700 hover:from-red-500 hover:via-red-600 hover:to-red-700 text-white shadow-xl transition-all duration-300 transform ${
+            isOpen ? 'scale-95 rotate-90' : 'hover:scale-105'
           } group overflow-hidden`}
-          aria-label="Quick Actions"
+          aria-label="Quick Actions Menu"
         >
           {/* Pulse rings */}
           {!isOpen && (
             <>
-              <div className="absolute inset-0 rounded-2xl bg-red-500 pulse-ring" />
-              <div className="absolute inset-0 rounded-2xl bg-red-500 pulse-ring" style={{ animationDelay: '1s' }} />
+              <div className="absolute inset-0 rounded-xl bg-red-500 pulse-ring" />
+              <div className="absolute inset-0 rounded-xl bg-red-500 pulse-ring" style={{ animationDelay: '1s' }} />
             </>
           )}
           
-          {/* Spinning border glow */}
-          <div className="absolute inset-[-2px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="spin-border absolute inset-0 rounded-2xl bg-gradient-to-r from-red-400 via-yellow-400 via-blue-400 to-red-400 blur-sm" />
-          </div>
-          
           {/* Button content */}
           <div className="relative w-full h-full flex items-center justify-center">
-            <div className={`absolute transition-all duration-300 ${isOpen ? 'rotate-45 scale-0' : 'rotate-0 scale-100'}`}>
-              <Zap className="h-6 w-6" fill="currentColor" />
+            <div className={`absolute transition-all duration-300 ${isOpen ? 'rotate-90 scale-0' : 'rotate-0 scale-100'}`}>
+              <Menu className="h-5 w-5" strokeWidth={2.5} />
             </div>
-            <div className={`absolute transition-all duration-300 ${isOpen ? 'rotate-0 scale-100' : 'rotate-45 scale-0'}`}>
-              <X className="h-6 w-6" />
+            <div className={`absolute transition-all duration-300 ${isOpen ? 'rotate-0 scale-100' : 'rotate-90 scale-0'}`}>
+              <X className="h-5 w-5" strokeWidth={2.5} />
             </div>
           </div>
           

@@ -137,38 +137,38 @@ const LocationMap = () => {
 
       <section ref={sectionRef} id="location" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Professional Header */}
-          <div className="text-center mb-16">
-            <div className={`inline-flex items-center gap-4 px-8 py-4 rounded-full bg-red-600/10 backdrop-blur-sm border border-red-500/20 shadow-lg mb-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-red-600 font-bold text-lg tracking-widest uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+          {/* Professional Header - Compact */}
+          <div className="text-center mb-10">
+            <div className={`inline-flex items-center gap-3 px-6 py-2 rounded-full bg-red-600/10 backdrop-blur-sm border border-red-500/20 shadow-lg mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+              <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-red-600 font-bold text-sm tracking-widest uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                 Find Us
               </span>
-              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
             </div>
             
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
               <span className="block tracking-tight">VISIT OUR</span>
-              <span className="block text-2xl md:text-3xl text-red-600 font-light mt-2 tracking-widest" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+              <span className="block text-xl md:text-2xl text-red-600 font-light mt-1.5 tracking-widest" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
                 BARBERSHOP IN MISSISSAUGA
               </span>
             </h2>
             
-            <div className={`flex items-center gap-4 sm:gap-6 mt-6 lg:mt-8 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
+            <div className={`flex items-center gap-3 sm:gap-4 mt-4 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
               <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent flex-1" />
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-red-500" />
-                <span className="text-gray-600 font-medium tracking-widest uppercase text-sm sm:text-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-red-500" />
+                <span className="text-gray-600 font-medium tracking-widest uppercase text-xs sm:text-sm" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                   167 QUEEN ST S, MISSISSAUGA
                 </span>
-                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-red-500" />
+                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-red-500" />
               </div>
               <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent flex-1" />
             </div>
           </div>
 
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
+          {/* Main Content Grid - Optimized */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Google Maps Embed */}
             <div className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <Card className="bg-white border border-gray-200 shadow-2xl overflow-hidden">
