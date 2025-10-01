@@ -188,7 +188,7 @@ const FloatingActionWidget = () => {
       {/* Widget Menu */}
       {isOpen && (
         <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[340px] max-w-[calc(100vw-2rem)]">
-          <div className="backdrop-blur-premium bg-gradient-to-br from-white/98 to-gray-50/98 rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
             {/* Elegant Header */}
             <div className="relative px-6 py-4 bg-gradient-to-r from-gray-900 via-slate-900 to-black border-b border-white/10">
               <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-transparent to-blue-500/5" />

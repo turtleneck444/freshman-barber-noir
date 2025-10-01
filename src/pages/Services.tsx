@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActionWidget from "@/components/FloatingActionWidget";
+import SEO from "@/components/SEO";
 import { Features } from "@/components/blocks/features-9";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -91,8 +92,14 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
+      <SEO 
+        title="Services - The FRESHMEN Barbershop | Premium Haircuts, Fades & Beard Grooming in Mississauga"
+        description="Explore our premium barbering services: Signature Cuts ($45), Royal Package ($85), Skin Fades ($50), Beard Grooming ($35), Hot Towel Shaves. Expert barbers in Mississauga. Book now!"
+        canonical="https://thefreshmenbarbershop.com/services"
+      />
+      <div className="min-h-screen">
+        <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -207,6 +214,7 @@ const Services = () => {
       <Footer />
       <FloatingActionWidget />
     </div>
+    </>
   );
 };
 

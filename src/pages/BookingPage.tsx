@@ -1,12 +1,19 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActionWidget from "@/components/FloatingActionWidget";
+import SEO from "@/components/SEO";
 import { Features } from "@/components/blocks/features-9";
 
 const BookingPage = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
+      <SEO 
+        title="Book Appointment - The FRESHMEN Barbershop | Online Booking Mississauga"
+        description="Book your haircut appointment online at The FRESHMEN Barbershop in Mississauga. Fast, easy booking. Walk-ins welcome! Call (905) 483-7374 or book online now. Open 7 days."
+        canonical="https://thefreshmenbarbershop.com/booking"
+      />
+      <div className="min-h-screen">
+        <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -44,6 +51,7 @@ const BookingPage = () => {
       <Footer />
       <FloatingActionWidget />
     </div>
+    </>
   );
 };
 

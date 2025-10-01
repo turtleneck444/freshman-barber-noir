@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActionWidget from "@/components/FloatingActionWidget";
+import SEO from "@/components/SEO";
 import LocationMap from "@/components/LocationMap";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -42,8 +43,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <Header />
+    <>
+      <SEO 
+        title="Contact Us - The FRESHMEN Barbershop | Book Appointment | (905) 483-7374"
+        description="Contact The FRESHMEN Barbershop in Mississauga. Visit us at 167 Queen St S, Unit 4 or call (905) 483-7374. Open 7 days a week. Walk-ins welcome! Email: freshmen.style16@gmail.com"
+        canonical="https://thefreshmenbarbershop.com/contact"
+      />
+      <div className="min-h-screen">
+        <Header />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -237,6 +244,7 @@ const Contact = () => {
       <Footer />
       <FloatingActionWidget />
     </div>
+    </>
   );
 };
 
