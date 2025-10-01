@@ -76,7 +76,7 @@ const FloatingActionWidget = () => {
       icon: <MapPin className="h-5 w-5" />,
       label: 'Get Directions',
       description: '167 Queen St S, Unit 4',
-      link: 'https://www.google.com/maps/place/The+FRESHMEN+Barbershop/@43.5823631,-79.7144503,17z',
+      link: 'https://www.google.com/maps/place/The+FRESHMEN+Barbershop/@43.5823631,-79.7144503,17z/data=!3m1!4b1!4m6!3m5!1s0x882b41b9a9fea6a1:0xe418339f4adcef70!8m2!3d43.5823631!4d-79.7144503!16s%2Fg%2F11c2lbfwlh?hl=en-CA&entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D',
       gradient: 'from-green-500 via-emerald-600 to-teal-600',
       hoverGradient: 'from-green-400 via-emerald-500 to-teal-500',
       external: true

@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import { Features } from "@/components/blocks/features-9";
 import ShopShowcase from "@/components/ShopShowcase";
+import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import LocationMap from "@/components/LocationMap";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
@@ -14,6 +15,7 @@ const Index = () => {
       <Hero />
       <Features />
       <ShopShowcase />
+      <GoogleBusinessWidget />
       <LocationMap />
       <Testimonials />
       <Footer />
