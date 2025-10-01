@@ -286,34 +286,34 @@ const AdvancedBookingWidget = () => {
             </div>
           </div>
 
-          <div className="p-8">
-            <div className="grid lg:grid-cols-2 gap-8">
+          <div className="p-4 sm:p-6 lg:p-8">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {/* Enhanced Service Selection */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <div className="p-2 bg-red-100 rounded-lg">
                     <Scissors className="h-5 w-5 text-red-600" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  <h4 className="text-xl sm:text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                     Select Your Service
                   </h4>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4">
                   {services.map((service, index) => (
                     <Card 
                       key={service.id} 
                       className={`border-2 cursor-pointer transition-all duration-500 group hover:shadow-xl animate-slide-in-up ${
                         selectedService === service.id 
-                          ? 'border-red-500 bg-gradient-to-r from-red-50 to-red-100 shadow-lg scale-105' 
+                          ? 'border-red-500 bg-gradient-to-r from-red-50 to-red-100 shadow-lg sm:scale-105' 
                           : 'border-gray-200 hover:border-red-300 hover:shadow-md'
                       }`}
                       style={{ animationDelay: `${index * 0.1}s` }}
                       onClick={() => handleServiceSelect(service.id)}
                     >
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className={`p-3 rounded-xl transition-all duration-300 ${
+                      <CardContent className="p-4 sm:p-6">
+                        <div className="flex items-start gap-3 sm:gap-4">
+                          <div className={`p-2 sm:p-3 rounded-xl transition-all duration-300 flex-shrink-0 ${
                             selectedService === service.id 
                               ? `bg-gradient-to-r ${service.color} text-white shadow-lg` 
                               : 'bg-gray-100 text-gray-600 group-hover:bg-gradient-to-r group-hover:shadow-lg'
@@ -321,23 +321,23 @@ const AdvancedBookingWidget = () => {
                             {service.icon}
                           </div>
                           
-                          <div className="flex-1">
-                            <div className="flex justify-between items-start mb-3">
-                              <div>
-                                <h5 className={`text-xl font-bold mb-1 ${
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2 sm:mb-3">
+                              <div className="flex-1 min-w-0">
+                                <h5 className={`text-lg sm:text-xl font-bold mb-1 ${
                                   selectedService === service.id 
                                     ? 'text-red-600' 
                                     : 'text-gray-900 group-hover:text-red-600'
                                 }`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                                   {service.name}
                                 </h5>
-                                <p className="text-gray-600 text-sm" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                                <p className="text-gray-600 text-sm hidden sm:block" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
                                   {service.description}
                                 </p>
                               </div>
                               
-                              <div className="text-right">
-                                <div className="text-2xl font-bold text-gray-900 mb-1" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                              <div className="text-left sm:text-right flex-shrink-0">
+                                <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                                   {service.price}
                                 </div>
                                 <div className="text-xs text-gray-500 font-medium" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
@@ -376,27 +376,27 @@ const AdvancedBookingWidget = () => {
               </div>
 
               {/* Enhanced Booking Form */}
-              <div className="space-y-6">
-                <div className="flex items-center gap-3 mb-6">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <div className="p-2 bg-blue-100 rounded-lg">
                     <Calendar className="h-5 w-5 text-blue-600" />
                   </div>
-                  <h4 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  <h4 className="text-xl sm:text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                     Book Your Appointment
                   </h4>
                 </div>
                 
                 {selectedServiceData && (
-                  <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-6 mb-6 animate-slide-in-up">
-                    <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-r ${selectedServiceData.color} text-white shadow-lg`}>
+                  <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 animate-slide-in-up">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-r ${selectedServiceData.color} text-white shadow-lg flex-shrink-0`}>
                         {selectedServiceData.icon}
                       </div>
-                      <div className="flex-1">
-                        <h5 className="font-bold text-red-800 text-lg mb-1" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                      <div className="flex-1 min-w-0">
+                        <h5 className="font-bold text-red-800 text-base sm:text-lg mb-1" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                           {selectedServiceData.name} - {selectedServiceData.price}
                         </h5>
-                        <p className="text-sm text-red-600 mb-2" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                        <p className="text-xs sm:text-sm text-red-600 mb-2" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
                           {selectedServiceData.duration} • {selectedServiceData.description}
                         </p>
                         <div className="flex items-center gap-2">
