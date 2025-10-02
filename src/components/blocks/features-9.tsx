@@ -239,7 +239,7 @@ const AdvancedBookingWidget = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-3xl"></div>
         
         {/* Main Container */}
-        <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 w-full overflow-visible md:overflow-hidden">
+        <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
           {/* Enhanced Header */}
           <div className="relative bg-gradient-to-r from-slate-900 via-gray-800 to-slate-900 px-4 sm:px-6 lg:px-8 py-8 overflow-hidden">
             {/* Animated Background Elements */}
@@ -286,10 +286,10 @@ const AdvancedBookingWidget = () => {
             </div>
           </div>
 
-          <div className="p-4 sm:p-6 lg:p-8">
-            <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="p-3 sm:p-4 md:p-6 lg:p-8">
+            <div className="grid lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-full">
               {/* Enhanced Service Selection */}
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6 w-full min-w-0">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <div className="p-2 bg-red-100 rounded-lg">
                     <Scissors className="h-5 w-5 text-red-600" />
@@ -299,7 +299,7 @@ const AdvancedBookingWidget = () => {
                   </h4>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-3 sm:gap-4">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4 w-full">
                   {services.map((service, index) => (
                     <Card 
                       key={service.id} 
@@ -311,7 +311,7 @@ const AdvancedBookingWidget = () => {
                       style={{ animationDelay: `${index * 0.1}s` }}
                       onClick={() => handleServiceSelect(service.id)}
                     >
-                      <CardContent className="p-4 sm:p-6">
+                      <CardContent className="p-3 sm:p-4 md:p-6">
                         <div className="flex items-start gap-3 sm:gap-4">
                           <div className={`p-2 sm:p-3 rounded-xl transition-all duration-300 flex-shrink-0 ${
                             selectedService === service.id 
@@ -376,7 +376,7 @@ const AdvancedBookingWidget = () => {
               </div>
 
               {/* Enhanced Booking Form */}
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6 w-full min-w-0">
                 <div className="flex items-center gap-3 mb-4 sm:mb-6">
                   <div className="p-2 bg-blue-100 rounded-lg">
                     <Calendar className="h-5 w-5 text-blue-600" />
@@ -387,7 +387,7 @@ const AdvancedBookingWidget = () => {
                 </div>
                 
                 {selectedServiceData && (
-                  <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 animate-slide-in-up">
+                  <div className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 animate-slide-in-up w-full">
                     <div className="flex items-center gap-3 sm:gap-4">
                       <div className={`p-2 sm:p-3 rounded-xl bg-gradient-to-r ${selectedServiceData.color} text-white shadow-lg flex-shrink-0`}>
                         {selectedServiceData.icon}
@@ -410,7 +410,7 @@ const AdvancedBookingWidget = () => {
                   </div>
                 )}
                 
-                <form onSubmit={handleBookingSubmit} className="space-y-6">
+                <form onSubmit={handleBookingSubmit} className="space-y-4 sm:space-y-6 w-full">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <Label htmlFor="date" className="text-sm font-bold text-gray-700 mb-2 block" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
@@ -422,7 +422,7 @@ const AdvancedBookingWidget = () => {
                         type="date"
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
-                        className="h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg"
+                        className="h-10 sm:h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-sm sm:text-lg w-full"
                         required
                         style={{ fontFamily: 'Gotham Light, sans-serif' }}
                       />
@@ -433,7 +433,7 @@ const AdvancedBookingWidget = () => {
                         Time *
                       </Label>
                       <Select value={selectedTime} onValueChange={setSelectedTime} required>
-                        <SelectTrigger className="h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg">
+                        <SelectTrigger className="h-10 sm:h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-sm sm:text-lg w-full">
                           <SelectValue placeholder="Select time" />
                         </SelectTrigger>
                         <SelectContent>
@@ -457,7 +457,7 @@ const AdvancedBookingWidget = () => {
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
                       placeholder="Enter your full name"
-                      className="h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg"
+                      className="h-10 sm:h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-sm sm:text-lg w-full"
                       required
                       style={{ fontFamily: 'Gotham Light, sans-serif' }}
                     />
@@ -474,7 +474,7 @@ const AdvancedBookingWidget = () => {
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
                         placeholder="(905) 483-7374"
-                        className="h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg"
+                        className="h-10 sm:h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-sm sm:text-lg w-full"
                         required
                         style={{ fontFamily: 'Gotham Light, sans-serif' }}
                       />
@@ -490,7 +490,7 @@ const AdvancedBookingWidget = () => {
                         value={customerEmail}
                         onChange={(e) => setCustomerEmail(e.target.value)}
                         placeholder="your@email.com"
-                        className="h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg"
+                        className="h-10 sm:h-12 border-2 border-gray-200 focus:border-red-500 rounded-xl text-sm sm:text-lg w-full"
                         style={{ fontFamily: 'Gotham Light, sans-serif' }}
                       />
                     </div>
@@ -506,7 +506,7 @@ const AdvancedBookingWidget = () => {
                       value={specialRequests}
                       onChange={(e) => setSpecialRequests(e.target.value)}
                       placeholder="Any specific styling preferences or special requests..."
-                      className="border-2 border-gray-200 focus:border-red-500 rounded-xl text-lg min-h-[100px]"
+                      className="border-2 border-gray-200 focus:border-red-500 rounded-xl text-sm sm:text-lg min-h-[80px] sm:min-h-[100px] w-full"
                       rows={4}
                       style={{ fontFamily: 'Gotham Light, sans-serif' }}
                     />
@@ -514,7 +514,7 @@ const AdvancedBookingWidget = () => {
 
                   <Button 
                     type="submit"
-                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black py-4 px-8 rounded-xl text-xl transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-red-500/25" 
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black py-3 sm:py-4 px-4 sm:px-8 rounded-xl text-base sm:text-xl transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-red-500/25" 
                     style={{ fontFamily: 'Gotham Bold, sans-serif' }}
                     disabled={!selectedService}
                   >
