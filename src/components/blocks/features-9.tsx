@@ -239,9 +239,9 @@ const AdvancedBookingWidget = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-3xl"></div>
         
         {/* Main Container */}
-        <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+        <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 w-full overflow-visible md:overflow-hidden">
           {/* Enhanced Header */}
-          <div className="relative bg-gradient-to-r from-slate-900 via-gray-800 to-slate-900 px-8 py-8 overflow-hidden">
+          <div className="relative bg-gradient-to-r from-slate-900 via-gray-800 to-slate-900 px-4 sm:px-6 lg:px-8 py-8 overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 shimmer-effect opacity-20"></div>
             <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-2xl"></div>
@@ -411,7 +411,7 @@ const AdvancedBookingWidget = () => {
                 )}
                 
                 <form onSubmit={handleBookingSubmit} className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <Label htmlFor="date" className="text-sm font-bold text-gray-700 mb-2 block" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                         <Calendar className="h-4 w-4 inline mr-2" />
@@ -463,7 +463,7 @@ const AdvancedBookingWidget = () => {
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <Label htmlFor="phone" className="text-sm font-bold text-gray-700 mb-2 block" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
                         <Phone className="h-4 w-4 inline mr-2" />
