@@ -236,7 +236,7 @@ const BookingSystem = () => {
           }} />
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className="text-center mb-12 lg:mb-16">
             <div className={`inline-flex items-center gap-4 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-blue-600/20 via-blue-500/10 to-blue-600/20 backdrop-blur-xl border border-blue-500/30 shadow-2xl mb-8 lg:mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -292,7 +292,7 @@ const BookingSystem = () => {
           </div>
 
           {/* Booking Steps */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto px-1 sm:px-2">
             {/* STEP 1: Service Selection */}
             {currentStep === 1 && (
               <Card className={`bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
@@ -303,50 +303,50 @@ const BookingSystem = () => {
                   </CardTitle>
                   <p className="text-gray-700 text-lg">Select the perfect service for your grooming needs</p>
                 </CardHeader>
-                <CardContent className="p-6 sm:p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <CardContent className="p-3 sm:p-6 md:p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                     {services.map((service) => (
                       <div
                         key={service.id}
                         onClick={() => selectService(service)}
-                        className="relative p-4 sm:p-6 border-2 border-gray-200 rounded-xl cursor-pointer transition-all duration-300 hover:border-blue-500 hover:shadow-lg hover:scale-105 bg-white group"
+                        className="relative p-3 sm:p-4 md:p-6 border-2 border-gray-200 rounded-xl cursor-pointer transition-all duration-300 hover:border-blue-500 hover:shadow-lg hover:scale-105 bg-white group overflow-hidden"
                       >
                         {service.popular && (
-                          <Badge className="absolute -top-2 -right-2 bg-blue-500 text-white px-3 py-1 text-xs font-bold">
-                            <Sparkles className="h-3 w-3 mr-1" />
-                            POPULAR
+                          <Badge className="absolute -top-2 -right-2 bg-blue-500 text-white px-2 sm:px-3 py-1 text-xs font-bold flex items-center gap-1">
+                            <Sparkles className="h-3 w-3" />
+                            <span className="hidden sm:inline">POPULAR</span>
                           </Badge>
                         )}
                         
-                        <div className="flex justify-between items-start mb-3">
-                          <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                        <div className="flex justify-between items-start mb-3 gap-2">
+                          <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors flex-shrink-0 max-w-[60%]">
                             {service.name}
                           </h3>
-                          <div className="text-right">
-                            <div className="text-xl sm:text-2xl font-black text-blue-600">
+                          <div className="text-right flex-shrink-0">
+                            <div className="text-lg sm:text-xl md:text-2xl font-black text-blue-600 whitespace-nowrap">
                               ${service.price}
                             </div>
-                            <div className="flex items-center text-gray-500 text-sm">
+                            <div className="flex items-center justify-end text-gray-500 text-xs sm:text-sm whitespace-nowrap">
                               <Timer className="h-3 w-3 mr-1" />
                               {service.duration}min
                             </div>
                           </div>
                         </div>
                         
-                        <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
+                        <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 pr-1">
                           {service.description}
                         </p>
                         
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                             <div className="flex">
                               {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                                <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-400 fill-current" />
                               ))}
                             </div>
-                            <span className="text-gray-600 text-sm">5.0</span>
+                            <span className="text-gray-600 text-xs sm:text-sm">5.0</span>
                           </div>
-                          <ArrowRight className="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                         </div>
                       </div>
                     ))}
