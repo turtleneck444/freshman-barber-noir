@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingActionWidget from "@/components/FloatingActionWidget";
 import SEO from "@/components/SEO";
-import { Features } from "@/components/blocks/features-9";
+import BooksyStyleBooking from "@/components/BooksyStyleBooking";
 
 const BookingPage = () => {
   return (
@@ -46,7 +46,9 @@ const BookingPage = () => {
       </section>
 
       {/* Booking Widget Section */}
-      <Features />
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        <BooksyStyleBooking />
+      </section>
       
       <Footer />
       <FloatingActionWidget />

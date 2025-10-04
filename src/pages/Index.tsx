@@ -20,8 +20,8 @@ const Index = () => {
       <div className="min-h-screen">
         <Header />
         <Hero />
-        <Features />
         <ShopShowcase />
+        <Features />
         <GoogleBusinessWidget />
         <LocationMap />
         <Testimonials />

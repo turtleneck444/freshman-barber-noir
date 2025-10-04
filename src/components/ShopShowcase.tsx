@@ -157,33 +157,119 @@ const ShopShowcase = () => {
 
       <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Professional Header - Optimized Spacing */}
-          <div className="text-center mb-12">
-            <div className={`inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-red-600/10 backdrop-blur-sm border border-red-500/20 shadow-lg mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-red-600 font-bold text-sm tracking-widest uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                Visit Our Shop
-              </span>
-              <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-            </div>
-            
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-3 leading-none ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-              <span className="block tracking-tight">WELCOME TO</span>
-              <span className="block text-xl sm:text-2xl md:text-3xl text-red-600 font-light mt-1.5 tracking-widest" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
-                THE FRESHMEN STYLE BARBERSHOP
-              </span>
-            </h2>
-            
-            <div className={`flex items-center gap-3 sm:gap-4 mt-4 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent flex-1" />
-              <div className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-red-500" />
-                <span className="text-gray-600 font-medium tracking-widest uppercase text-xs sm:text-sm" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                  MISSISSAUGA, ON
-                </span>
-                <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-red-500" />
+          {/* Premium Header Section */}
+          <div className="relative mb-20">
+            {/* Decorative Background Elements */}
+            <div className="absolute inset-0 -z-10">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-red-600/10 to-red-500/5 rounded-full blur-3xl"></div>
               </div>
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent flex-1" />
+            </div>
+
+            <div className="text-center max-w-5xl mx-auto">
+              {/* Premium Badge */}
+              <div className={`inline-flex items-center gap-3 px-8 py-3 rounded-full bg-gradient-to-r from-red-600/10 via-red-500/15 to-red-600/10 backdrop-blur-sm border-2 border-red-500/30 shadow-2xl mb-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+                <Sparkles className="h-5 w-5 text-red-600 animate-pulse" />
+                <span className="text-red-600 font-black text-sm tracking-[0.3em] uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  VISIT OUR PREMIUM SHOP
+                </span>
+                <Sparkles className="h-5 w-5 text-red-600 animate-pulse" />
+              </div>
+              
+              {/* Main Headline with Enhanced Design */}
+              <div className={`mb-8 ${isVisible ? 'animate-fade-in-up-delay' : 'opacity-0'}`}>
+                {/* Top Decorative Line */}
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <div className="h-px w-20 bg-gradient-to-r from-transparent to-red-600"></div>
+                  <Crown className="h-6 w-6 text-red-600" />
+                  <div className="h-px w-20 bg-gradient-to-l from-transparent to-red-600"></div>
+                </div>
+
+                <h2 className="relative inline-block">
+                  {/* Shadow/Glow Effect */}
+                  <span className="absolute inset-0 blur-2xl opacity-20 bg-gradient-to-r from-red-600 to-gray-900"></span>
+                  
+                  <span className="relative block">
+                    <span className="block text-2xl sm:text-3xl md:text-4xl font-light text-gray-500 tracking-[0.2em] uppercase mb-3" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                      Welcome To
+                    </span>
+                    <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-red-600 to-gray-900 leading-tight tracking-tight" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                      THE FRESHMEN
+                    </span>
+                    <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600 leading-tight tracking-tight mt-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                      STYLE BARBERSHOP
+                    </span>
+                  </span>
+                </h2>
+
+                {/* Bottom Decorative Line */}
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <div className="h-px w-20 bg-gradient-to-r from-transparent to-red-600"></div>
+                  <Scissors className="h-6 w-6 text-red-600" />
+                  <div className="h-px w-20 bg-gradient-to-l from-transparent to-red-600"></div>
+                </div>
+              </div>
+              
+              {/* Location & Rating Section */}
+              <div className={`space-y-6 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`}>
+                {/* Location Badge */}
+                <div className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white border-2 border-gray-200 shadow-xl">
+                  <div className="flex items-center gap-2">
+                    <div className="p-2 bg-gradient-to-r from-red-600 to-red-700 rounded-xl shadow-lg">
+                      <MapPin className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-xs text-gray-500 font-medium tracking-wider uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                        Located In
+                      </div>
+                      <div className="text-lg font-black text-gray-900 tracking-wide" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                        MISSISSAUGA, ONTARIO
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Premium Stats Row */}
+                <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+                  {/* Rating */}
+                  <div className="flex items-center gap-2 px-6 py-3 bg-white rounded-xl shadow-lg border border-gray-100">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                      ))}
+                    </div>
+                    <div className="h-4 w-px bg-gray-300"></div>
+                    <span className="text-xl font-black text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>4.9</span>
+                    <span className="text-sm text-gray-600" style={{ fontFamily: 'Gotham Light, sans-serif' }}>/5</span>
+                  </div>
+
+                  {/* Experience */}
+                  <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-xl shadow-lg border border-gray-100">
+                    <Award className="h-6 w-6 text-red-600" />
+                    <div className="text-left">
+                      <div className="text-xs text-gray-500 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Experience</div>
+                      <div className="text-lg font-black text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>20+ Years</div>
+                    </div>
+                  </div>
+
+                  {/* Clients */}
+                  <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-xl shadow-lg border border-gray-100">
+                    <Users className="h-6 w-6 text-red-600" />
+                    <div className="text-left">
+                      <div className="text-xs text-gray-500 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Happy Clients</div>
+                      <div className="text-lg font-black text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>2,500+</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Premium Services Tagline */}
+                <div className="mt-8">
+                  <p className="text-xl sm:text-2xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                    Where <span className="font-bold text-red-600">traditional craftsmanship</span> meets <span className="font-bold text-gray-900">modern precision</span> — 
+                    Experience the pinnacle of men's grooming excellence
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

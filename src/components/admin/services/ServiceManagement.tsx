@@ -1,390 +1,456 @@
 import { useState } from 'react';
 import { 
-  Scissors, 
-  Plus, 
-  Search, 
-  Filter, 
-  MoreVertical,
+  Scissors,
+  Plus,
   Edit,
   Trash2,
   Eye,
   Clock,
   DollarSign,
+  TrendingUp,
+  Search,
+  Filter,
+  Download,
+  ToggleLeft,
+  ToggleRight,
   Star,
-  Users,
-  Zap,
-  Crown
+  Activity,
+  X,
+  CheckCircle
 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 const ServiceManagement = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
-  const [statusFilter, setStatusFilter] = useState('all');
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
+  // Services data
   const services = [
     {
       id: 1,
-      name: 'Signature Cut',
-      category: 'Haircuts',
+      name: 'Signature Haircut',
+      category: 'Haircut',
       price: 45,
-      duration: 45,
-      status: 'active',
-      popularity: 95,
-      bookings: 156,
-      revenue: 7020,
-      description: 'Precision cuts tailored to your style. Classic to contemporary, we\'ve got you covered.',
-      features: ['Consultation', 'Wash & Style', 'Hot Towel Finish'],
-      icon: Scissors,
-      color: 'text-red-400'
+      duration: '45 min',
+      description: 'Premium haircut with consultation, wash, and style',
+      bookings: 145,
+      revenue: 6525,
+      rating: 4.9,
+      active: true,
+      features: ['Consultation', 'Premium Wash', 'Precision Cut', 'Style & Finish']
     },
     {
       id: 2,
-      name: 'Traditional Shave',
-      category: 'Shaving',
-      price: 35,
-      duration: 30,
-      status: 'active',
-      popularity: 88,
+      name: 'Haircut + Beard Trim',
+      category: 'Combo',
+      price: 60,
+      duration: '60 min',
+      description: 'Complete grooming package for hair and beard',
       bookings: 98,
-      revenue: 3430,
-      description: 'Experience the art of traditional barbering with our hot towel straight razor shave.',
-      features: ['Hot Towel Prep', 'Straight Razor', 'Aftershave Treatment'],
-      icon: Crown,
-      color: 'text-blue-400'
+      revenue: 5880,
+      rating: 4.8,
+      active: true,
+      features: ['Haircut', 'Beard Sculpting', 'Hot Towel', 'Styling']
     },
     {
       id: 3,
       name: 'Royal Package',
       category: 'Premium',
-      price: 80,
-      duration: 90,
-      status: 'active',
-      popularity: 92,
-      bookings: 67,
-      revenue: 5360,
-      description: 'The ultimate barbershop experience. Cut, shave, styling, and premium treatment.',
-      features: ['Premium Cut', 'Traditional Shave', 'Beard Styling', 'Head Massage'],
-      icon: Crown,
-      color: 'text-purple-400'
+      price: 85,
+      duration: '90 min',
+      description: 'Full service premium grooming experience',
+      bookings: 42,
+      revenue: 3570,
+      rating: 5.0,
+      active: true,
+      features: ['Haircut', 'Traditional Shave', 'Beard Styling', 'Head Massage']
     },
     {
       id: 4,
-      name: 'Beard Grooming',
-      category: 'Grooming',
-      price: 25,
-      duration: 30,
-      status: 'active',
-      popularity: 76,
-      bookings: 89,
-      revenue: 2225,
-      description: 'Professional beard trimming and styling to keep you looking sharp and refined.',
-      features: ['Trim & Shape', 'Beard Oil', 'Style Consultation'],
-      icon: Zap,
-      color: 'text-green-400'
+      name: 'Traditional Shave',
+      category: 'Shave',
+      price: 35,
+      duration: '30 min',
+      description: 'Classic straight razor shave with hot towels',
+      bookings: 67,
+      revenue: 2345,
+      rating: 4.7,
+      active: true,
+      features: ['Hot Towel Prep', 'Straight Razor', 'Aftershave', 'Face Massage']
     },
     {
       id: 5,
-      name: 'Father & Son',
-      category: 'Packages',
-      price: 70,
-      duration: 60,
-      status: 'active',
-      popularity: 82,
-      bookings: 45,
-      revenue: 3150,
-      description: 'Create memories together with our special father and son package.',
-      features: ['2 Premium Cuts', 'Father & Son Experience', 'Special Memories'],
-      icon: Users,
-      color: 'text-orange-400'
+      name: 'Beard Trim & Style',
+      category: 'Beard',
+      price: 30,
+      duration: '25 min',
+      description: 'Professional beard trimming and shaping',
+      bookings: 89,
+      revenue: 2670,
+      rating: 4.6,
+      active: true,
+      features: ['Beard Consultation', 'Precision Trim', 'Beard Oil', 'Styling Tips']
     },
     {
       id: 6,
-      name: 'VIP Membership',
-      category: 'Membership',
-      price: 199,
-      duration: 0,
-      status: 'active',
-      popularity: 68,
-      bookings: 23,
-      revenue: 4577,
-      description: 'Unlimited premium services with priority booking and exclusive perks.',
-      features: ['Unlimited Services', 'Priority Booking', 'Exclusive Products', 'Special Events'],
-      icon: Star,
-      color: 'text-yellow-400'
+      name: "Kids' Haircut",
+      category: 'Haircut',
+      price: 35,
+      duration: '30 min',
+      description: 'Haircut for children 12 and under',
+      bookings: 56,
+      revenue: 1960,
+      rating: 4.5,
+      active: true,
+      features: ['Kid-Friendly', 'Quick Service', 'Patient Approach', 'Fun Experience']
+    },
+    {
+      id: 7,
+      name: 'Premium Hair Wash',
+      category: 'Add-on',
+      price: 20,
+      duration: '15 min',
+      description: 'Luxurious hair washing and conditioning',
+      bookings: 34,
+      revenue: 680,
+      rating: 4.8,
+      active: true,
+      features: ['Premium Shampoo', 'Deep Conditioning', 'Scalp Massage', 'Blow Dry']
+    },
+    {
+      id: 8,
+      name: 'Hair Coloring',
+      category: 'Special',
+      price: 75,
+      duration: '120 min',
+      description: 'Professional hair coloring service',
+      bookings: 12,
+      revenue: 900,
+      rating: 4.9,
+      active: false,
+      features: ['Color Consultation', 'Premium Products', 'Application', 'Styling']
     }
   ];
 
-  const categories = ['all', 'Haircuts', 'Shaving', 'Grooming', 'Premium', 'Packages', 'Membership'];
-  const statuses = ['all', 'active', 'inactive', 'seasonal'];
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'active': return 'bg-green-500/20 text-green-400 border-green-500/30';
-      case 'inactive': return 'bg-red-500/20 text-red-400 border-red-500/30';
-      case 'seasonal': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
-      default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
-    }
-  };
-
   const filteredServices = services.filter(service => {
-    const matchesSearch = service.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         service.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         service.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = categoryFilter === 'all' || service.category === categoryFilter;
-    const matchesStatus = statusFilter === 'all' || service.status === statusFilter;
-    return matchesSearch && matchesCategory && matchesStatus;
+    return matchesSearch && matchesCategory;
   });
 
-  const totalRevenue = services.reduce((sum, service) => sum + service.revenue, 0);
-  const totalBookings = services.reduce((sum, service) => sum + service.bookings, 0);
-  const averagePrice = services.reduce((sum, service) => sum + service.price, 0) / services.length;
+  const stats = [
+    { label: 'Total Services', value: services.length, icon: Scissors, color: 'text-blue-400', change: '+2 this month', bgColor: 'bg-blue-50', borderColor: 'border-blue-200' },
+    { label: 'Active Services', value: services.filter(s => s.active).length, icon: Activity, color: 'text-emerald-400', change: '87.5% active', bgColor: 'bg-emerald-50', borderColor: 'border-emerald-200' },
+    { label: 'Total Revenue', value: `$${services.reduce((sum, s) => sum + s.revenue, 0).toLocaleString()}`, icon: DollarSign, color: 'text-purple-400', change: '+15% vs last month', bgColor: 'bg-purple-50', borderColor: 'border-purple-200' },
+    { label: 'Avg. Rating', value: (services.reduce((sum, s) => sum + s.rating, 0) / services.length).toFixed(1), icon: Star, color: 'text-yellow-400', change: 'Excellent', bgColor: 'bg-yellow-50', borderColor: 'border-yellow-200' }
+  ];
+
+  const categories = ['all', ...Array.from(new Set(services.map(s => s.category)))];
+
+  const getCategoryColor = (category: string) => {
+    const colors: any = {
+      'Haircut': 'bg-blue-500/20 text-blue-600 border-blue-500/30',
+      'Combo': 'bg-purple-500/20 text-purple-600 border-purple-500/30',
+      'Premium': 'bg-yellow-500/20 text-yellow-600 border-yellow-500/30',
+      'Shave': 'bg-emerald-500/20 text-emerald-600 border-emerald-500/30',
+      'Beard': 'bg-orange-500/20 text-orange-600 border-orange-500/30',
+      'Add-on': 'bg-cyan-500/20 text-cyan-600 border-cyan-500/30',
+      'Special': 'bg-pink-500/20 text-pink-600 border-pink-500/30'
+    };
+    return colors[category] || 'bg-gray-500/20 text-gray-600 border-gray-500/30';
+  };
+
+  const handleViewService = (service: any) => {
+    setSelectedService(service);
+    setDialogOpen(true);
+  };
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+      <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-orbitron font-bold text-barbershop-white">Service Management</h1>
-          <p className="text-barbershop-gray-light">Manage your barbering services and pricing</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Service Management</h1>
+          <p className="text-gray-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Manage your service catalog and pricing</p>
         </div>
-        <Button className="bg-gradient-to-r from-barber-red to-barber-blue hover:from-barber-blue hover:to-barber-red text-white">
-          <Plus className="h-5 w-5 mr-2" />
+        <Button className="bg-red-600 text-white hover:bg-red-700 shadow-md" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+          <Plus className="h-4 w-4 mr-2" />
           Add Service
         </Button>
       </div>
 
-      {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-green-500/30">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-barbershop-gray-light mb-1">Total Revenue</p>
-                <p className="text-2xl font-bold text-green-400">${totalRevenue.toLocaleString()}</p>
-              </div>
-              <DollarSign className="h-8 w-8 text-green-400" />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-blue-500/30">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-barbershop-gray-light mb-1">Total Bookings</p>
-                <p className="text-2xl font-bold text-blue-400">{totalBookings}</p>
-              </div>
-              <Users className="h-8 w-8 text-blue-400" />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-purple-500/30">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-barbershop-gray-light mb-1">Average Price</p>
-                <p className="text-2xl font-bold text-purple-400">${averagePrice.toFixed(0)}</p>
-              </div>
-              <Star className="h-8 w-8 text-purple-400" />
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-orange-500/30">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-barbershop-gray-light mb-1">Active Services</p>
-                <p className="text-2xl font-bold text-orange-400">{services.filter(s => s.status === 'active').length}</p>
-              </div>
-              <Zap className="h-8 w-8 text-orange-400" />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Filters */}
-      <Card className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-barber-red/30">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-barbershop-gray" />
-              <Input
-                placeholder="Search services..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-barbershop-black/50 border-barber-red/30 text-barbershop-white placeholder-barbershop-gray focus:border-barber-red"
-              />
-            </div>
-            
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="bg-barbershop-black/50 border-barber-red/30 text-barbershop-white">
-                <SelectValue placeholder="Filter by category" />
-              </SelectTrigger>
-              <SelectContent className="bg-barbershop-black border-barber-red/30">
-                {categories.map(category => (
-                  <SelectItem key={category} value={category} className="text-barbershop-white hover:bg-barber-red/20">
-                    {category === 'all' ? 'All Categories' : category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="bg-barbershop-black/50 border-barber-red/30 text-barbershop-white">
-                <SelectValue placeholder="Filter by status" />
-              </SelectTrigger>
-              <SelectContent className="bg-barbershop-black border-barber-red/30">
-                {statuses.map(status => (
-                  <SelectItem key={status} value={status} className="text-barbershop-white hover:bg-barber-red/20">
-                    {status === 'all' ? 'All Status' : status.charAt(0).toUpperCase() + status.slice(1)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Button variant="outline" className="border-barber-red/30 text-barbershop-white hover:border-barber-red hover:bg-barber-red/20">
-              <Filter className="h-4 w-4 mr-2" />
-              More Filters
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredServices.map((service) => {
-          const IconComponent = service.icon;
+      {/* Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {stats.map((stat, index) => {
+          const IconComponent = stat.icon;
           return (
-            <Card key={service.id} className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-barber-red/30 hover:border-barber-red/60 transition-all duration-300 hover:shadow-glow">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className={`p-3 rounded-xl bg-gradient-to-br from-barber-red/20 to-barber-blue/20 border border-barber-red/30`}>
-                      <IconComponent className={`h-6 w-6 ${service.color}`} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-barbershop-white">{service.name}</h3>
-                      <p className="text-sm text-barbershop-gray-light">{service.category}</p>
-                    </div>
-                  </div>
-                  <Button variant="ghost" size="sm" className="text-barbershop-gray hover:text-barber-red">
-                    <MoreVertical className="h-4 w-4" />
-                  </Button>
+            <div key={index} className={`bg-white border ${stat.borderColor} rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer`}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`p-3 ${stat.bgColor} rounded-xl group-hover:scale-110 transition-transform duration-300`}>
+                  <IconComponent className={`h-6 w-6 ${stat.color}`} />
                 </div>
-              </CardHeader>
-              
-              <CardContent className="space-y-4">
-                {/* Service Info */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-barbershop-gray-light">Price</span>
-                    <span className="text-xl font-bold text-barber-red">${service.price}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-barbershop-gray-light">Duration</span>
-                    <span className="text-sm text-barbershop-white flex items-center">
-                      <Clock className="h-4 w-4 mr-1" />
-                      {service.duration} min
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-barbershop-gray-light">Popularity</span>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-16 h-2 bg-barbershop-black rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-barber-red to-barber-blue rounded-full"
-                          style={{ width: `${service.popularity}%` }}
-                        />
-                      </div>
-                      <span className="text-sm text-barbershop-white">{service.popularity}%</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-barbershop-gray-light">Bookings</span>
-                    <span className="text-sm text-barbershop-white">{service.bookings}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-barbershop-gray-light">Revenue</span>
-                    <span className="text-sm font-bold text-barber-red">${service.revenue.toLocaleString()}</span>
-                  </div>
+                <div>
+                  <p className="text-sm text-gray-600 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{stat.label}</p>
+                  <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{stat.value}</p>
                 </div>
-
-                {/* Description */}
-                <p className="text-sm text-barbershop-gray-light line-clamp-2">{service.description}</p>
-
-                {/* Features */}
-                <div className="space-y-1">
-                  <p className="text-xs text-barbershop-gray-light font-semibold">Features:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {service.features.slice(0, 3).map((feature, index) => (
-                      <Badge key={index} className="bg-barbershop-black/50 text-barbershop-gray-light border-barber-red/20 text-xs">
-                        {feature}
-                      </Badge>
-                    ))}
-                    {service.features.length > 3 && (
-                      <Badge className="bg-barbershop-black/50 text-barbershop-gray-light border-barber-red/20 text-xs">
-                        +{service.features.length - 3} more
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-
-                {/* Status */}
-                <div className="flex items-center justify-between">
-                  <Badge className={getStatusColor(service.status)}>
-                    {service.status}
-                  </Badge>
-                </div>
-
-                {/* Actions */}
-                <div className="flex space-x-2">
-                  <Button size="sm" variant="outline" className="flex-1 border-barber-red/30 text-barbershop-white hover:border-barber-red hover:bg-barber-red/20">
-                    <Eye className="h-4 w-4 mr-1" />
-                    View
-                  </Button>
-                  <Button size="sm" variant="outline" className="flex-1 border-barber-blue/30 text-barbershop-white hover:border-barber-blue hover:bg-barber-blue/20">
-                    <Edit className="h-4 w-4 mr-1" />
-                    Edit
-                  </Button>
-                  <Button size="sm" variant="outline" className="border-red-500/30 text-red-400 hover:border-red-500 hover:bg-red-500/20">
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+              <p className="text-xs text-gray-500" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{stat.change}</p>
+            </div>
           );
         })}
       </div>
 
-      {/* Quick Actions */}
-      <Card className="bg-gradient-to-br from-barbershop-gray-dark/50 to-barbershop-black/50 backdrop-blur-xl border border-barber-blue/30">
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Button className="h-16 bg-gradient-to-br from-barber-red to-barber-blue hover:from-barber-blue hover:to-barber-red text-white flex flex-col space-y-2">
-              <Scissors className="h-6 w-6" />
-              <span className="text-sm">Bulk Pricing</span>
+      {/* Filters */}
+      <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Input
+              placeholder="Search services by name or description..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 h-12 text-gray-900 bg-gray-50 border-gray-200 focus:border-red-500 focus:ring-red-500/20"
+              style={{ fontFamily: 'Gotham Bold, sans-serif' }}
+            />
+          </div>
+          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+            <SelectTrigger className="w-full sm:w-[200px] h-12 bg-gray-50 border-gray-200 text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+              <SelectValue placeholder="Filter by category" />
+            </SelectTrigger>
+            <SelectContent className="bg-white border-gray-200">
+              {categories.map(cat => (
+                <SelectItem key={cat} value={cat} className="text-gray-900 capitalize" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  {cat === 'all' ? 'All Categories' : cat}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <div className="flex gap-2">
+            <Button variant="outline" size="lg" className="border-gray-300 text-gray-700 hover:bg-gray-100" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+              <Filter className="h-4 w-4 mr-2" />
+              More Filters
             </Button>
-            <Button className="h-16 bg-gradient-to-br from-barber-blue to-purple-500 hover:from-purple-500 hover:to-barber-blue text-white flex flex-col space-y-2">
-              <Clock className="h-6 w-6" />
-              <span className="text-sm">Time Slots</span>
-            </Button>
-            <Button className="h-16 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white flex flex-col space-y-2">
-              <Star className="h-6 w-6" />
-              <span className="text-sm">Popularity Report</span>
-            </Button>
-            <Button className="h-16 bg-gradient-to-br from-pink-500 to-red-500 hover:from-pink-500 hover:to-red-500 text-white flex flex-col space-y-2">
-              <DollarSign className="h-6 w-6" />
-              <span className="text-sm">Revenue Analysis</span>
+            <Button variant="outline" size="lg" className="border-gray-300 text-gray-700 hover:bg-gray-100" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+              <Download className="h-4 w-4 mr-2" />
+              Export
             </Button>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredServices.map((service, index) => (
+          <div 
+            key={service.id}
+            className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer"
+            style={{
+              animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`
+            }}
+            onClick={() => handleViewService(service)}
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{service.name}</h3>
+                <Badge className={`${getCategoryColor(service.category)} text-xs font-semibold px-3 py-1`}>
+                  {service.category}
+                </Badge>
+              </div>
+              {service.active ? (
+                <ToggleRight className="h-7 w-7 text-emerald-500" />
+              ) : (
+                <ToggleLeft className="h-7 w-7 text-gray-400" />
+              )}
+            </div>
+
+            {/* Description */}
+            <p className="text-sm text-gray-600 mb-4 line-clamp-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{service.description}</p>
+
+            {/* Price & Duration */}
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="bg-gradient-to-br from-emerald-50 to-white p-4 rounded-xl border border-emerald-200 group-hover:border-emerald-300 transition-colors">
+                <div className="flex items-center gap-2 mb-1">
+                  <DollarSign className="h-4 w-4 text-emerald-600" />
+                  <span className="text-xs text-gray-600 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Price</span>
+                </div>
+                <p className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>${service.price}</p>
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-xl border border-blue-200 group-hover:border-blue-300 transition-colors">
+                <div className="flex items-center gap-2 mb-1">
+                  <Clock className="h-4 w-4 text-blue-600" />
+                  <span className="text-xs text-gray-600 font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Duration</span>
+                </div>
+                <p className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{service.duration}</p>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-3 mb-4 py-3 border-t border-gray-200">
+              <div className="text-center">
+                <p className="text-xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{service.bookings}</p>
+                <p className="text-xs text-gray-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Bookings</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xl font-bold text-emerald-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>${service.revenue}</p>
+                <p className="text-xs text-gray-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Revenue</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center gap-1">
+                  <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                  <p className="text-xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{service.rating}</p>
+                </div>
+                <p className="text-xs text-gray-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Rating</p>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex gap-2">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleViewService(service);
+                }}
+                style={{ fontFamily: 'Gotham Bold, sans-serif' }}
+              >
+                <Eye className="h-4 w-4 mr-2" />
+                View
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="flex-1 bg-red-50 border-red-200 text-red-600 hover:bg-red-100 hover:border-red-300"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  console.log('Edit service:', service.id);
+                }}
+                style={{ fontFamily: 'Gotham Bold, sans-serif' }}
+              >
+                <Edit className="h-4 w-4 mr-2" />
+                Edit
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Service Details Dialog */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white">
+          {selectedService && (
+            <div className="space-y-6">
+              <DialogHeader>
+                <DialogTitle className="text-3xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  {selectedService.name}
+                </DialogTitle>
+              </DialogHeader>
+
+              {/* Header Info */}
+              <div className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl border border-gray-200">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <Badge className={`${getCategoryColor(selectedService.category)} text-sm font-semibold px-4 py-2`}>
+                      {selectedService.category}
+                    </Badge>
+                    <Badge className={`${
+                      selectedService.active 
+                        ? 'bg-emerald-500/20 text-emerald-600 border-emerald-500/30' 
+                        : 'bg-red-500/20 text-red-600 border-red-500/30'
+                    } text-sm font-semibold px-4 py-2`}>
+                      {selectedService.active ? 'Active' : 'Inactive'}
+                    </Badge>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{selectedService.description}</p>
+              </div>
+
+              {/* Pricing & Duration */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-emerald-50 to-white p-8 rounded-2xl border-2 border-emerald-200 shadow-sm">
+                  <p className="text-sm text-gray-600 mb-2 font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Price</p>
+                  <p className="text-5xl font-bold text-emerald-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>${selectedService.price}</p>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border-2 border-blue-200 shadow-sm">
+                  <p className="text-sm text-gray-600 mb-2 font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Duration</p>
+                  <p className="text-5xl font-bold text-blue-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{selectedService.duration}</p>
+                </div>
+              </div>
+
+              {/* Performance Stats */}
+              <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 shadow-sm">
+                <h4 className="text-xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Performance Metrics</h4>
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="text-center p-4 bg-white rounded-xl border border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2 font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Total Bookings</p>
+                    <p className="text-4xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{selectedService.bookings}</p>
+                  </div>
+                  <div className="text-center p-4 bg-white rounded-xl border border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2 font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Total Revenue</p>
+                    <p className="text-4xl font-bold text-emerald-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>${selectedService.revenue}</p>
+                  </div>
+                  <div className="text-center p-4 bg-white rounded-xl border border-gray-200">
+                    <p className="text-sm text-gray-600 mb-2 font-semibold" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Avg. Rating</p>
+                    <div className="flex items-center justify-center gap-2">
+                      <Star className="h-8 w-8 text-yellow-500 fill-yellow-500" />
+                      <p className="text-4xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{selectedService.rating}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Features */}
+              <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 shadow-sm">
+                <h4 className="text-xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Service Includes</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {selectedService.features.map((feature: string, index: number) => (
+                    <div key={index} className="flex items-center gap-3 text-gray-700 p-3 bg-white rounded-lg border border-gray-200">
+                      <CheckCircle className="h-5 w-5 text-emerald-500 flex-shrink-0" />
+                      <span className="font-medium" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3 pt-4">
+                <Button className="flex-1 bg-red-600 text-white hover:bg-red-700 h-12 text-base shadow-md" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  <Edit className="h-5 w-5 mr-2" />
+                  Edit Service
+                </Button>
+                <Button className="flex-1 bg-emerald-600 text-white hover:bg-emerald-700 h-12 text-base shadow-md" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  {selectedService.active ? <ToggleLeft className="h-5 w-5 mr-2" /> : <ToggleRight className="h-5 w-5 mr-2" />}
+                  {selectedService.active ? 'Deactivate' : 'Activate'}
+                </Button>
+                <Button variant="destructive" className="flex-1 h-12 text-base shadow-md" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  <Trash2 className="h-5 w-5 mr-2" />
+                  Delete
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
