@@ -102,16 +102,16 @@ export default function Hero() {
                             {/* Stats */}
                             <div className="grid grid-cols-3 gap-4 md:gap-6">
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>2,500+</div>
-                                    <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Happy Clients</div>
+                                    <div className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>254+</div>
+                                    <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Five Star Reviews</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>20+</div>
-                                    <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Years Experience</div>
+                                    <div className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>2</div>
+                                    <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Expert Barbers</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-xl md:text-2xl font-bold text-white mb-1 drop-shadow-lg" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>4.9/5</div>
-                                    <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Average Rating</div>
+                                    <div className="text-xs text-gray-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>Booksy Rating</div>
                                 </div>
                             </div>
                         </div>

@@ -25,68 +25,50 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      name: "Signature Cut",
-      price: "$45",
-      duration: "45 min",
-      description: "Premium haircut with consultation, hot towel service, and detailed styling",
-      features: ["Style Consultation", "Hot Towel Treatment", "Precision Cut", "Professional Styling"],
+      name: "Haircut with Sho",
+      barber: "with Sho",
+      price: "$50",
+      duration: "20 min",
+      description: "Detailed haircut custom tailored to the clients' desire.",
+      features: ["Custom Tailored Cut", "Expert Styling", "Professional Consultation", "Precision Detailing"],
       icon: <Scissors className="h-8 w-8" />,
       gradient: "from-red-500 to-red-600",
       popular: true
     },
     {
       id: 2,
-      name: "The Royal Package",
-      price: "$85",
-      duration: "90 min",
-      description: "Complete grooming experience including haircut, beard trim, and traditional hot towel shave",
-      features: ["Haircut", "Beard Sculpting", "Hot Towel Shave", "Facial Treatment", "Head Massage"],
+      name: "Haircut and Beard with Sho",
+      barber: "with Sho",
+      price: "$75",
+      duration: "30 min",
+      description: "Detailed haircut custom tailored to the clients' desire with a sharp beard trimmed, outlined and bladed to perfection.",
+      features: ["Custom Haircut", "Sharp Beard Trim", "Precision Outline", "Blade Detailing"],
       icon: <Crown className="h-8 w-8" />,
       gradient: "from-yellow-500 to-orange-500",
       popular: true
     },
     {
       id: 3,
-      name: "Skin Fade",
-      price: "$50",
-      duration: "50 min",
-      description: "Expert skin fade with precision blending and sharp line work",
-      features: ["Skin Fade", "Line Up", "Hot Towel", "Styling"],
-      icon: <Sparkles className="h-8 w-8" />,
+      name: "Haircut with Bikram",
+      barber: "with Bikram",
+      price: "$40",
+      duration: "40 min",
+      description: "Haircut with Bikram.",
+      features: ["Professional Haircut", "Style Consultation", "Expert Technique", "Quality Service"],
+      icon: <Scissors className="h-8 w-8" />,
       gradient: "from-blue-500 to-cyan-500",
-      popular: false
+      popular: true
     },
     {
       id: 4,
-      name: "Beard Grooming",
-      price: "$35",
-      duration: "30 min",
-      description: "Professional beard trim, shaping, and conditioning treatment",
-      features: ["Beard Trim", "Shape & Style", "Hot Towel", "Conditioning"],
+      name: "Haircut and Beard with Bikram",
+      barber: "with Bikram",
+      price: "$60",
+      duration: "1 hour",
+      description: "Haircut and Beard with Bikram.",
+      features: ["Complete Haircut", "Beard Grooming", "Professional Service", "Detailed Styling"],
       icon: <Award className="h-8 w-8" />,
       gradient: "from-green-500 to-emerald-500",
-      popular: false
-    },
-    {
-      id: 5,
-      name: "Traditional Shave",
-      price: "$40",
-      duration: "40 min",
-      description: "Classic hot towel shave with premium products and relaxing experience",
-      features: ["Hot Towel Prep", "Straight Razor Shave", "Aftershave Treatment", "Face Massage"],
-      icon: <Shield className="h-8 w-8" />,
-      gradient: "from-purple-500 to-pink-500",
-      popular: false
-    },
-    {
-      id: 6,
-      name: "Kids Cut",
-      price: "$30",
-      duration: "30 min",
-      description: "Patient and friendly haircut service for children under 12",
-      features: ["Patient Service", "Kid-Friendly", "Style Consultation", "Quick Service"],
-      icon: <Star className="h-8 w-8" />,
-      gradient: "from-indigo-500 to-blue-500",
       popular: false
     }
   ];
@@ -204,6 +186,150 @@ const Services = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Staff Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-blue-500/10" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-red-600/20 backdrop-blur-sm border border-red-500/30 shadow-lg mb-6">
+              <Star className="h-4 w-4 text-red-400" />
+              <span className="text-red-100 font-bold text-sm tracking-widest uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                Our Expert Staff
+              </span>
+              <Star className="h-4 w-4 text-red-400" />
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+              Meet Your Barbers
+            </h2>
+            <p className="text-xl text-gray-300" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+              Experienced professionals dedicated to your perfect look
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Sho */}
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl">
+              <CardContent className="p-8 text-center">
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center shadow-2xl">
+                  <span className="text-5xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>S</span>
+                </div>
+                
+                <h3 className="text-3xl font-black text-white mb-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  Sho
+                </h3>
+                <p className="text-red-400 font-bold mb-4" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  Master Barber
+                </p>
+                
+                <p className="text-gray-300 mb-6 leading-relaxed" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                  Experienced barber with great skill, artistry and ability to cut any hairstyle and different textures of hair.
+                </p>
+                
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                
+                <Link to="/booking">
+                  <Button className="bg-gradient-to-r from-red-500 to-red-600 text-white font-bold px-6 py-3 rounded-xl hover:from-red-400 hover:to-red-500 transition-all duration-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                    Book with Sho
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            {/* Bikram */}
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl">
+              <CardContent className="p-8 text-center">
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center shadow-2xl">
+                  <span className="text-5xl font-black text-white" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>B</span>
+                </div>
+                
+                <h3 className="text-3xl font-black text-white mb-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  Bikram
+                </h3>
+                <p className="text-blue-400 font-bold mb-4" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  Professional Barber
+                </p>
+                
+                <p className="text-gray-300 mb-6 leading-relaxed" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                  Skilled professional barber providing quality haircuts and grooming services with attention to detail.
+                </p>
+                
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                
+                <Link to="/booking">
+                  <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold px-6 py-3 rounded-xl hover:from-blue-400 hover:to-cyan-400 transition-all duration-300" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                    Book with Bikram
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Health & Safety Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-green-100 border border-green-300 shadow-lg mb-6">
+              <Shield className="h-4 w-4 text-green-600" />
+              <span className="text-green-800 font-bold text-sm tracking-widest uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                Your Safety First
+              </span>
+              <Shield className="h-4 w-4 text-green-600" />
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+              Health & Safety
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+              We maintain the highest standards of hygiene and safety for our valued clients
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="bg-gradient-to-br from-green-50 to-white border-2 border-green-200 shadow-xl">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center shadow-lg">
+                  <Shield className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-4 text-center" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  Disinfection of All Surfaces
+                </h3>
+                <p className="text-gray-600 text-center leading-relaxed" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                  All surfaces, tools, and equipment are thoroughly disinfected before and after each client to ensure a clean and safe environment.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 shadow-xl">
+              <CardContent className="p-8">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
+                  <Shield className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-4 text-center" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                  Disinfection Between Clients
+                </h3>
+                <p className="text-gray-600 text-center leading-relaxed" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
+                  We maintain strict hygiene protocols with complete disinfection between every client visit for your peace of mind and safety.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
