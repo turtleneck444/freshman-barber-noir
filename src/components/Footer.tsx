@@ -146,7 +146,7 @@ const Footer = () => {
                   {[
                     { name: "Home", href: "/", icon: <Heart className="h-4 w-4" /> },
                     { name: "Services", href: "/services", icon: <Scissors className="h-4 w-4" /> },
-                    { name: "Book Appointment", href: "/booking", icon: <Calendar className="h-4 w-4" /> },
+                    { name: "Book on Booksy", href: "https://thefreshmen.booksy.com/a", icon: <Calendar className="h-4 w-4" />, external: true },
                     { name: "Contact Us", href: "/contact", icon: <Users className="h-4 w-4" /> },
                     { name: "Google Reviews", href: "https://www.google.com/maps/place/The+FRESHMEN+Barbershop/@43.5823631,-79.7144503,17z/data=!3m1!4b1!4m6!3m5!1s0x882b41b9a9fea6a1:0xe418339f4adcef70!8m2!3d43.5823631!4d-79.7144503!16s%2Fg%2F11c2lbfwlh?hl=en-CA&entry=ttu&g_ep=EgoyMDI1MDkyOC4wIKXMDSoASAFQAw%3D%3D", icon: <Sparkles className="h-4 w-4" />, external: true }
                   ].map((link, index) => (
@@ -248,11 +248,13 @@ const Footer = () => {
                 </div>
                 
                 {/* CTA Button */}
-                <Button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black py-4 px-6 rounded-xl text-lg transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-red-500/25 glow" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                  <Calendar className="mr-3 h-5 w-5" />
-                  BOOK NOW
-                  <ArrowRight className="ml-3 h-5 w-5" />
-                </Button>
+                <a href="https://thefreshmen.booksy.com/a" target="_blank" rel="noopener noreferrer" className="block">
+                  <Button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-black py-4 px-6 rounded-xl text-lg transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-red-500/25 glow" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
+                    <Calendar className="mr-3 h-5 w-5" />
+                    BOOK ON BOOKSY
+                    <ArrowRight className="ml-3 h-5 w-5" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

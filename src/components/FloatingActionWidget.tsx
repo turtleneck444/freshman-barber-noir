@@ -28,12 +28,12 @@ const FloatingActionWidget = () => {
     {
       id: 'booking',
       icon: <Calendar className="h-5 w-5" />,
-      label: 'Book Appointment',
-      description: 'Schedule your visit',
-      link: '/booking',
+      label: 'Book on Booksy',
+      description: 'Easy online booking',
+      link: 'https://thefreshmen.booksy.com/a',
       gradient: 'from-red-500 via-red-600 to-red-700',
       hoverGradient: 'from-red-400 via-red-500 to-red-600',
-      external: false
+      external: true
     },
     {
       id: 'services',
