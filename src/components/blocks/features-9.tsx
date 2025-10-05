@@ -95,70 +95,48 @@ const AdvancedBookingWidget = () => {
 
   const services = [
     {
-      id: "signature-cut",
-      name: "Signature Cut",
-      price: "$45",
-      duration: "45 min",
-      description: "Precision cuts tailored to your style",
-      features: ["Professional Consultation", "Premium Wash", "Hot Towel Finish", "Style Tips"],
+      id: "haircut-sho",
+      name: "Haircut with Sho",
+      price: "$50",
+      duration: "20 min",
+      description: "Detailed haircut custom tailored to the clients' desire.",
+      features: ["Custom Tailored Cut", "Expert Styling", "Professional Consultation", "Precision Detailing"],
       popular: true,
       icon: <Scissors className="h-6 w-6" />,
-      color: "from-red-500 to-red-700"
+      color: "from-red-600 to-red-700"
     },
     {
-      id: "royal-package",
-      name: "Royal Package",
-      price: "$85",
-      duration: "90 min",
-      description: "Complete premium grooming experience",
-      features: ["Signature Cut", "Traditional Shave", "Beard Styling", "Head Massage"],
-      popular: false,
-      icon: <Crown className="h-6 w-6" />,
-      color: "from-amber-500 to-yellow-600"
-    },
-    {
-      id: "executive-experience",
-      name: "Executive Experience",
-      price: "$120",
-      duration: "120 min",
-      description: "Ultimate luxury grooming experience with premium amenities",
-      features: ["All Services Included", "Premium Products", "Champagne Service", "Personal Consultation"],
-      popular: false,
-      icon: <Award className="h-6 w-6" />,
-      color: "from-purple-500 to-purple-700"
-    },
-    {
-      id: "traditional-shave",
-      name: "Traditional Shave",
-      price: "$35",
+      id: "haircut-beard-sho",
+      name: "Haircut and Beard with Sho",
+      price: "$75",
       duration: "30 min",
-      description: "Classic straight razor shave experience",
-      features: ["Hot Towel Prep", "Straight Razor Shave", "Aftershave Treatment", "Skin Care Tips"],
-      popular: false,
-      icon: <Zap className="h-6 w-6" />,
-      color: "from-blue-500 to-blue-700"
+      description: "Detailed haircut custom tailored to the clients' desire with a sharp beard trimmed, outlined and bladed to perfection.",
+      features: ["Custom Haircut", "Sharp Beard Trim", "Precision Outline", "Blade Detailing"],
+      popular: true,
+      icon: <Crown className="h-6 w-6" />,
+      color: "from-gray-700 to-gray-800"
     },
     {
-      id: "beard-styling",
-      name: "Beard Styling",
-      price: "$30",
-      duration: "25 min",
-      description: "Expert beard trimming and shaping",
-      features: ["Beard Consultation", "Precision Trimming", "Beard Oil Treatment", "Styling Tips"],
-      popular: false,
-      icon: <Sparkles className="h-6 w-6" />,
-      color: "from-green-500 to-green-700"
+      id: "haircut-bikram",
+      name: "Haircut with Bikram",
+      price: "$40",
+      duration: "40 min",
+      description: "Haircut with Bikram.",
+      features: ["Professional Haircut", "Style Consultation", "Expert Technique", "Quality Service"],
+      popular: true,
+      icon: <Scissors className="h-6 w-6" />,
+      color: "from-blue-600 to-blue-700"
     },
     {
-      id: "hair-wash",
-      name: "Premium Hair Wash",
-      price: "$20",
-      duration: "15 min",
-      description: "Luxurious hair washing and conditioning",
-      features: ["Premium Shampoo", "Deep Conditioning", "Scalp Massage", "Blow Dry"],
+      id: "haircut-beard-bikram",
+      name: "Haircut and Beard with Bikram",
+      price: "$60",
+      duration: "1 hour",
+      description: "Haircut and Beard with Bikram.",
+      features: ["Complete Haircut", "Beard Grooming", "Professional Service", "Detailed Styling"],
       popular: false,
-      icon: <Shield className="h-6 w-6" />,
-      color: "from-indigo-500 to-indigo-700"
+      icon: <Star className="h-6 w-6" />,
+      color: "from-purple-600 to-purple-700"
     }
   ];
 
@@ -533,4 +511,3 @@ const AdvancedBookingWidget = () => {
     </>
   );
 };
-

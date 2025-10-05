@@ -24,52 +24,48 @@ import { Link } from "react-router-dom";
 const Services = () => {
   const services = [
     {
-      id: 1,
-      name: "Haircut with Sho",
-      barber: "with Sho",
-      price: "$50",
-      duration: "20 min",
-      description: "Detailed haircut custom tailored to the clients' desire.",
-      features: ["Custom Tailored Cut", "Expert Styling", "Professional Consultation", "Precision Detailing"],
-      icon: <Scissors className="h-8 w-8" />,
-      gradient: "from-red-500 to-red-600",
-      popular: true
+      id: 'haircut-sho',
+      name: 'Haircut with Sho',
+      price: 50,
+      duration: '20 min',
+      description: 'Detailed haircut custom tailored to the clients\' desire.',
+      icon: <Scissors className="h-6 w-6" />,
+      popular: true,
+      features: ['Custom Tailored Cut', 'Expert Styling', 'Professional Consultation', 'Precision Detailing'],
+      gradient: 'from-red-600 to-red-700'
     },
     {
-      id: 2,
-      name: "Haircut and Beard with Sho",
-      barber: "with Sho",
-      price: "$75",
-      duration: "30 min",
-      description: "Detailed haircut custom tailored to the clients' desire with a sharp beard trimmed, outlined and bladed to perfection.",
-      features: ["Custom Haircut", "Sharp Beard Trim", "Precision Outline", "Blade Detailing"],
-      icon: <Crown className="h-8 w-8" />,
-      gradient: "from-yellow-500 to-orange-500",
-      popular: true
+      id: 'haircut-beard-sho',
+      name: 'Haircut and Beard with Sho',
+      price: 75,
+      duration: '30 min',
+      description: 'Detailed haircut custom tailored to the clients\' desire with a sharp beard trimmed, outlined and bladed to perfection.',
+      icon: <Crown className="h-6 w-6" />,
+      popular: true,
+      features: ['Custom Haircut', 'Sharp Beard Trim', 'Precision Outline', 'Blade Detailing'],
+      gradient: 'from-gray-700 to-gray-800'
     },
     {
-      id: 3,
-      name: "Haircut with Bikram",
-      barber: "with Bikram",
-      price: "$40",
-      duration: "40 min",
-      description: "Haircut with Bikram.",
-      features: ["Professional Haircut", "Style Consultation", "Expert Technique", "Quality Service"],
-      icon: <Scissors className="h-8 w-8" />,
-      gradient: "from-blue-500 to-cyan-500",
-      popular: true
+      id: 'haircut-bikram',
+      name: 'Haircut with Bikram',
+      price: 40,
+      duration: '40 min',
+      description: 'Haircut with Bikram.',
+      icon: <Scissors className="h-6 w-6" />,
+      popular: true,
+      features: ['Professional Haircut', 'Style Consultation', 'Expert Technique', 'Quality Service'],
+      gradient: 'from-blue-600 to-blue-700'
     },
     {
-      id: 4,
-      name: "Haircut and Beard with Bikram",
-      barber: "with Bikram",
-      price: "$60",
-      duration: "1 hour",
-      description: "Haircut and Beard with Bikram.",
-      features: ["Complete Haircut", "Beard Grooming", "Professional Service", "Detailed Styling"],
-      icon: <Award className="h-8 w-8" />,
-      gradient: "from-green-500 to-emerald-500",
-      popular: false
+      id: 'haircut-beard-bikram',
+      name: 'Haircut and Beard with Bikram',
+      price: 60,
+      duration: '1 hour',
+      description: 'Haircut and Beard with Bikram.',
+      icon: <Star className="h-6 w-6" />,
+      popular: false,
+      features: ['Complete Haircut', 'Beard Grooming', 'Professional Service', 'Detailed Styling'],
+      gradient: 'from-purple-600 to-purple-700'
     }
   ];
 
@@ -154,7 +150,7 @@ const Services = () => {
                   
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-3xl font-black text-red-600" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                      {service.price}
+                      ${service.price}
                     </span>
                     <span className="flex items-center text-gray-500" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
                       <Clock className="h-4 w-4 mr-1" />
