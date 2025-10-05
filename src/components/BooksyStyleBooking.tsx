@@ -36,64 +36,44 @@ const BooksyStyleBooking = () => {
 
   const services = [
     {
-      id: 'signature-cut',
-      name: 'Signature Haircut',
-      price: 45,
-      duration: '45 min',
-      description: 'Premium haircut with consultation, wash, and style',
+      id: 'haircut-sho',
+      name: 'Haircut with Sho',
+      price: 50,
+      duration: '20 min',
+      description: 'Detailed haircut custom tailored to the clients\' desire.',
       icon: <Scissors className="h-6 w-6" />,
       popular: true,
-      features: ['Consultation', 'Premium Wash', 'Precision Cut', 'Style & Finish']
+      features: ['Custom Tailored Cut', 'Expert Styling', 'Professional Consultation', 'Precision Detailing']
     },
     {
-      id: 'haircut-beard',
-      name: 'Haircut + Beard Trim',
-      price: 60,
-      duration: '60 min',
-      description: 'Complete grooming package for hair and beard',
-      icon: <Star className="h-6 w-6" />,
-      popular: true,
-      features: ['Haircut', 'Beard Sculpting', 'Hot Towel', 'Styling']
-    },
-    {
-      id: 'royal-package',
-      name: 'Royal Package',
-      price: 85,
-      duration: '90 min',
-      description: 'Full service premium grooming experience',
+      id: 'haircut-beard-sho',
+      name: 'Haircut and Beard with Sho',
+      price: 75,
+      duration: '30 min',
+      description: 'Detailed haircut custom tailored to the clients\' desire with a sharp beard trimmed, outlined and bladed to perfection.',
       icon: <Crown className="h-6 w-6" />,
-      popular: false,
-      features: ['Haircut', 'Traditional Shave', 'Beard Styling', 'Head Massage']
+      popular: true,
+      features: ['Custom Haircut', 'Sharp Beard Trim', 'Precision Outline', 'Blade Detailing']
     },
     {
-      id: 'traditional-shave',
-      name: 'Traditional Shave',
-      price: 35,
-      duration: '30 min',
-      description: 'Classic straight razor shave with hot towels',
-      icon: <Zap className="h-6 w-6" />,
-      popular: false,
-      features: ['Hot Towel Prep', 'Straight Razor', 'Aftershave', 'Face Massage']
+      id: 'haircut-bikram',
+      name: 'Haircut with Bikram',
+      price: 40,
+      duration: '40 min',
+      description: 'Haircut with Bikram.',
+      icon: <Scissors className="h-6 w-6" />,
+      popular: true,
+      features: ['Professional Haircut', 'Style Consultation', 'Expert Technique', 'Quality Service']
     },
     {
-      id: 'beard-trim',
-      name: 'Beard Trim & Style',
-      price: 30,
-      duration: '25 min',
-      description: 'Professional beard trimming and shaping',
-      icon: <Sparkles className="h-6 w-6" />,
+      id: 'haircut-beard-bikram',
+      name: 'Haircut and Beard with Bikram',
+      price: 60,
+      duration: '1 hour',
+      description: 'Haircut and Beard with Bikram.',
+      icon: <Star className="h-6 w-6" />,
       popular: false,
-      features: ['Beard Consultation', 'Precision Trim', 'Beard Oil', 'Styling']
-    },
-    {
-      id: 'kids-cut',
-      name: "Kids' Haircut",
-      price: 35,
-      duration: '30 min',
-      description: 'Haircut for children 12 and under',
-      icon: <Shield className="h-6 w-6" />,
-      popular: false,
-      features: ['Kid-Friendly', 'Quick Service', 'Patient Approach', 'Fun Experience']
+      features: ['Complete Haircut', 'Beard Grooming', 'Professional Service', 'Detailed Styling']
     }
   ];
 
