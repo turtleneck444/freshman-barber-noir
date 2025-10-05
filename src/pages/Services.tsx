@@ -72,8 +72,8 @@ const Services = () => {
   return (
     <>
       <SEO 
-        title="Services - The FRESHMEN Barbershop | Premium Haircuts, Fades & Beard Grooming in Mississauga"
-        description="Explore our premium barbering services: Signature Cuts ($45), Royal Package ($85), Skin Fades ($50), Beard Grooming ($35), Hot Towel Shaves. Expert barbers in Mississauga. Book now!"
+        title="Services & Pricing - The FRESHMEN Barbershop | Professional Haircuts $40-$75 | Mississauga Barbers"
+        description="Premium barbering services in Mississauga: Haircut with Sho ($50, 20min), Haircut & Beard with Sho ($75, 30min), Haircut with Bikram ($40, 40min), Full Grooming Packages. Expert barbers, walk-ins welcome. Book online or call (905) 483-7374!"
         canonical="https://thefreshmenbarbershop.com/services"
       />
       <div className="min-h-screen">

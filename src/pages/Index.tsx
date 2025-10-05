@@ -13,8 +13,8 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="The FRESHMEN Barbershop - #1 Barber in Mississauga | 4.9★ Rated | Expert Fades & Haircuts"
-        description="Mississauga's premier barbershop with 200+ 5-star reviews. Expert fades, precision haircuts, beard grooming & hot towel shaves. Walk-ins welcome! 167 Queen St S. Call (905) 483-7374. Open 7 days."
+        title="The FRESHMEN Barbershop | Best Barber in Mississauga | Premium Haircuts $40-$75 | Book Now"
+        description="Mississauga's top-rated barbershop! Professional haircuts by expert barbers Sho ($50) & Bikram ($40). Premium fades, beard grooming, hot towel shaves. 200+ 5-star reviews. Walk-ins welcome at 167 Queen St S. Call (905) 483-7374. Open daily!"
         canonical="https://thefreshmenbarbershop.com"
       />
       <div className="min-h-screen">
