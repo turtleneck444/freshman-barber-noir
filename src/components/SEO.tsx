@@ -12,7 +12,7 @@ const SEO = ({
   title = "The FRESHMEN Barbershop - Premium Barber in Mississauga | 4.9★ Rated",
   description = "Mississauga's #1 rated barbershop with 200+ 5-star reviews. Expert fades, beard trims, hot towel shaves. Walk-ins welcome! Located at 167 Queen St S. Call (905) 483-7374",
   canonical = "https://thefreshmenbarbershop.com",
-  ogImage = "https://thefreshmenbarbershop.com/og-image.jpg",
+  ogImage = "https://thefreshmenbarbershop.com/og-hero-image.jpg",
   schema
 }: SEOProps) => {
   
@@ -28,6 +28,7 @@ const SEO = ({
         "url": "https://thefreshmenbarbershop.com",
         "logo": "https://thefreshmenbarbershop.com/logo.png",
         "image": [
+          "https://thefreshmenbarbershop.com/og-hero-image.jpg",
           "https://thefreshmenbarbershop.com/og-image.jpg",
           "https://thefreshmenbarbershop.com/outside.jpg"
         ],
