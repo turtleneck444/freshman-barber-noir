@@ -29,7 +29,7 @@ export function Features() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
               <span className="block tracking-tight">PREMIUM GROOMING</span>
               <span className="block text-2xl md:text-3xl text-gray-600 font-light mt-2 tracking-wide" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
-                AT THE FRESHMEN STYLE BARBERSHOP
+                AT THE FRESHMEN BARBERSHOP
               </span>
             </h2>
             

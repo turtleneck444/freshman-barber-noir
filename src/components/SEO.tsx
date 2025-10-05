@@ -23,7 +23,7 @@ const SEO = ({
         "@type": "BarberShop",
         "@id": "https://thefreshmenbarbershop.com/#barbershop",
         "name": "The FRESHMEN Barbershop",
-        "alternateName": "FRESHMEN Style Barbershop",
+        "alternateName": "The FRESHMEN Barbershop",
         "description": "Premium barbershop in Mississauga offering expert haircuts, fades, beard grooming, hot towel shaves, and professional styling services. Voted #1 barbershop in Streetsville with 4.9-star rating.",
         "url": "https://thefreshmenbarbershop.com",
         "logo": "https://thefreshmenbarbershop.com/logo.png",

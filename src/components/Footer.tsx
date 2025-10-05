@@ -89,7 +89,7 @@ const Footer = () => {
                       THE FRESHMAN
                     </h3>
                     <p className="text-red-400 font-bold text-sm tracking-widest uppercase" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                      STYLE BARBERSHOP
+                      BARBERSHOP
                     </p>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-center md:text-left">
                 <p className="text-gray-400 text-lg" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
-                  © 2025 The Freshmen Style Barbershop. All rights reserved.
+                  © 2025 The Freshmen Barbershop. All rights reserved.
                 </p>
                 <p className="text-gray-500 text-sm mt-2" style={{ fontFamily: 'Gotham Light, sans-serif' }}>
                   Crafting excellence in men's grooming since 2005

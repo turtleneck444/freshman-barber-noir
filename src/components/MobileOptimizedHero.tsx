@@ -35,7 +35,7 @@ export default function MobileOptimizedHero() {
                                     The Freshmen
                                 </span>
                                 <span className="block text-red-500 font-bold tracking-tight drop-shadow-2xl">
-                                    Style Barbershop
+                                    Barbershop
                                 </span>
                             </h1>
 

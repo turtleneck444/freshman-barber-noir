@@ -197,7 +197,7 @@ const ShopShowcase = () => {
                       THE FRESHMEN
                     </span>
                     <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-red-600 leading-tight tracking-tight mt-2" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>
-                      STYLE BARBERSHOP
+                      BARBERSHOP
                     </span>
                   </span>
                 </h2>
@@ -280,7 +280,7 @@ const ShopShowcase = () => {
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img 
                   src="/outside.jpg" 
-                  alt="The Freshmen Style Barbershop - Premium Barber Shop in Mississauga"
+                  alt="The Freshmen Barbershop - Premium Barber Shop in Mississauga"
                   className="w-full h-[500px] lg:h-[600px] object-cover transition-transform duration-700 hover:scale-105"
                 />
                 {/* Clean Bottom Info Card (No dark overlay) */}
@@ -292,7 +292,7 @@ const ShopShowcase = () => {
                           <Crown className="h-6 w-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>The Freshmen Style Barbershop</h3>
+                          <h3 className="text-2xl font-bold text-gray-900" style={{ fontFamily: 'Gotham Bold, sans-serif' }}>The Freshmen Barbershop</h3>
                           <p className="text-gray-600" style={{ fontFamily: 'Gotham Light, sans-serif' }}>Premium Barbering Experience</p>
                         </div>
                       </div>

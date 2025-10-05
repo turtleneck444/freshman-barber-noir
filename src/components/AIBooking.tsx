@@ -215,7 +215,7 @@ const JoinOurTeam = () => {
             </div>
             
             <p className={`text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mt-12 ${isVisible ? 'animate-fade-in-up-delay-2' : 'opacity-0'}`} style={{ fontFamily: 'Gotham Light, sans-serif' }}>
-              Join <span className="text-red-400 font-bold">The Freshmen Style Barbershop</span> and become part of 
+              Join <span className="text-red-400 font-bold">The Freshmen Barbershop</span> and become part of
               <span className="text-red-400 font-bold"> Mississauga's most prestigious</span> barbering team. 
               Work alongside <span className="text-red-400 font-bold">master barber Shoaib Ghori</span> in an 
               <span className="text-red-400 font-bold"> ultra-luxury environment</span>.
@@ -389,7 +389,7 @@ const JoinOurTeam = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Tell us why you want to join The Freshmen Style Barbershop..."
+                        placeholder="Tell us why you want to join The Freshmen Barbershop..."
                         className="border-2 border-gray-300 focus:border-red-500 rounded-xl text-lg bg-white text-gray-900 placeholder-gray-500 min-h-[120px] shadow-sm"
                         rows={4}
                         style={{ fontFamily: 'Gotham Light, sans-serif' }}
