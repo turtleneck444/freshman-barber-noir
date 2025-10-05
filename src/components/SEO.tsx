@@ -28,9 +28,7 @@ const SEO = ({
         "url": "https://thefreshmenbarbershop.com",
         "logo": "https://thefreshmenbarbershop.com/logo.png",
         "image": [
-          "https://thefreshmenbarbershop.com/og-hero-image.jpg",
-          "https://thefreshmenbarbershop.com/og-image.jpg",
-          "https://thefreshmenbarbershop.com/outside.jpg"
+          "https://thefreshmenbarbershop.com/og-hero-image.jpg"
         ],
         "telephone": "+19054837374",
         "email": "freshmen.style16@gmail.com",

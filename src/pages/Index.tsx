@@ -16,6 +16,7 @@ const Index = () => {
         title="The FRESHMEN Barbershop | Best Barber in Mississauga | Premium Haircuts $40-$75 | Book Now"
         description="Mississauga's top-rated barbershop! Professional haircuts by expert barbers Sho ($50) & Bikram ($40). Premium fades, beard grooming, hot towel shaves. 200+ 5-star reviews. Walk-ins welcome at 167 Queen St S. Call (905) 483-7374. Open daily!"
         canonical="https://thefreshmenbarbershop.com"
+        ogImage="https://thefreshmenbarbershop.com/og-hero-image.jpg"
       />
       <div className="min-h-screen">
         <Header />

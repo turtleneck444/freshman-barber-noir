@@ -75,6 +75,7 @@ const Services = () => {
         title="Services & Pricing - The FRESHMEN Barbershop | Professional Haircuts $40-$75 | Mississauga Barbers"
         description="Premium barbering services in Mississauga: Haircut with Sho ($50, 20min), Haircut & Beard with Sho ($75, 30min), Haircut with Bikram ($40, 40min), Full Grooming Packages. Expert barbers, walk-ins welcome. Book online or call (905) 483-7374!"
         canonical="https://thefreshmenbarbershop.com/services"
+        ogImage="https://thefreshmenbarbershop.com/og-hero-image.jpg"
       />
       <div className="min-h-screen">
         <Header />
