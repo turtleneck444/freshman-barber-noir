@@ -1,6 +1,7 @@
 import React from 'react';
 import { Scissors, Instagram, Facebook, Twitter, MapPin, Phone, Mail, Clock, ArrowRight, Crown, Award, Star, Shield, Heart, Zap, Calendar, Users, Award as AwardIcon, Sparkles } from "lucide-react";
 import { Button } from '@/components/ui/button';
+import CardinalConsultingCredit from '@/components/CardinalConsultingCredit';
 
 const Footer = () => {
   return (
@@ -298,6 +299,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      <CardinalConsultingCredit />
     </>
   );
 };
