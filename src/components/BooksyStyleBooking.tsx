@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,8 +23,10 @@ import {
   Shield,
   Award,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
+import { toast } from 'sonner';
 
 const BooksyStyleBooking = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -34,48 +38,68 @@ const BooksyStyleBooking = () => {
   const [customerEmail, setCustomerEmail] = useState('');
   const [specialRequests, setSpecialRequests] = useState('');
 
-  const services = [
-    {
-      id: 'haircut-sho',
-      name: 'Haircut with Sho',
-      price: 50,
-      duration: '20 min',
-      description: 'Detailed haircut custom tailored to the clients\' desire.',
-      icon: <Scissors className="h-6 w-6" />,
-      popular: true,
-      features: ['Custom Tailored Cut', 'Expert Styling', 'Professional Consultation', 'Precision Detailing']
-    },
-    {
-      id: 'haircut-beard-sho',
-      name: 'Haircut and Beard with Sho',
-      price: 75,
-      duration: '30 min',
-      description: 'Detailed haircut custom tailored to the clients\' desire with a sharp beard trimmed, outlined and bladed to perfection.',
-      icon: <Crown className="h-6 w-6" />,
-      popular: true,
-      features: ['Custom Haircut', 'Sharp Beard Trim', 'Precision Outline', 'Blade Detailing']
-    },
-    {
-      id: 'haircut-bikram',
-      name: 'Haircut with Bikram',
-      price: 40,
-      duration: '40 min',
-      description: 'Haircut with Bikram.',
-      icon: <Scissors className="h-6 w-6" />,
-      popular: true,
-      features: ['Professional Haircut', 'Style Consultation', 'Expert Technique', 'Quality Service']
-    },
-    {
-      id: 'haircut-beard-bikram',
-      name: 'Haircut and Beard with Bikram',
-      price: 60,
-      duration: '1 hour',
-      description: 'Haircut and Beard with Bikram.',
-      icon: <Star className="h-6 w-6" />,
-      popular: false,
-      features: ['Complete Haircut', 'Beard Grooming', 'Professional Service', 'Detailed Styling']
+  // Fetch services from Supabase
+  const { data: dbServices = [], isLoading: loadingServices } = useQuery({
+    queryKey: ['booking-services'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('services')
+        .select('*')
+        .eq('status', 'active')
+        .order('sort_order');
+      if (error) throw error;
+      return data;
     }
-  ];
+  });
+
+  // Fetch staff from Supabase
+  const { data: dbStaff = [] } = useQuery({
+    queryKey: ['booking-staff'],
+    queryFn: async () => {
+      const { data, error } = await supabase.from('staff').select('*').eq('status', 'active');
+      if (error) throw error;
+      return data;
+    }
+  });
+
+  // Map DB services to display format
+  const services = dbServices.map((s: any) => ({
+    id: s.id,
+    name: s.name,
+    price: Number(s.price),
+    duration: `${s.duration_minutes} min`,
+    duration_minutes: s.duration_minutes,
+    description: s.description || '',
+    icon: s.popular ? <Crown className="h-6 w-6" /> : <Scissors className="h-6 w-6" />,
+    popular: s.popular || false,
+    features: s.features || [],
+    staff_name: null // Will be determined by service name
+  }));
+
+  // Mutation to create booking
+  const createBookingMutation = useMutation({
+    mutationFn: async (bookingData: any) => {
+      const { data, error } = await supabase.from('bookings').insert(bookingData);
+      if (error) throw error;
+      return data;
+    },
+    onSuccess: () => {
+      toast.success('Booking confirmed! You will receive a confirmation shortly.');
+      // Reset form
+      setCurrentStep(1);
+      setSelectedService('');
+      setSelectedDate('');
+      setSelectedTime('');
+      setCustomerName('');
+      setCustomerPhone('');
+      setCustomerEmail('');
+      setSpecialRequests('');
+    },
+    onError: (error: any) => {
+      toast.error('Failed to create booking. Please try again.');
+      console.error('Booking error:', error);
+    }
+  });
 
   // Generate next 14 days
   const generateDates = () => {
@@ -142,8 +166,27 @@ const BooksyStyleBooking = () => {
       alert('Please fill in all required fields');
       return;
     }
-    // Here you would submit to your booking system
-    alert(`Booking confirmed!\n\nService: ${selectedServiceData?.name}\nDate: ${selectedDate}\nTime: ${selectedTime}\nName: ${customerName}\nPhone: ${customerPhone}`);
+    
+    const serviceData = services.find(s => s.id === selectedService);
+    
+    // Find matching staff based on service name
+    const staffMember = dbStaff.find((s: any) => 
+      serviceData?.name?.toLowerCase().includes(s.name?.toLowerCase())
+    );
+    
+    createBookingMutation.mutate({
+      booking_date: selectedDate,
+      booking_time: selectedTime,
+      client_name: customerName,
+      client_phone: customerPhone,
+      client_email: customerEmail || null,
+      notes: specialRequests || null,
+      service_id: selectedService,
+      staff_id: staffMember?.id || null,
+      price: serviceData?.price || null,
+      duration_minutes: serviceData?.duration_minutes || null,
+      status: 'pending'
+    });
   };
 
   const formatDate = (date: Date) => {
